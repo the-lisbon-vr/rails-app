@@ -18,6 +18,8 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 
 gem 'omniauth-facebook'
+gem 'casein', '~>5.2.0'
+
 
 group :development, :test do
   gem 'binding_of_caller'
