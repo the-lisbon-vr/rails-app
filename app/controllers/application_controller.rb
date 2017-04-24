@@ -1,9 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  # * Skipping this for now so that you can log in to
-  # * Casein without logging in to the website first
-  # before_action :authenticate_user!
-  # * Need to work out how to skip it on casein pages
-  # * because I can't see the controller action in
-  # * pages_controller.rb
+  before_action :set_locale
+
+  before_action :authenticate_user!
+  # * Need to work out how to skip this on casein pages
+  # *** I don't know where the controller action comes
+  # *** from (it's not in pages_controller.rb)
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def default_url_options
+    { locale: I18n.locale == I18n.default_locale ? nil : I18n.locale }
+  end
 end
