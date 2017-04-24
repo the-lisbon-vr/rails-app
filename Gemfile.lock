@@ -74,6 +74,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.1.2)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.11.0)
@@ -227,6 +228,7 @@ DEPENDENCIES
   bootstrap-sass
   casein (~> 5.2.0)
   devise
+  devise-i18n
   figaro
   font-awesome-sass
   jbuilder (~> 2.0)
