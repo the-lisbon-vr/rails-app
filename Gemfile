@@ -7,6 +7,7 @@ gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'redis'
 
