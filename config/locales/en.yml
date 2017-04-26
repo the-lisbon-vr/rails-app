@@ -1,4 +1,4 @@
-pt:
+en:
   defaults: &defaults
     month_names:
       [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
@@ -14,3 +14,9 @@ pt:
       - :year
   time:
     <<: *defaults
+
+  pages:
+    # Home page
+    home:
+      main_header: "Dive into Virtual Reality"
+      main_button: "Book a session"

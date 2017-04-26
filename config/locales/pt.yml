@@ -14,6 +14,9 @@ pt:
       - :year
   time:
     <<: *defaults
-  # date:
-  # dates:
-    # formats:
+
+  pages:
+    # Home page
+    home:
+      main_header: "Dive into Virtual Reality"
+      main_button: "Book a session"
