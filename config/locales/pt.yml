@@ -19,4 +19,11 @@ pt:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
-      main_button: "Book a session"
+      main_button: "Marcar Sessão"
+
+  events:
+    index:
+      show_button: "Ver"
+
+    show:
+      back_button: "Voltar"

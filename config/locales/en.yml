@@ -20,3 +20,11 @@ en:
     home:
       main_header: "Dive into Virtual Reality"
       main_button: "Book a session"
+
+  events:
+    index:
+      show_button: "Show"
+
+    show:
+      back_button: "Back"
+
