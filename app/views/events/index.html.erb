@@ -1,0 +1,5 @@
+<h2>Próximos Eventos</h2>
+<% @events.each do |event| %>
+  <p><%= event.name %> - <%= link_to 'Show', event_path(event)%></p>
+
+<% end %>
