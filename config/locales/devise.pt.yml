@@ -49,6 +49,12 @@ pt:
       signed_in: "Autenticação efectuada com sucesso."
       signed_out: "Saíu da sessão com sucesso."
       already_signed_out: "Saíu da sessão com sucesso."
+    shared:
+      facebook_login:
+        sign_in: "Entrar com"
+        sign_up: "Criar conta com"
+      links:
+        already_have_an_account: "Já tem uma conta?"
     unlocks:
       send_instructions: "Dentro de alguns minutos irá receber um e-mail com as instruções para desbloquear a sua conta."
       send_paranoid_instructions: "Se a sua conta existir, irá receber dentro de alguns minutos um e-mail com instruções para a desbloquear."

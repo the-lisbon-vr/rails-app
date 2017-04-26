@@ -1,0 +1,114 @@
+.btn-facebook,
+.btn-facebook:link,
+.btn-facebook:visited {
+  font-weight: bold;
+  padding: 11px 15px;
+  border-radius: 4px;
+  background-color: $facebook-blue-light;
+  color: white;
+  transition: all 0.2s ease;
+  margin: 5px;
+}
+
+.btn-facebook:hover {
+  color: white;
+  background-color: $facebook-blue;
+  transition: all 0.2s ease;
+}
+
+.btn-home-page-large {
+  border: 2px white solid;
+  padding: 11px 32px;
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  background-color: rgba(255,255,255,0);
+  transition: all ease 0.2s;
+}
+
+.btn-home-page-large:hover {
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  transition: all ease 0.2s;
+  text-shadow: 0 0 2px $dark-text;
+}
+
+.btn-brand {
+  padding: 8px 20px;
+  color: $gray;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-brand:hover {
+  color: $brand-color;
+  transition: all 0.2s ease;
+}
+
+.btn-brand-with-bg {
+  padding: 8px 20px;
+  background-color: $brand-color;
+  border-radius: 4px;
+  border: solid $brand-color 1.5px;
+  color: $brand-light;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-brand-with-bg:hover,
+.btn-brand-with-bg:visited {
+  color: white;
+  background-color: $brand-color;
+  transition: all 0.2s ease;
+  text-shadow: none;
+  border-color: $brand-color;
+}
+
+.btn-dangerous {
+  padding: 8px 20px;
+  background-color: $delete-red;
+  border-radius: 4px;
+  border: solid $red 1.5px;
+  color: $light-pink;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-dangerous:hover {
+  background-color: $dark-red;
+  border-color: $dark-red;
+  color: white;
+  transition: all 0.2s ease;
+  text-shadow: none;
+}
+
+.btn-yellow {
+  padding: 8px 20px;
+  border-radius: 4px;
+  border: white 1.5px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.btn-yellow:hover {
+  color: $yellow;
+  transition: all 0.2s ease;
+}
+
+.login-form-help-links {
+  font-size: 12px;
+  color: $gray;
+  float: right;
+  transition: all 0.2s ease;
+}
+
+.login-form-help-links:hover {
+  text-decoration: none;
+  color: $brand-color;
+  transition: all 0.2s ease;
+}

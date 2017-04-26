@@ -23,3 +23,14 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+#wrapper {
+  min-height:100%;
+  position:relative;
+}
+#page-content {
+  padding-bottom: 70px; /* Height of the footer element */
+}
+body {
+  background-color: $dark-text !important;
+}
