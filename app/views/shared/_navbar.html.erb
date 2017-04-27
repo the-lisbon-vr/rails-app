@@ -1,6 +1,8 @@
 <!-- Logo -->
 <%= link_to root_path, class: "navbar-tlvr-brand" do %>
-  <%= image_tag "logo.png" %>
+  <% if params["action"] != "home" %>
+    <%= image_tag "thelisbonvr-logo-white-transparent.png" %>
+  <% end %>
 <% end %>
 
 <!-- Right Navigation -->
