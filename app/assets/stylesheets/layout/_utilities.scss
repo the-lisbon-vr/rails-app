@@ -6,8 +6,11 @@
 
 // Paddings
 .padded {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding: 5em 0;
+}
+
+.slightly-padded {
+  padding: 1.5em 0;
 }
 
 // Backgrounds
@@ -27,6 +30,9 @@
 #wrapper {
   min-height:100%;
   position:relative;
+  background-size: cover !important;
+  background-position: center;
+  background-attachment: fixed;
 }
 #page-content {
   padding-bottom: 70px; /* Height of the footer element */
