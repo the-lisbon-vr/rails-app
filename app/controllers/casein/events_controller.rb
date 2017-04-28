@@ -5,7 +5,7 @@ module Casein
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_action :needs_admin, except: [:action1, :action2]
     # before_action :needs_admin_or_current_user, only: [:action1, :action2]
-  
+
     def index
       @casein_page_title = 'Events'
       @events = Event.order(sort_order(:date)).paginate page: params[:page]
@@ -23,6 +23,9 @@ module Casein
 
     def create
       @event = Event.new event_params
+
+      # create empty slots to let the users book:
+      create_slots(event_params[:max_bookings])
 
       if @event.save
         flash[:notice] = 'Event created'
@@ -58,7 +61,15 @@ module Casein
     private
 
     def event_params
-      params.require(:event).permit(:date, :location, :description, :max_bookings, :price_per_slot)
+      params.require(:event).permit(:name, :date, :location, :description, :max_bookings, :price_per_slot)
+    end
+
+    def create_slots(max_bookings)
+      max_bookings.to_i.times {
+        @slot = Slot.new(start_time: 1000, duration_minutes: 15)
+        @slot.event = @event
+        @slot.save
+      }
     end
   end
 end
