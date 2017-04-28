@@ -2,5 +2,9 @@
 <h3>Descrição:</h3>
 <h3>Local:</h3>
 <h3>Slots:</h3>
+<% @slots.each do |slot| %>
+
+<li>Starts at: <%= slot.start_time %> | Duration: <%= slot.duration_minutes %>m</li>
+<% end %>
 
 <%= link_to t(".back_button"), events_path%>

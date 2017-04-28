@@ -6,6 +6,12 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @slots = list_slots
   end
 
+  private
+
+  def list_slots
+    Slot.where(event_id: @event.id)
+  end
 end

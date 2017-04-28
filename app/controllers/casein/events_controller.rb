@@ -71,5 +71,6 @@ module Casein
         @slot.save
       }
     end
+
   end
 end
