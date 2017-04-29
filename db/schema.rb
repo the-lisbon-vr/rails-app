@@ -42,18 +42,19 @@ ActiveRecord::Schema.define(version: 20170429104845) do
     t.string   "location"
     t.string   "description"
     t.integer  "max_bookings"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.float    "price_per_slot"
     t.string   "name"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "start_time",            null: false
+    t.datetime "end_time",              null: false
+    t.integer  "slot_duration_minutes", null: false
   end
 
   create_table "slots", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "event_id"
-    t.integer  "start_time"
+    t.datetime "start_time"
     t.integer  "duration_minutes"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false

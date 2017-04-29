@@ -25,7 +25,7 @@ module Casein
       @event = Event.new event_params
 
       # create empty slots to let the users book:
-      create_slots(event_params[:max_bookings])
+      create_slots(event_params)
 
       if @event.save
         flash[:notice] = 'Event created'
@@ -61,12 +61,13 @@ module Casein
     private
 
     def event_params
-      params.require(:event).permit(:name, :date, :location, :description, :max_bookings, :price_per_slot)
+      params.require(:event).permit(:name, :date, :location, :description, :max_bookings, :price_per_slot, :start_time, :end_time, :slot_duration_minutes)
     end
 
-    def create_slots(max_bookings)
-      max_bookings.to_i.times {
-        @slot = Slot.new(start_time: 1000, duration_minutes: 15)
+    def create_slots(event_params)
+      event_params[:max_bookings].to_i.times {
+        @slot = Slot.new(start_time: event_params[:start_time], duration_minutes: event_params[:slot_duration_minutes])
+
         @slot.event = @event
         @slot.save
       }
