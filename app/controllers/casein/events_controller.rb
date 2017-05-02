@@ -65,11 +65,17 @@ module Casein
     end
 
     def create_slots(event_params)
+      start_time = DateTime.new(event_params["start_time(1i)"].to_i,event_params["start_time(2i)"].to_i,event_params["start_time(3i)"].to_i,event_params["start_time(4i)"].to_i,event_params["start_time(5i)"].to_i,0)
+      duration_minutes = event_params[:slot_duration_minutes]
+
       event_params[:max_bookings].to_i.times {
-        @slot = Slot.new(start_time: event_params[:start_time], duration_minutes: event_params[:slot_duration_minutes])
+        @slot = Slot.new(start_time: start_time, duration_minutes: duration_minutes)
 
         @slot.event = @event
         @slot.save
+
+        minutes_in_a_day = 24 * 60
+        start_time += Rational(duration_minutes, minutes_in_a_day)
       }
     end
 
