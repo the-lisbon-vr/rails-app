@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   #Casein routes
   namespace :casein do
-    resources :events
+    resources :events do
+      resources :slots
+    end
   end
 
   devise_for :users,
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
     root to: 'pages#home'
   end
 
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :slots
+  end
 
 end
