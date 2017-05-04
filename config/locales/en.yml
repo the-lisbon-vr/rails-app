@@ -23,6 +23,7 @@ en:
 
   events:
     index:
+      main_title: "Upcoming Events"
       show_button: "Show"
 
     show:

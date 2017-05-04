@@ -23,6 +23,7 @@ pt:
 
   events:
     index:
+      main_title: "Próximos Eventos"
       show_button: "Ver"
 
     show:
