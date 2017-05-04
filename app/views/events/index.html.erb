@@ -1,6 +1,6 @@
 <div class="container">
   <div class="padded">
-    <h2>Próximos Eventos</h2>
+    <h2><%= t('.main_title') %></h2>
     <% @events.each do |event| %>
       <p><%= event.name %> - <%= link_to t(".show_button"), event_path(event)%></p>
 

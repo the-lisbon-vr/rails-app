@@ -7,6 +7,13 @@
 
 <!-- Right Navigation -->
 <div class="navbar-tlvr-right hidden-xs hidden-sm">
+    <div>
+      <% if I18n.locale == :pt %>
+        <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
+      <% else %>
+        <%= link_to 'PT', root_path(locale: :pt), class: "navbar-tlvr-lang-change" %>
+      <% end %>
+    </div>
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
@@ -54,6 +61,14 @@
 
 <!-- Dropdown list appearing on mobile only -->
 <div class="navbar-tlvr-item hidden-md hidden-lg">
+  <div>
+    <% if params[:locale] == :pt %>
+      <%= link_to 'EN', params[:controller, :action] %>
+    <% else %>
+      <%= link_to 'PT', locale: :pt %>
+
+    <% end %>
+  </div>
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-tlvr-dropdown-menu">

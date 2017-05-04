@@ -13,10 +13,14 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   scope '(:locale)', locale: /en/ do
     root to: 'pages#home'
+    resources :events, only: [:index, :show] do
+      resources :slots
+    end
   end
 
-  resources :events, only: [:index, :show] do
-    resources :slots
-  end
+  # resources :events, only: [:index, :show] do
+  #   resources :slots
+  # end
+
 
 end
