@@ -17,11 +17,4 @@ Rails.application.routes.draw do
       resources :slots
     end
   end
-
-  resources :slots, only: [:index, :update]
-  # resources :events, only: [:index, :show] do
-  #   resources :slots
-  # end
-
-
 end

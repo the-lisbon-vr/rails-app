@@ -10,15 +10,23 @@
     <h3>Slots:</h3>
     <% @slots.each do |slot| %>
       <div class="slot">
-        <p>Starts at: <%= slot.start_time %> | Duration: <%= slot.duration_minutes %>m</p>
+        <div class="row">
+          <div class="col-xs-6">
+            <p>
+              Starts at: <%= slot.start_time.to_s(:time) %> |
+              Duration: <%= slot.event.slot_duration_minutes %>m
+            </p>
+          </div>
+          <div class="col-xs-6">
+            <% if slot.user == nil %>
+            <%= link_to t(".book_this_session"), event_slot_path(id: slot.id, event_id: slot.event_id, user_id: current_user.id), method: :patch %>
+            <% else %>
+            <p>Booked</p>
+            <% end %>
+          </div>
+        </div>
+        <hr />
       </div>
-
-      <% if slot.user == nil %>
-      <%= link_to t(".book_this_session"), slot_path%>
-      <% else %>
-        <p>Booked</p>
-      <% end %>
-
     <% end %>
 
     <%= link_to t(".back_button"), events_path%>
