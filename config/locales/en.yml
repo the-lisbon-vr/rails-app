@@ -15,6 +15,11 @@ en:
   time:
     <<: *defaults
 
+  shared:
+    navbar:
+      sign_in: "Log in"
+      sign_out: "Log out"
+
   pages:
     # Home page
     home:
@@ -28,4 +33,3 @@ en:
 
     show:
       back_button: "Back"
-

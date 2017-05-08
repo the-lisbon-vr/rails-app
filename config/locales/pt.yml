@@ -15,6 +15,11 @@ pt:
   time:
     <<: *defaults
 
+  shared:
+    navbar:
+      sign_in: "Entrar"
+      sign_out: "Sair"
+
   pages:
     # Home page
     home:

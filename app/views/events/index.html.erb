@@ -1,9 +1,16 @@
 <div class="container">
   <div class="padded">
-    <h2><%= t('.main_title') %></h2>
+    <h2 class="text-center"><%= t('.main_title') %></h2>
     <% @events.each do |event| %>
-      <p><%= event.name %> - <%= link_to t(".show_button"), event_path(event)%></p>
-
+      <div class="slightly-padded">
+        <h4><%= event.name %> - <%= link_to t(".show_button"), event_path(event)%></h4>
+        <p>Location: <%= event.location %></p>
+        <p>Date: <%= event.date %></p>
+        <p>Time: <%= "#{event.start_time.to_s(:time)} - #{event.end_time.to_s(:time)}" %></p>
+        <p>Price: <%= "€#{event.price_per_slot.to_i} (#{event.slot_duration_minutes} minutes)" %></p>
+        <p>Description: <%= event.description %></p>
+        <p>Slots remaining: <%= Slot.where(event_id: event.id).where(user_id: nil).count %></p>
+      </div>
     <% end %>
   </div>
 </div>
