@@ -27,4 +27,5 @@ pt:
       show_button: "Ver"
 
     show:
+      book_this_session: "Reservar esta sessão"
       back_button: "Voltar"

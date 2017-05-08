@@ -27,5 +27,6 @@ en:
       show_button: "Show"
 
     show:
+      book_this_session: "Book this session"
       back_button: "Back"
 

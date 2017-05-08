@@ -14,8 +14,7 @@
       </div>
 
       <% if slot.user == nil %>
-        <p><a>Book this Session</a></p>
-        <%= link_to t(".book_this_session"), edit_event_slot_path%>
+      <%= link_to t(".book_this_session"), slot_path%>
       <% else %>
         <p>Booked</p>
       <% end %>
