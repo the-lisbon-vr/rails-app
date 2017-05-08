@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <%= casein_datetime_select f, f.object, :date %>
+    <%= casein_date_select f, f.object, :date %>
   </div>
   <div class="col-lg-6">
     <%= casein_time_select f, f.object, :start_time, options = {:default => {:hour => '11', :minute => '00'}}%>
@@ -18,7 +18,6 @@
     <%= casein_text_field f, f.object, :description %>
   </div>
   <div class="col-lg-6">
-    <%= casein_text_field f, f.object, :max_bookings %>
     <%= casein_text_field f, f.object, :slot_duration_minutes %>
     <%= casein_text_field f, f.object, :price_per_slot %>
   </div>
@@ -31,4 +30,3 @@
 
   </div>
 </div>
-

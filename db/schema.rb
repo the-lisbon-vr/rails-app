@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429104845) do
+ActiveRecord::Schema.define(version: 20170508162141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170429104845) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "date"
+    t.date     "date"
     t.string   "location"
     t.string   "description"
     t.integer  "max_bookings"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 20170429104845) do
     t.datetime "updated_at",            null: false
     t.float    "price_per_slot"
     t.string   "name"
-    t.datetime "start_time",            null: false
-    t.datetime "end_time",              null: false
+    t.time     "start_time",            null: false
+    t.time     "end_time",              null: false
     t.integer  "slot_duration_minutes", null: false
   end
 
@@ -55,9 +55,8 @@ ActiveRecord::Schema.define(version: 20170429104845) do
     t.integer  "user_id"
     t.integer  "event_id"
     t.datetime "start_time"
-    t.integer  "duration_minutes"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_slots_on_event_id", using: :btree
     t.index ["user_id"], name: "index_slots_on_user_id", using: :btree
   end
