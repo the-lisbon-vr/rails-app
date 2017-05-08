@@ -1,21 +1,27 @@
-<h2><%= @event.name %></h2>
+<div class="container">
+  <div class="padded">
 
-<h3>Descrição: <%= @event.description %></h3>
-<%= link_to t(".back_button"), events_path%>
-<h3>Local: <%= @event.location %></h3>
+    <h2><%= @event.name %></h2>
 
-<h3>Slots:</h3>
-<% @slots.each do |slot| %>
-  <div class="slot">
-    <p>Starts at: <%= slot.start_time %> | Duration: <%= slot.duration_minutes %>m</p>
+    <h3>Descrição: <%= @event.description %></h3>
+    <%= link_to t(".back_button"), events_path%>
+    <h3>Local: <%= @event.location %></h3>
+
+    <h3>Slots:</h3>
+    <% @slots.each do |slot| %>
+      <div class="slot">
+        <p>Starts at: <%= slot.start_time %> | Duration: <%= slot.duration_minutes %>m</p>
+      </div>
+
+      <% if slot.user == nil %>
+        <p><a>Book this Session</a></p>
+        <%= link_to t(".book_this_session"), edit_event_slot_path%>
+      <% else %>
+        <p>Booked</p>
+      <% end %>
+
+    <% end %>
+
+    <%= link_to t(".back_button"), events_path%>
   </div>
-
-  <% if slot.user == nil %>
-    <p><a>Book this Session</a></p>
-  <% else %>
-    <p>Booked</p>
-  <% end %>
-
-<% end %>
-
-<%= link_to t(".back_button"), events_path%>
+</div>
