@@ -1,0 +1,9 @@
+<h2>Slots</h2>
+
+<%= render partial: 'casein/slots/table', locals: { slots: @slots, event: @event } %>
+
+<%= content_for :sidebar do %>
+
+<li><%= link_to "#{casein_show_icon "th-list"}Back to events list".html_safe, casein_events_path %></li>
+
+<% end %>1

@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20170510103447) do
     t.integer  "duration_minutes"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.boolean  "ispayed",          default: false, null: false
+    t.boolean  "is_payed",         default: false, null: false
     t.index ["event_id"], name: "index_slots_on_event_id", using: :btree
     t.index ["user_id"], name: "index_slots_on_user_id", using: :btree
   end
