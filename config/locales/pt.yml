@@ -19,8 +19,10 @@ pt:
     navbar:
       sign_in: "Entrar"
       sign_out: "Sair"
-      what_is_vr: "O que é?"
+      what_is_vr: "O que é VR?"
       contact: "Contactos"
+      book_a_session: "Marcar sessão"
+
 
   pages:
     # Home page

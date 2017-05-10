@@ -43,11 +43,13 @@
 
     <!-- Login text link -->
     <%= link_to t(".what_is_vr"), about_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
+    <%= link_to t(".book_a_session"), events_path, class: "navbar-tlvr-item navbar-tlvr-link" %><!-- to call attention to this link, add "action" to class -->
     <%= link_to t(".contact"), contact_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
 
   <% end %>
-  <div>
+
+  <div class="navbar-tlvr-lang-border">
     <% if I18n.locale == :pt %>
     <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
     <% else %>
