@@ -1,19 +1,12 @@
 <!-- Logo -->
 <%= link_to root_path, class: "navbar-tlvr-brand" do %>
-  <% if params["action"] != "home" %>
+  <% if !current_page?(root_path) %>
     <%= image_tag "thelisbonvr-logo-white-transparent.png" %>
   <% end %>
 <% end %>
 
 <!-- Right Navigation -->
 <div class="navbar-tlvr-right hidden-xs hidden-sm">
-    <div>
-      <% if I18n.locale == :pt %>
-        <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
-      <% else %>
-        <%= link_to 'PT', root_path(locale: :pt), class: "navbar-tlvr-lang-change" %>
-      <% end %>
-    </div>
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
@@ -49,9 +42,18 @@
   <% else %>
 
     <!-- Login text link -->
+    <%= link_to t(".what_is_vr"), about_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
+    <%= link_to t(".contact"), contact_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
 
   <% end %>
+  <div>
+    <% if I18n.locale == :pt %>
+    <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
+    <% else %>
+    <%= link_to 'PT', root_path(locale: :pt), class: "navbar-tlvr-lang-change" %>
+    <% end %>
+  </div>
 </div>
 
 <!-- Dropdown list appearing on mobile only -->

@@ -43,22 +43,33 @@
 
 /* Navbar standard link */
 .navbar-tlvr-link {
-  color: white;
-  font-size: 14px;
+  color: $gray-lighter;
+  font-size: 16px;
+  transition: all 0.2s ease;
 }
 .navbar-tlvr-link:hover {
-  color: #da552f;
+  color: white;
   text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .navbar-tlvr-lang-change,
 .navbar-tlvr-lang-change:link,
-.navbar-tlvr-lang-change:hover,
 .navbar-tlvr-lang-change:visited {
   text-decoration: none;
-  color: white;
+  color: #ccc;
+  font-size: 12px;
+  padding: 2px 2px 0px 2px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  margin-left: 20px;
 }
-
+.navbar-tlvr-lang-change:hover {
+  color: white;
+  border-color: white;
+}
 
 /* Navbar right button */
 .navbar-tlvr-button {
@@ -77,39 +88,39 @@
   border-color: #ac2626;
 }
 
-/* Navbar search form */
-.navbar-tlvr-search {
-  flex: 0 1 300px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0 10px;
-  position: relative;
-}
-.navbar-tlvr-search-btn {
-  line-height: 40px;
-  color: #E6E6E6;
-  border: none;
-  background: transparent;
-  position: absolute;
-  right: 14px;
-  top: -2px;
-  z-index: 1;
-}
-.navbar-tlvr-search-input {
-  flex: 0 1 300px;
-  transition: all 0.15s ease;
-  line-height: 40px;
-  font-weight: lighter;
-  color: #666666;
-  border: 1px solid #E6E6E6;
-  border-radius: 5px;
-  padding: 0 10px;
-  font-size: 14px;
-  outline: none;
-}
-.navbar-tlvr-search-input:focus  {
-  border: 1px solid #CCCCCC;
-}
+// /* Navbar search form */
+// .navbar-tlvr-search {
+//   flex: 0 1 300px;
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 0 10px;
+//   position: relative;
+// }
+// .navbar-tlvr-search-btn {
+//   line-height: 40px;
+//   color: #E6E6E6;
+//   border: none;
+//   background: transparent;
+//   position: absolute;
+//   right: 14px;
+//   top: -2px;
+//   z-index: 1;
+// }
+// .navbar-tlvr-search-input {
+//   flex: 0 1 300px;
+//   transition: all 0.15s ease;
+//   line-height: 40px;
+//   font-weight: lighter;
+//   color: #666666;
+//   border: 1px solid #E6E6E6;
+//   border-radius: 5px;
+//   padding: 0 10px;
+//   font-size: 14px;
+//   outline: none;
+// }
+// .navbar-tlvr-search-input:focus  {
+//   border: 1px solid #CCCCCC;
+// }
 
 /* Navbar dropdown menu */
 .navbar-tlvr-dropdown-menu {

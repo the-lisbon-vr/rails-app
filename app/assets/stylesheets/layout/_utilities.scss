@@ -13,6 +13,10 @@
   padding: 1.5em 0;
 }
 
+.bottom-margin {
+  margin-bottom: 5em;
+}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
@@ -31,6 +35,7 @@ body {
   margin:0;
   padding:0;
   height:100%;
+  color: white;
 }
 #wrapper {
   min-height:100%;
@@ -43,5 +48,5 @@ body {
   padding-bottom: 70px; /* Height of the footer element */
 }
 body {
-  background-color: $dark-text !important;
+  background-color: $dark-gray !important;
 }
