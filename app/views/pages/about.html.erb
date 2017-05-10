@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <div class="padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h3 class="text-center"><strong>O Melhor de Outro Mundo</strong></h3>
+          <p><strong>Não sabe o que é realidade virtual (VR)?</strong> Veja aqui o video promocional do <strong>HTC vive</strong>, o melhor equipamento de VR da actualidade.</p>
+        </div>
+      </div>
+    </div>
+    <!-- show small video on MOBILE: -->
+    <div class="video-container hidden-sm hidden-md hidden-lg text-center">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/qYfNzhLXYGc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen id="video-valve-demo"></iframe>
+    </div>
+    <!-- show regular sized video on tablet and DESKTOP: -->
+    <div class="video-container hidden-xs text-center">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/qYfNzhLXYGc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<!-- Our services: -->
+<div class="wrapper">
+  <div id="banner-services" class="banner centered text-center text-white bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h3><strong>Aluguer de Experiências</strong></h3>
+          <p><strong>Podemos estar no seu próximo evento</strong>, seja ele um evento empresarial, um evento de promoção da sua marca ou uma festa de aniversário.</p>
+        </div>
+      </div>
+      <div class="price-table">
+        <div class="row">
+          <div class="col-xs-6 col-sm-3 col-sm-offset-3 fill-gray">
+            <div>3 horas</div>
+            <div>€ 80</div>
+          </div>
+          <div class="col-xs-6 col-sm-3 fill-gray">
+            <div>6 horas</div>
+            <div>€ 120</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <div class="price-include text-left">
+            <h4>Os preços incluem:</h4>
+            <ul>
+              <li>1 PC Gaming</li>
+              <li>1 HTC Vive (óculos de VR)</li>
+              <li>1 sistema tracking room-scale HTC</li>
+              <li>1 membro do staff The Lisbon VR</li>
+              <li>Acesso à nossa biblioteca de jogos</li>
+              <li>Montagem e desmontagem do sistema</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="price-table text-left">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Games + Experiences -->
+<div class="wrapper">
+  <div  id="banner-games-experiences" class="banner centered text-center text-white bg-gray">
+    <div class="container" id="container-games">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <h3><strong>Os Jogos de Maior Sucesso!</strong></h3>
+          <p>Estes são alguns dos jogos mais populares a nível mundial para o HTC Vive. <strong>Poderá jogá-los com o The Lisbon VR!</strong></p>
+          <div class="games-thumbnails">
+
+          <!-- Thumbnails must be squares. Sized in css to 200x200: -->
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=sFaC-9Q-Fp8" target="_blank"><%= image_tag("thumb-accounting.png", alt: "accounting game cover") %></a>
+            </div>
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=l_gWDl_f6V8" target="_blank"><%= image_tag("thumb-arizona-sunshine.png", alt:"arizona sunshine game cover") %></a>
+            </div>
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=gbp7xX9QPOc&t=6s" target="_blank"><%= image_tag("thumb-budget-cuts.png", alt:"budget cuts game cover") %></a>
+            </div>
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=c1J7GeqraRE&t=29s" target="_blank"><%= image_tag("thumb-recroom.png", alt:"rec room game cover") %></a>
+            </div>
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=ASVku-48N8Q" target="_blank"><%= image_tag("thumb-thelab.png", alt:"the lab game cover") %></a>
+            </div>
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=ZDDr6KjSpAY" target="_blank"><%= image_tag("thumb-trials-on-tatooine.png", alt:"trials on tatooine game cover") %></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form for reservations: -->
+<div class="wrapper">
+  <div id="banner-form" class="text-center">
+    <h2>Reservas, Dúvidas, Sugestões?</h2>
+    <h3>Contacte-nos através do seguinte formulário.</h3>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
+        <form action="https://formspree.io/diogofgr@gmail.com" method="POST" class="form">
+        <!-- IMPORTANT - When in testing use /the-lisbon-vr/thanks.html: -->
+          <input type="hidden" name="_next" value="/thanks.html" />
+          <input type="hidden" name="_subject" value="New submission!" />
+          <input id="name" type="text" name="name" placeholder="Nome (primeiro e último)" class="form-field">
+          <input id="phone-number" type="text" name="phone-number" placeholder="Telemóvel" class="form-field">
+          <input type="text" name="_replyto" placeholder="exemplo@email.com" class="form-field"/>
+          <textarea name="message" id="" cols="30" rows="10" placeholder="A sua mensagem..." class="form-field mg-left"></textarea>
+          <!-- honepot to fool bots: -->
+          <input type="text" name="_gotcha" style="display:none" />
+          <input id="btn-submit-contact" type="submit" value="Enviar" class="btn btn-lg btn-success form-field">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
