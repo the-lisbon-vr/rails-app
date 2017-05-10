@@ -19,12 +19,19 @@ pt:
     navbar:
       sign_in: "Entrar"
       sign_out: "Sair"
+      what_is_vr: "O que é?"
+      contact: "Contactos"
 
   pages:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
       main_button: "Marcar Sessão"
+    about:
+      questions: "Dúvidas?"
+      get_in_touch: "Contactar-nos"
+      want_to_play: "Quer jogar?"
+      book_a_session: "Marcar sessão"
 
   events:
     index:

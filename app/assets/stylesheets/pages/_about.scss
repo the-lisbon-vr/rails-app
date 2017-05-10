@@ -1,3 +1,16 @@
+#banner-services {
+  background-color: rgba(0,0,0,0.5);
+}
+
+#banner-links {
+  min-height: 80vh;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #container-games{
   width:100%;
   margin: auto;
@@ -13,16 +26,17 @@
 .game-thumbnail{
   margin: 15px;
   height: auto;
-  width: 0 1 auto;
+  width: 1 1 auto;
 }
 
 .game-thumbnail img{
   width: 200px;
   height: 200px;
+  opacity: 0.8;
 }
 
 .game-thumbnail img:hover{
-  opacity: 0.4;
+  opacity: 1;
 }
 
 /*formspree*/

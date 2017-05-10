@@ -19,12 +19,20 @@ en:
     navbar:
       sign_in: "Log in"
       sign_out: "Log out"
+      what_is_vr: "What is VR?"
+      contact: "Contact"
 
   pages:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
       main_button: "Book a session"
+    about:
+      questions: "Questions?"
+      get_in_touch: "Get in touch"
+      want_to_play: "Want to play?"
+      book_a_session: "Book a session"
+
 
   events:
     index:

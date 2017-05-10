@@ -15,8 +15,9 @@ Rails.application.routes.draw do
     root to: 'pages#home'
 
     get 'about', to: 'pages#about'
+    get 'contact', to: 'pages#contact'
     resources :events, only: [:index, :show] do
-      resources :slots
+      resources :slots, only: [:index, :update]
     end
   end
 end
