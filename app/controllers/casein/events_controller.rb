@@ -23,11 +23,10 @@ module Casein
 
     def create
       @event = Event.new event_params
-
-      # create empty slots to let the users book:
-      create_slots(event_params)
-
+      @event.max_bookings = ((@event.end_time - @event.start_time) / 60) / @event.slot_duration_minutes
       if @event.save
+        # create empty slots to let the users book:
+        create_slots
         flash[:notice] = 'Event created'
         redirect_to casein_events_path
       else
@@ -64,19 +63,15 @@ module Casein
       params.require(:event).permit(:name, :date, :location, :description, :max_bookings, :price_per_slot, :start_time, :end_time, :slot_duration_minutes)
     end
 
-    def create_slots(event_params)
-      start_time = DateTime.new(event_params["start_time(1i)"].to_i,event_params["start_time(2i)"].to_i,event_params["start_time(3i)"].to_i,event_params["start_time(4i)"].to_i,event_params["start_time(5i)"].to_i,0)
-      duration_minutes = event_params[:slot_duration_minutes]
-
-      event_params[:max_bookings].to_i.times {
-        @slot = Slot.new(start_time: start_time, duration_minutes: duration_minutes)
-
-        @slot.event = @event
-        @slot.save
-
-        minutes_in_a_day = 24 * 60
-        start_time += Rational(duration_minutes, minutes_in_a_day)
-      }
+    def create_slots
+      slot_start_time = @event.start_time
+      # event_slot_duration will be added to slot_start_time to set each slot's start_time
+      # -- it's "* 60" because times are updated in seconds
+      event_slot_duration = @event.slot_duration_minutes * 60
+      @event.max_bookings.times do
+        Slot.create(event: @event, start_time: slot_start_time)
+        slot_start_time += event_slot_duration
+      end
     end
 
   end

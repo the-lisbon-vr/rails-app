@@ -1,0 +1,55 @@
+#container-games{
+  width:100%;
+  margin: auto;
+}
+
+.games-thumbnails{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-thumbnail{
+  margin: 15px;
+  height: auto;
+  width: 0 1 auto;
+}
+
+.game-thumbnail img{
+  width: 200px;
+  height: 200px;
+}
+
+.game-thumbnail img:hover{
+  opacity: 0.4;
+}
+
+/*formspree*/
+#banner-form{
+  padding: 100px 25px;
+}
+
+.form-container{
+  border-style: dashed;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field{
+  color: black;
+  padding: 5px 10px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  opacity:0.9;
+  box-shadow: 5px 5px 8px 0px #111;
+}
+
+#btn-submit-contact {
+  width: 150px;
+  font-size: 0.9em;
+  font-weight: 900;
+}

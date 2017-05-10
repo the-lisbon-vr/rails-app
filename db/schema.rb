@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170510103447) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170510103447) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.datetime "date"
+    t.date     "date"
     t.string   "location"
     t.string   "description"
     t.integer  "max_bookings"
@@ -46,8 +47,8 @@ ActiveRecord::Schema.define(version: 20170510103447) do
     t.datetime "updated_at",            null: false
     t.float    "price_per_slot"
     t.string   "name"
-    t.datetime "start_time",            null: false
-    t.datetime "end_time",              null: false
+    t.time     "start_time",            null: false
+    t.time     "end_time",              null: false
     t.integer  "slot_duration_minutes", null: false
   end
 
