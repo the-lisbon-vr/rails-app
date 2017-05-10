@@ -10,7 +10,10 @@ module Casein
     end
 
     def show
-      byebug
+      # confirm or cancel payment for given slot:
+      @slot = Slot.find(params[:id])
+      @slot.is_payed = !@slot.is_payed
+      @slot.save
     end
 
     def update
