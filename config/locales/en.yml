@@ -4,7 +4,7 @@ en:
       [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     formats:
       date_month_year_concise: '%d/%m/%y'
-      default: "%d/ %m/ %Y"
+      default: "%d/%m/%Y"
       short: "%d/%m/%Y"
   date:
     <<: *defaults
@@ -22,6 +22,7 @@ en:
       what_is_vr: "What is VR?"
       contact: "Contact"
       book_a_session: "Book a session"
+      my_account: "My account"
 
   pages:
     # Home page
@@ -54,6 +55,7 @@ en:
       book_this_session: "Book this session"
       back_button: "Back"
       booked: "Booked"
+      date: "Date"
       description: "Description"
       location: "Location"
       play_time_per_session: "Play time per session"

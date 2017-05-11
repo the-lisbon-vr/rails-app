@@ -13,42 +13,14 @@
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
-
-    <!-- Notification -->
-    <!-- <%= link_to "#", class: "navbar-tlvr-item navbar-tlvr-link" do %>
-      <div class="badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="badge badge-blue">3</div>
-      </div>
-    <% end %> -->
-
-    <!-- Profile picture and dropdown -->
-    <div class="navbar-tlvr-item">
-      <div class="dropdown">
-        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-        <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-tlvr-menu", "data-toggle" => "dropdown" %>
-        <ul class="dropdown-menu dropdown-menu-right navbar-tlvr-dropdown-menu">
-          <li>
-            <%= link_to "#" do %>
-              <i class="fa fa-user"></i> <%= t(".profile") %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <%= link_to t(".my_account"), root_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
+    <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "navbar-tlvr-item navbar-tlvr-link" %>
   <% else %>
-
     <!-- Login text link -->
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
-
   <% end %>
 
+  <!-- Language selector -->
   <div class="navbar-tlvr-lang-border">
     <% if I18n.locale == :pt %>
     <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
@@ -59,8 +31,8 @@
 </div>
 
 <!-- Dropdown list appearing on mobile only -->
-<div class="navbar-tlvr-item hidden-md hidden-lg">
-  <div>
+<div class="navbar-tlvr-item flex hidden-md hidden-lg">
+  <div class="navbar-tlvr-lang-border-mobile">
     <% if I18n.locale == :pt %>
       <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
     <% else %>
@@ -70,9 +42,15 @@
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-tlvr-dropdown-menu">
-      <li><a href="#">Some mobile link</a></li>
-      <li><a href="#">Other one</a></li>
-      <li><a href="#">Other one</a></li>
+      <li><%= link_to t(".what_is_vr"), about_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <li><%= link_to t(".book_a_session"), events_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <li><%= link_to t(".contact"), contact_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to t(".my_account"), root_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+        <li><%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <% else %>
+        <li><%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <% end %>
     </ul>
   </div>
 </div>
