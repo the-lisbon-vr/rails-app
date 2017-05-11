@@ -1,34 +1,34 @@
 <div class="container">
   <div class="padded">
-
-    <h2><%= @event.name %></h2>
-
-    <h3>Descrição: <%= @event.description %></h3>
-    <%= link_to t(".back_button"), events_path%>
-    <h3>Local: <%= @event.location %></h3>
-
-    <h3>Slots:</h3>
-    <% @slots.each do |slot| %>
-      <div class="slot">
-        <div class="row">
-          <div class="col-xs-6">
-            <p>
-              Starts at: <%= slot.start_time.to_s(:time) %> |
-              Duration: <%= slot.event.slot_duration_minutes %>m
-            </p>
-          </div>
-          <div class="col-xs-6">
+    <div class="row">
+      <h2><%= @event.name %></h2>
+      <div class="col-xs-12 col-sm-4">
+        <p><%= t(".description") %>: <%= @event.description %></p>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <p><%= t(".location") %>: <%= @event.location %></p>
+        <p><%= t(".play_time_per_session") %>: <%= @event.slot_duration_minutes %> <%= t(".minutes") %></p>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Sessions:</h3>
+      <p><%= t(".click_to_book") %></p>
+      <% @slots.each do |slot| %>
+        <div class="col-xs-4 col-sm-2">
+          <div class="btn-timeslot text-center">
             <% if slot.user == nil %>
-            <%= link_to t(".book_this_session"), event_slot_path(id: slot.id, event_id: slot.event_id, user_id: current_user.id), method: :patch %>
+              <%= link_to slot.start_time.to_s(:time), event_slot_path(id: slot.id, event_id: slot.event_id), method: :patch, class: "btn-book" %>
             <% else %>
-            <p>Booked</p>
+              <span class="btn-booked"><%= t(".booked") %></span>
             <% end %>
           </div>
         </div>
-        <hr />
-      </div>
-    <% end %>
-
-    <%= link_to t(".back_button"), events_path%>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <%= link_to t(".back_button"), events_path, class: "btn-brand"%>
   </div>
 </div>

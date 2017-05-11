@@ -116,3 +116,27 @@
   color: $brand-color;
   transition: all 0.2s ease;
 }
+
+.btn-timeslot {
+  border: 1px solid white;
+  border-radius: 3px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px 0;
+}
+
+.btn-book {
+  color: white;
+  text-decoration: none;
+  padding: 9px 25%;
+  &:hover {
+    text-decoration: none;
+    color: $brand-color
+  }
+}
+
+.btn-booked,
+.btn-booked:hover {
+  color: $gray;
+  font-size: 75%;
+  margin: 0;
+}

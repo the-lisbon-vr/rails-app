@@ -45,7 +45,6 @@ en:
       your_message: "Your message..."
       send: "Send"
 
-
   events:
     index:
       main_title: "Upcoming Events"
@@ -54,3 +53,9 @@ en:
     show:
       book_this_session: "Book this session"
       back_button: "Back"
+      booked: "Booked"
+      description: "Description"
+      location: "Location"
+      play_time_per_session: "Play time per session"
+      minutes: "mins"
+      click_to_book: "Click a time slot to book it"
