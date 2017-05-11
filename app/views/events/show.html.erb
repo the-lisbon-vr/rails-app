@@ -3,11 +3,12 @@
     <div class="row">
       <h2><%= @event.name %></h2>
       <div class="col-xs-12 col-sm-4">
-        <p><%= t(".description") %>: <%= @event.description %></p>
-      </div>
-      <div class="col-xs-12 col-sm-8">
+        <p><%= t(".date") %>: <%= l(@event.date) %></p>
         <p><%= t(".location") %>: <%= @event.location %></p>
         <p><%= t(".play_time_per_session") %>: <%= @event.slot_duration_minutes %> <%= t(".minutes") %></p>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <p><%= t(".description") %>: <%= @event.description %></p>
       </div>
     </div>
     <div class="row">
@@ -15,11 +16,17 @@
       <p><%= t(".click_to_book") %></p>
       <% @slots.each do |slot| %>
         <div class="col-xs-4 col-sm-2">
-          <div class="btn-timeslot text-center">
+          <div class="very-slightly-padded">
             <% if slot.user == nil %>
-              <%= link_to slot.start_time.to_s(:time), event_slot_path(id: slot.id, event_id: slot.event_id), method: :patch, class: "btn-book" %>
+              <%= link_to event_slot_path(id: slot.id, event_id: slot.event_id), method: :patch, class: "no-text-dec" do %>
+                <div class="btn-timeslot text-center">
+                  <span class="btn-book"><%= slot.start_time.to_s(:time) %></span>
+                </div>
+              <% end %>
             <% else %>
-              <span class="btn-booked"><%= t(".booked") %></span>
+              <div class="btn-timeslot-booked text-center">
+                <span class="btn-booked"><%= t(".booked") %></span>
+              </div>
             <% end %>
           </div>
         </div>

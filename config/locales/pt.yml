@@ -4,7 +4,7 @@ pt:
       [~, Jan, Fev, Mar, Abr, Maio, Jun, Jul, Aug, Set, Out, Nov, Dez]
     formats:
       date_month_year_concise: '%d/%m/%y'
-      default: "%d/ %m/ %Y"
+      default: "%d/%m/%Y"
       short: "%d/%m/%Y"
   date:
     <<: *defaults
@@ -22,6 +22,7 @@ pt:
       what_is_vr: "O que é VR?"
       contact: "Contactos"
       book_a_session: "Marcar sessão"
+      my_account: "My account"
 
   pages:
     # Home page
@@ -55,6 +56,7 @@ pt:
       book_this_session: "Reservar esta sessão"
       back_button: "Voltar"
       booked: "Reservada"
+      date: "Dia"
       description: "Descrição"
       location: "Local"
       play_time_per_session: "Play time per session (change this text in pt.yml)"

@@ -71,6 +71,14 @@
   border-left: 1px solid white;
 }
 
+.navbar-tlvr-lang-border-mobile {
+  margin-right: 20px;
+  padding: 0 20px;
+  border-right: 1px solid white;
+  align-items: center;
+  display: flex;
+}
+
 .navbar-tlvr-lang-change,
 .navbar-tlvr-lang-change:link,
 .navbar-tlvr-lang-change:visited {
@@ -171,4 +179,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.flex {
+  display: flex;
 }

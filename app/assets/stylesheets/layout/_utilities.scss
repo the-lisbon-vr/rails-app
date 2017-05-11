@@ -14,7 +14,7 @@
 }
 
 .very-slightly-padded {
-  padding: 0.5em;
+  padding: 0.5em 0;
 }
 
 .bottom-margin {
@@ -23,6 +23,14 @@
 
 .no-top-margin {
   margin-top: 0;
+}
+
+.no-text-dec,
+.no-text-dec:focus,
+no-text-dec:link,
+no-text-dec:visited,
+.no-text-dec:hover {
+  text-decoration: none;
 }
 
 // Backgrounds
