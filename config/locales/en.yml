@@ -34,6 +34,9 @@ en:
       want_to_play: "Want to play?"
       book_a_session: "Book a session"
     contact:
+      contacts_title: "Contacts and Location"
+      our_address: "Address:"
+      our_email: "Email:"
       bookings_questions_suggestions: "Bookings, Questions, Suggestions?"
       contact_us_through: "Just fill out this form and we'll get in touch."
       name: "First and last name"

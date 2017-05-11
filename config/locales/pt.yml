@@ -35,6 +35,9 @@ pt:
       want_to_play: "Quer jogar?"
       book_a_session: "Marcar sessão"
     contact:
+      contacts_title: "Contactos e Localização"
+      our_address: "Morada:"
+      our_email: "Email:"
       bookings_questions_suggestions: "Reservas, Dúvidas, Sugestões?"
       contact_us_through: "Contacte-nos através do seguinte formulário."
       name: "Nome (primeiro e último)"

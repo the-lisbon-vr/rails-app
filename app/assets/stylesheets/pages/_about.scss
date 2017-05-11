@@ -38,10 +38,25 @@
 .game-thumbnail img:hover{
   opacity: 1;
 }
+// ---------------------------
+// contacts
+.contacts-and-form{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
+.contacts{
+  flex: 0 1 600px;
+  padding: 100px 25px;
+
+}
+// -------------------------
 /*formspree*/
 #banner-form{
   padding: 100px 25px;
+  flex: 0 1 600px;
+
 }
 
 .form-container{
