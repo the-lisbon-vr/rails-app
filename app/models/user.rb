@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  after_create :send_welcome_email
+
   has_many :slots
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -25,6 +27,12 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
   end
 
 end
