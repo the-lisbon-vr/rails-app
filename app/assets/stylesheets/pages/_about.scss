@@ -46,18 +46,18 @@
   flex-wrap: wrap;
 }
 
+.contact-card {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0));
+  border: 1px solid white;
+  padding: 1.5em;
+  margin: 1.5em 0;
+}
+
 .contacts{
   flex: 0 1 600px;
-  padding: 100px 25px;
-
 }
 // -------------------------
 /*formspree*/
-#banner-form{
-  padding: 100px 25px;
-  flex: 0 1 600px;
-
-}
 
 .form-container{
   border-style: dashed;
