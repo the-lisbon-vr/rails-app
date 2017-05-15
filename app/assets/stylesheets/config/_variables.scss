@@ -2,9 +2,13 @@
  * Fonts
  * ------------------------------------- */
 // Google fonts
-@import url('https://fonts.googleapis.com/css?family=Exo|Homenaje'); // was also thinking of "|Kelly+Slab"
-$base-font: "Exo", "Helvetica", "sans-serif";
-$header-font: "Homenaje", "Helvetica", "sans-serif";
+@import url('https://fonts.googleapis.com/css?family=Exo|Titillium+Web:400');
+$base-font: "Titillium Web", "Helvetica", "sans-serif"; // was 'Exo'
+$header-font: "Exo", "Helvetica", "sans-serif"; // was 'Homenaje'
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200 !important;
+}
+
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -17,7 +21,7 @@ $header-font: "Homenaje", "Helvetica", "sans-serif";
 // $my-font: "Font Name";
 
 // Font-size and line-height
-$base-size: 18px;
+$base-size: 20px;
 $base-height: 1.4;
 
 /* -------------------------------------
