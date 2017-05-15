@@ -13,7 +13,7 @@
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
-    <%= link_to t(".my_account"), root_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
+    <%= link_to t(".my_account"), slot_path(current_user), class: "navbar-tlvr-item navbar-tlvr-link" %>
     <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "navbar-tlvr-item navbar-tlvr-link" %>
   <% else %>
     <!-- Login text link -->

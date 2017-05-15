@@ -17,7 +17,16 @@ class SlotsController < ApplicationController
       end
     end
 
+    def show
+      @my_slots = []
+      Slot.find_each do |slot|
+        @my_slots << slot if slot.user = current_user
+      end
+      @my_slots
+    end
+
     private
+
     def find_slot
       @slot = Slot.find(params[:id])
     end
