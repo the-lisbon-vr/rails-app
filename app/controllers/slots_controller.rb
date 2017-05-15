@@ -1,8 +1,8 @@
 class SlotsController < ApplicationController
-    before_action :find_slot
+    before_action :find_slot, only: [ :update ]
 
     def index
-      @slots = Slot.all
+      # @slots = Slot.all
     end
 
     def update
@@ -18,11 +18,7 @@ class SlotsController < ApplicationController
     end
 
     def show
-      @my_slots = []
-      Slot.find_each do |slot|
-        @my_slots << slot if slot.user == current_user
-      end
-      @my_slots
+      @my_slots = Slot.where(user_id: current_user.id)
     end
 
     private
