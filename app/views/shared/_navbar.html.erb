@@ -8,7 +8,6 @@
 <!-- Right Navigation -->
 <div class="navbar-tlvr-right hidden-xs hidden-sm">
   <%= link_to t(".what_is_vr"), about_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
-  <%= link_to t(".book_a_session"), events_path, class: "navbar-tlvr-item navbar-tlvr-link" %><!-- to call attention to this link, add "action" to class -->
   <%= link_to t(".contact"), contact_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
 
   <!-- Different navigation if login or not -->
@@ -19,6 +18,8 @@
     <!-- Login text link -->
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
   <% end %>
+  
+  <%= link_to t(".book_a_session"), events_path, class: "navbar-tlvr-item navbar-tlvr-link action" %>
 
   <!-- Language selector -->
   <div class="navbar-tlvr-lang-border">

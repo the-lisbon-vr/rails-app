@@ -1,30 +1,37 @@
 <!-- Form for reservations: -->
 <div class="wrapper">
-  <div class="contacts-and-form">
-
-    <div class="contacts text-center">
-      <h2><%= t(".contacts_title") %></h2>
-      <p><%= t(".our_address") %></p>
-      <p>The Lisbon VR<br>Tec Labs - Centro de Inovação<br>Campus da FCUL, Campo Grande <br>1749-016 Lisboa, Portugal</p>
-      <p><%= t(".our_email") %> info@thelisbonvr.com</p>
-      <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJQ3qfP-MyGQ0RzS98RnJKrsY&key=AIzaSyDAkZQVb9qz_7FVMlWAu4D5ziBbiaj-TrU" allowfullscreen></iframe>
+  <div class="padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="contact-card text-center">
+            <h2><%= t(".contacts_title") %></h2>
+            <p><%= t(".our_address") %></p>
+            <p>The Lisbon VR<br>Tec Labs - Centro de Inovação<br>Campus da FCUL, Campo Grande <br>1749-016 Lisboa, Portugal</p>
+            <p><%= t(".our_email") %> info@thelisbonvr.com</p>
+            <iframe width="100%" height="500" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJQ3qfP-MyGQ0RzS98RnJKrsY&key=AIzaSyDAkZQVb9qz_7FVMlWAu4D5ziBbiaj-TrU" allowfullscreen></iframe>
+          </div>
+          <hr class="page-divider-white hidden-md hidden-lg">
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <div id="banner-form" class="contact-card text-center">
+            <h2><%= t(".bookings_questions_suggestions") %></h2>
+            <p><%= t(".contact_us_through") %></p>
+            <form action="https://formspree.io/diogofgr@gmail.com" method="POST" class="form">
+              <!-- IMPORTANT - When in testing use /the-lisbon-vr/thanks.html: -->
+              <input type="hidden" name="_next" value="/thanks.html" />
+              <input type="hidden" name="_subject" value="New submission!" />
+              <input id="name" type="text" name="name" placeholder="<%=t(".name")%>" class="form-field">
+              <input id="phone-number" type="text" name="phone-number" placeholder="<%= t(".cell_phone") %>" class="form-field">
+              <input type="text" name="_replyto" placeholder="<%= t(".email") %>" class="form-field"/>
+              <textarea name="message" id="" cols="30" rows="10" placeholder="<%= t(".your_message") %>" class="form-field mg-left"></textarea>
+              <!-- honepot to fool bots: -->
+              <input type="text" name="_gotcha" style="display:none" />
+              <input id="btn-submit-contact" type="submit" value="<%= t(".send") %>" class="btn btn-lg btn-brand-with-bg pull-right">
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <div id="banner-form" class="text-center">
-      <h2><%= t(".bookings_questions_suggestions") %></h2>
-      <p><%= t(".contact_us_through") %></p>
-        <form action="https://formspree.io/diogofgr@gmail.com" method="POST" class="form">
-        <!-- IMPORTANT - When in testing use /the-lisbon-vr/thanks.html: -->
-          <input type="hidden" name="_next" value="/thanks.html" />
-          <input type="hidden" name="_subject" value="New submission!" />
-          <input id="name" type="text" name="name" placeholder="<%=t(".name")%>" class="form-field">
-          <input id="phone-number" type="text" name="phone-number" placeholder="<%= t(".cell_phone") %>" class="form-field">
-          <input type="text" name="_replyto" placeholder="<%= t(".email") %>" class="form-field"/>
-          <textarea name="message" id="" cols="30" rows="10" placeholder="<%= t(".your_message") %>" class="form-field mg-left"></textarea>
-          <!-- honepot to fool bots: -->
-          <input type="text" name="_gotcha" style="display:none" />
-          <input id="btn-submit-contact" type="submit" value="<%= t(".send") %>" class="btn btn-lg btn-success form-field">
-        </form>
-    </div>
-
   </div>
 </div>

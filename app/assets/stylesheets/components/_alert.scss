@@ -6,10 +6,12 @@
   margin: 0;
   text-align: center;
   color: white;
+  border: none !important;
+  font-size: 16px;
 }
 .alert-info {
-  background: $green;
+  background: rgba(50, 183, 150, 0.8);
 }
 .alert-warning {
-  background: $red;
+  background: rgba(168, 16, 16, 0.8);
 }

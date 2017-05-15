@@ -3,8 +3,9 @@
 .btn-facebook:visited {
   font-weight: bold;
   padding: 11px 15px;
-  border-radius: 4px;
-  background-color: $facebook-blue-light;
+  border-radius: 10px;
+  border: 1.5px solid $facebook-blue;
+  background-color: rgba(77, 117, 198, 0.5);
   color: white;
   transition: all 0.2s ease;
   margin: 5px;
@@ -52,11 +53,11 @@
 
 .btn-brand-with-bg {
   padding: 8px 20px;
-  background-color: $brand-color;
-  border-radius: 4px;
+  background-color: rgba(45, 125, 93, 0.5);
+  border-radius: 10px;
   border: solid $brand-color 1.5px;
-  color: $brand-light;
-  font-size: 14px;
+  color: white;
+  font-size: 16px;
   font-weight: bold;
   transition: all 0.2s ease;
 }
@@ -105,7 +106,7 @@
 }
 
 .login-form-help-links {
-  font-size: 12px;
+  font-size: 14px;
   color: $gray;
   float: right;
   transition: all 0.2s ease;
@@ -113,7 +114,7 @@
 
 .login-form-help-links:hover {
   text-decoration: none;
-  color: $brand-color;
+  color: white;
   transition: all 0.2s ease;
 }
 
@@ -138,4 +139,11 @@
   color: $gray;
   font-size: 75%;
   margin: 0;
+}
+
+.btn-event {
+  float: right;
+  padding: 5px 20px;
+  position: relative;
+  top: -50px;
 }
