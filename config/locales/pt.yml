@@ -46,11 +46,11 @@ pt:
       your_message: "A sua mensagem..."
       send: "Enviar"
 
-
   events:
     index:
       main_title: "Próximos Eventos"
       show_button: "Ver"
+      sessions_available: "Sessões disponíveis"
 
     show:
       book_this_session: "Reservar esta sessão"
@@ -59,6 +59,6 @@ pt:
       date: "Dia"
       description: "Descrição"
       location: "Local"
-      play_time_per_session: "Play time per session (change this text in pt.yml)"
+      play_time_per_session: "Play time per session (change in pt.yml)"
       minutes: "mins"
-      click_to_book: "Click to book (change this text in pt.yml)"
+      click_to_book: "Click to book (change in pt.yml)"

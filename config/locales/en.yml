@@ -50,6 +50,7 @@ en:
     index:
       main_title: "Upcoming Events"
       show_button: "Show"
+      sessions_available: "Sessões disponíveis"
 
     show:
       book_this_session: "Book this session"
