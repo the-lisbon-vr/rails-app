@@ -3,11 +3,11 @@
     <h2 class="text-center"><%= t('.main_title') %></h2>
     <% @my_slots.each do |slot| %>
       <div class="slightly-padded">
-        <h4><%= slot.start_time.strftime("%d-%m-%Y") %></h4>
+        <h4><%= slot.event.date.strftime("%d-%m-%Y") %></h4>
         <h4><%= slot.start_time.strftime("%H:%M") %> (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>) </h4>
         <p><%= slot.event.name %></p>
         <p><%= t('.location') %>: <%= slot.event.location %></p>
-        <p><%= t('.price') %>: € <%= slot.event.price_per_slot %></p>
+        <p><%= t('.price') %>: € <%= '%.2f' % slot.event.price_per_slot %></p>
       </div>
     <% end %>
     <p> <%= t('.how_to_pay') %> </p>
