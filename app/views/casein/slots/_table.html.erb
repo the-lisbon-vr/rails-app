@@ -1,11 +1,11 @@
 <table class="table table-striped table-hover table-condensed">
   <thead>
     <tr>
-      <th><%= casein_sort_link "User", :date %></th>
-      <th><%= casein_sort_link "Event", :location %></th>
-      <th><%= casein_sort_link "Starts at", :description %></th>
-      <th><%= casein_sort_link "Duration minutes", :max_bookings %></th>
-      <th><%= casein_sort_link "Payment received", :price_per_slot %></th>
+      <th><%= casein_sort_link "User ID", :user_id %></th>
+      <th>User name</th>
+      <th><%= casein_sort_link "Starts at", :start_time %></th>
+      <th><%= casein_sort_link "Duration minutes", :slot_duration_minutes %></th>
+      <th><%= casein_sort_link "Payment received", :is_payed %></th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -13,16 +13,16 @@
   <% slots.each do |slot| %>
     <tr>
       <td><%= slot.user_id %></td>
-      <td><%= slot.event.name %></td>
-      <td><%= slot.start_time %></td>
-      <td><%= slot.duration_minutes %></td>
+      <td><%= slot.user != nil ? slot.user.first_name + " " + slot.user.last_name : "n/a" %></td>
+      <td><%= slot.start_time.strftime("%H:%M") %></td>
+      <td><%= slot.event.slot_duration_minutes %></td>
       <td><%= slot.is_payed ? "PAYED" : "not payed" %></td>
 
       <td>
         <% if !slot.is_payed %>
-          <%= link_to("mark as payed", casein_event_slot_path(id: slot.id)) %>
+          <%= link_to("mark as payed", casein_event_slot_path(id: slot.id), class: "btn-casein success") %>
         <% else %>
-          <%= link_to("cancel payment", casein_event_slot_path(id: slot.id)) %>
+          <%= link_to("cancel payment", casein_event_slot_path(id: slot.id), class: "btn-casein danger") %>
         <% end %>
       </td>
     </tr>

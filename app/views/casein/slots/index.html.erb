@@ -1,4 +1,4 @@
-<h2>Slots</h2>
+<h2>Slots for <%= @event.name %> - <%= @event.date.strftime("%d-%m-%Y") %></h2>
 
 <%= render partial: 'casein/slots/table', locals: { slots: @slots, event: @event } %>
 

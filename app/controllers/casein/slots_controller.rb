@@ -6,14 +6,19 @@ module Casein
 
     def index
       @event = Event.find(params[:event_id])
-      @slots = Slot.all
+      @slots = @event.slots.order(:start_time)
     end
 
     def show
       # confirm or cancel payment for given slot:
       @slot = Slot.find(params[:id])
       @slot.is_payed = !@slot.is_payed
-      @slot.save
+      if @slot.save
+        flash[:notice] = 'Done!'
+        redirect_to casein_event_slots_path(event_id: @slot.event.id)
+      else
+        flash[:alert] = 'Uh-oh... That didn\'t work'
+      end
     end
 
     def update
