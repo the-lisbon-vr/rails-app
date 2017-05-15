@@ -1,2 +1,17 @@
 /* CASEIN CUSTOM */
 /* Use this file for your project-specific Casein CSS */
+
+.btn-casein {
+  padding: 3px 5px !important;
+  color: white !important;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.btn-casein.danger {
+  background-color: rgb(168, 16, 16);
+}
+
+.btn-casein.success {
+  background-color: rgb(50, 183, 150);
+}
