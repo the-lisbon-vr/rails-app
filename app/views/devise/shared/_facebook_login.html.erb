@@ -1,17 +1,17 @@
 <%- if devise_mapping.omniauthable? %>
-  <hr class="page-divider">
-  <div class="slightly-padded text-center">
+  <hr class="page-divider-white">
+  <div class="text-center">
     <div class="row">
       <%- resource_class.omniauth_providers.each do |provider| %>
         <div class="col-xs-12">
         <% if params[:controller] == "devise/registrations" %>
-          <%= link_to "<p style='font-family: Exo; font-size: 16px; margin: 0;'>#{t(".sign_up")}&nbsp;<i class='fa fa-#{provider}' style='font-size: 18px; margin-left: 5px;'></i></p>".html_safe, omniauth_authorize_path(resource_name, :facebook), class: "btn btn-#{provider}" %><br />
+          <%= link_to "<p style='font-size: 16px; margin: 0;'>#{t(".sign_up")}&nbsp;<i class='fa fa-#{provider}' style='font-size: 18px; margin-left: 5px;'></i></p>".html_safe, omniauth_authorize_path(resource_name, :facebook), class: "btn btn-#{provider}" %><br />
         <% else %>
-          <%= link_to "<p style='font-family: Exo; font-size: 16px; margin: 0;'>#{t(".sign_in")}&nbsp;<i class='fa fa-#{provider}' style='font-size: 18px; margin-left: 5px;'></i></p>".html_safe, omniauth_authorize_path(resource_name, :facebook), class: "btn btn-#{provider}" %><br />
+          <%= link_to "<p style='font-size: 16px; margin: 0;'>#{t(".sign_in")}&nbsp;<i class='fa fa-#{provider}' style='font-size: 18px; margin-left: 5px;'></i></p>".html_safe, omniauth_authorize_path(resource_name, :facebook), class: "btn btn-#{provider}" %><br />
         <% end %>
         </div>
       <% end -%>
     </div>
   </div>
-  <hr class="page-divider">
+  <hr class="page-divider-white">
 <% end -%>

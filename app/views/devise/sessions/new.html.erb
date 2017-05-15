@@ -1,23 +1,27 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
-      <h2 class="text-center"><%= t(".sign_in") %></h2>
-      <%= render "devise/shared/facebook_login" %>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email, required: false, autofocus: true %>
-          <%= f.input :password, required: false %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-        </div>
+<div class="wrapper">
+  <div class="slightly-padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4">
+          <h2 class="text-center"><%= t(".sign_in") %></h2>
+          <%= render "devise/shared/facebook_login" %>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, required: false, autofocus: true %>
+              <%= f.input :password, required: false %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
 
-        <div class="col-xs-6">
-          <div class="form-actions">
-            <%= f.button :submit, t(".sign_in"), class: "btn-brand-with-bg" %>
+            <div class="col-xs-6">
+              <div class="form-actions">
+                <%= f.button :submit, t(".sign_in"), class: "btn-brand-with-bg" %>
+              </div>
+            </div>
+          <% end %>
+          <div class="text-center">
+            <%= render "devise/shared/links" %>
           </div>
         </div>
-      <% end %>
-      <div class="text-center">
-        <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
