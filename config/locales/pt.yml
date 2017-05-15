@@ -51,6 +51,13 @@ pt:
     index:
       main_title: "Próximos Eventos"
       show_button: "Ver"
+      location: "Local"
+      date: "Data"
+      time: "Hora"
+      price: "Preço da sessão"
+      minutes: "minutos"
+      description: "Descrição do evento"
+      slots_remaining: "Vagas restantes"
 
     show:
       book_this_session: "Reservar esta sessão"
