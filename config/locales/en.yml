@@ -68,3 +68,11 @@ en:
       play_time_per_session: "Play time per session"
       minutes: "mins"
       click_to_book: "Click a time slot to book it"
+
+  slots:
+    show:
+      main_title: "My Bookings"
+      minutes: "minutes"
+      location: "Location"
+      price: "Price"
+      how_to_pay: "Please pay in cash, when you arrive at the venue. In case you are not able to come, please let us know so that other people can book."
