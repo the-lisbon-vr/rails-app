@@ -50,7 +50,13 @@ en:
     index:
       main_title: "Upcoming Events"
       show_button: "Show"
-      sessions_available: "Sessões disponíveis"
+      location: "Location"
+      date: "Date"
+      time: "Time"
+      price: "Price"
+      minutes: "minutes"
+      description: "Description"
+      slots_remaining: "Slots remaining"
 
     show:
       book_this_session: "Book this session"

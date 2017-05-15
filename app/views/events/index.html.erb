@@ -12,7 +12,7 @@
               <%= event.date.strftime("%-d/%-m/%Y") %>&nbsp; //
               &nbsp; <%= event.start_time.to_s(:time) %>&ndash;<%= event.end_time.to_s(:time) %>&nbsp; //
               &nbsp; €<%= '%.2f' % event.price_per_slot %> (<%= event.slot_duration_minutes %> mins)<br />
-              <%= t('.sessions_available') %>: <%= Slot.where(event_id: event.id).where(user_id: nil).count %>
+              <%= t('.slots_remaining') %>: <%= Slot.where(event_id: event.id).where(user_id: nil).count %>
             </p>
             <p><%= event.description %></p>
           </div>
