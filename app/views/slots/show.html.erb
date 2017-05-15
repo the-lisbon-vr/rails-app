@@ -3,7 +3,15 @@
     <h2 class="text-center"><%= t('.main_title') %></h2>
     <% @my_slots.each do |slot| %>
       <div class="slightly-padded">
-        <h4><%= slot.event.name %></h4>
+        <h4><%= slot.start_time %></h4>
+        <p><%= slot.event.name %></p>
+        <p><%= t('.location') %>: <%= slot.event.location %></p>
+        <% if slot.is_payed %>
+          <p><%= t('.payment') %>: <%= t('.payed') %></p>
+        <% else %>
+          <p><%= t('.payment') %>: <%= t('.awaiting_payment') %></p>
+          <p> <%= t('.how_to_pay') %> </p>
+        <% end %>
       </div>
     <% end %>
   </div>

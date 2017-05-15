@@ -20,7 +20,7 @@ class SlotsController < ApplicationController
     def show
       @my_slots = []
       Slot.find_each do |slot|
-        @my_slots << slot if slot.user = current_user
+        @my_slots << slot if slot.user == current_user
       end
       @my_slots
     end
