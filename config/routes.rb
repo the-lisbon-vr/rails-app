@@ -15,11 +15,10 @@ Rails.application.routes.draw do
     root to: 'pages#home'
 
     get 'about', to: 'pages#about'
+    get 'account', to: 'pages#account'
     get 'contact', to: 'pages#contact'
     resources :events, only: [:index, :show] do
       resources :slots, only: [:index, :update]
     end
-
-    resources :slots, only: [:show]
   end
 end

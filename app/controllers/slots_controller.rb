@@ -17,10 +17,6 @@ class SlotsController < ApplicationController
       end
     end
 
-    def show
-      @my_slots = Slot.where(user_id: current_user.id)
-    end
-
     private
 
     def find_slot

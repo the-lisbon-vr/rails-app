@@ -34,6 +34,12 @@ pt:
       get_in_touch: "Contactar-nos"
       want_to_play: "Quer jogar?"
       book_a_session: "Marcar sessão"
+    account:
+      main_title: "As Minhas Sessões"
+      minutes: "minutos"
+      location: "Local"
+      price: "Preço"
+      how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
     contact:
       contacts_title: "Contactos e Localização"
       our_address: "Morada:"
@@ -67,11 +73,4 @@ pt:
       location: "Local"
       play_time_per_session: "Play time per session (change in pt.yml)"
       minutes: "mins"
-
-  slots:
-    show:
-      main_title: "As Minhas Sessões"
-      minutes: "minutos"
-      location: "Local"
-      price: "Preço"
-      how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
+      click_to_book: "Click a time slot to book it"
