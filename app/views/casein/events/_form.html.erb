@@ -3,6 +3,7 @@
 
 <div class="row">
   <div class="col-lg-6">
+    <%= casein_text_field f, f.object, :name %>
     <%= casein_date_select f, f.object, :date %>
   </div>
   <div class="col-lg-6">
@@ -13,12 +14,12 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <%= casein_text_field f, f.object, :name %>
     <%= casein_text_field f, f.object, :location %>
     <%= casein_text_field f, f.object, :description %>
   </div>
   <div class="col-lg-6">
     <%= casein_text_field f, f.object, :slot_duration_minutes %>
+    <%= casein_text_field f, f.object, :number_of_players %>
     <%= casein_text_field f, f.object, :price_per_slot %>
   </div>
 </div>

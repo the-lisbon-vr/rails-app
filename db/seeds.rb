@@ -16,6 +16,7 @@ descriptions = ["Ut enim ad minim veniam, quis nostrud exercitation ullamco labo
                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 start_times = ["9", "10", "11"]
 end_times = ["16", "17", "18"]
+number_of_players = [2, 2, 4, 2, 4]
 
 5.times do
   # 1) Make an event
@@ -26,12 +27,13 @@ end_times = ["16", "17", "18"]
                     location: locations[i],
                     description: descriptions[i],
                     slot_duration_minutes: 20,
+                    number_of_players: number_of_players[i],
                     price_per_slot: 15)
   event.max_bookings = ((event.end_time - event.start_time) / 60) / event.slot_duration_minutes
   event.save
 
   # 2) Make all the slots for that event
-  2.times do
+  event.number_of_players.times do
     slot_start_time = event.start_time
     # event_slot_duration will be added to slot_start_time to set each slot's start_time
     # -- it's "* 60" because times are updated in seconds
