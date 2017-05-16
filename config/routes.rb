@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     resources :events, only: [:index, :show] do
       resources :slots, only: [:index, :update]
     end
+    resources :slots, only: [:show] do
+      patch 'cancel_session', to: 'pages#cancel_session'
+    end
   end
 end

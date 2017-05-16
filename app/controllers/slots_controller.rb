@@ -1,5 +1,5 @@
 class SlotsController < ApplicationController
-    before_action :find_slot, only: [ :update ]
+    before_action :find_slot, only: [ :update, :cancel_session ]
     before_action :authenticate_user!
 
     def update
@@ -15,6 +15,12 @@ class SlotsController < ApplicationController
         flash[:notice] = 'Session booked'
         redirect_to event_path(id: @slot.event.id)
       end
+    end
+
+    # only including this show method for the sake of the cancelling a session
+    # it shouldn't be actually accessible as a page (because there's no need)
+    def show
+      redirect_to root_path
     end
 
     private
