@@ -6,19 +6,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 i = 0
+names = ["Lorem ipsum dolor sit amet", "Consectetur adipisicing elit", "Sed do eiusmod tempor incididunt", "Labore et dolore magna aliqua", "Ut enim ad minim veniam"]
 dates = ["15 May 2017", "17 June 2017", "July 30 2017", "8 August 2017", "9 September 2017"]
 locations = ["The Lisbon VR HQ", "Evolution Hotel", "Some university", "TimeOut Market", "Tokyo, Japan"]
-descriptions = ["It's all shooting and stuff, but not real. You think you're there, but you're not. Totally safe.",
-               "In Napoli where love is king, when boy meets girl, here's what they say",
-               "When a moon hits your eye like a big pizza pie, that's amore",
-               "When the world seems to shine like you've had too much wine, that's amore",
-               "When the stars make you drool just like a pasta fazool, that's amore"]
+descriptions = ["Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+                "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."]
 start_times = ["9", "10", "11"]
 end_times = ["16", "17", "18"]
 
 5.times do
   # 1) Make an event
-  event = Event.new(name: "Event no. #{i + 1}",
+  event = Event.new(name: names[i],
                     date: dates[i],
                     start_time: start_times.sample,
                     end_time: end_times.sample,
@@ -30,13 +31,15 @@ end_times = ["16", "17", "18"]
   event.save
 
   # 2) Make all the slots for that event
-  slot_start_time = event.start_time
-  # event_slot_duration will be added to slot_start_time to set each slot's start_time
-  # -- it's "* 60" because times are updated in seconds
-  event_slot_duration = event.slot_duration_minutes * 60
-  event.max_bookings.times do
-    Slot.create(event: event, start_time: slot_start_time)
-    slot_start_time += event_slot_duration
+  2.times do
+    slot_start_time = event.start_time
+    # event_slot_duration will be added to slot_start_time to set each slot's start_time
+    # -- it's "* 60" because times are updated in seconds
+    event_slot_duration = event.slot_duration_minutes * 60
+    event.max_bookings.times do
+      Slot.create(event: event, start_time: slot_start_time)
+      slot_start_time += event_slot_duration
+    end
   end
 
   i += 1

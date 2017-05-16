@@ -6,8 +6,11 @@ class SlotsController < ApplicationController
     end
 
     def update
-      if @slot.user_id != nil
+      if !@slot.user_id.nil?
         flash[:alert] = 'This session has already been booked'
+        redirect_to event_path(id: @slot.event.id)
+      elsif current_user.id.nil?
+        flash[:alert] = 'You must be signed in to book'
         redirect_to event_path(id: @slot.event.id)
       else
         @slot.user_id = current_user.id

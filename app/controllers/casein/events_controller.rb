@@ -64,13 +64,15 @@ module Casein
     end
 
     def create_slots
-      slot_start_time = @event.start_time
-      # event_slot_duration will be added to slot_start_time to set each slot's start_time
-      # -- it's "* 60" because times are updated in seconds
-      event_slot_duration = @event.slot_duration_minutes * 60
-      @event.max_bookings.times do
-        Slot.create(event: @event, start_time: slot_start_time)
-        slot_start_time += event_slot_duration
+      2.times do
+        slot_start_time = @event.start_time
+        # event_slot_duration will be added to slot_start_time to set each slot's start_time
+        # -- it's "* 60" because times are updated in seconds
+        event_slot_duration = @event.slot_duration_minutes * 60
+        @event.max_bookings.times do
+          Slot.create(event: @event, start_time: slot_start_time)
+          slot_start_time += event_slot_duration
+        end
       end
     end
 
