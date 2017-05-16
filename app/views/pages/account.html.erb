@@ -1,16 +1,23 @@
 <div class="container">
   <div class="padded">
-    <h2 class="text-center"><%= t('.main_title') %></h2>
-    <% @my_slots.each do |slot| %>
-      <div class="slightly-padded">
-        <h4><%= slot.event.date.strftime("%d-%m-%Y") %></h4>
-        <h4><%= slot.start_time.strftime("%H:%M") %> (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>) </h4>
-        <p><%= slot.event.name %></p>
-        <p><%= t('.location') %>: <%= slot.event.location %></p>
-        <p><%= t('.price') %>: € <%= '%.2f' % slot.event.price_per_slot %></p>
-        <%= link_to t(".cancel_session"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous" %>
+    <% if @my_slots.count == 0 %>
+      <div class="text-center">
+        <p>You haven't booked any sessions yet.</p>
+        <%= link_to t(".book_a_session"), events_path, class: "btn-brand" %>
       </div>
+    <% else %>
+      <h2 class="text-center"><%= t('.main_title') %></h2>
+      <% @my_slots.each do |slot| %>
+        <div class="slightly-padded">
+          <h4><%= slot.event.date.strftime("%d-%m-%Y") %></h4>
+          <h4><%= slot.start_time.strftime("%H:%M") %> (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>) </h4>
+          <p><%= slot.event.name %></p>
+          <p><%= t('.location') %>: <%= slot.event.location %></p>
+          <p><%= t('.price') %>: € <%= '%.2f' % slot.event.price_per_slot %></p>
+          <%= link_to t(".cancel_session"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous" %>
+        </div>
+      <% end %>
+      <p><%= t('.how_to_pay') %></p>
     <% end %>
-    <p><%= t('.how_to_pay') %></p>
   </div>
 </div>
