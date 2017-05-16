@@ -8,6 +8,7 @@
         <p><%= slot.event.name %></p>
         <p><%= t('.location') %>: <%= slot.event.location %></p>
         <p><%= t('.price') %>: € <%= '%.2f' % slot.event.price_per_slot %></p>
+        <%= link_to t(".cancel_session"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous" %>
       </div>
     <% end %>
     <p><%= t('.how_to_pay') %></p>
