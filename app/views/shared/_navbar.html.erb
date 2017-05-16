@@ -12,13 +12,13 @@
 
   <!-- Different navigation if login or not -->
   <% if user_signed_in? %>
-    <%= link_to t(".my_account"), slot_path(current_user), class: "navbar-tlvr-item navbar-tlvr-link" %>
+    <%= link_to t(".my_account"), account_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
     <%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "navbar-tlvr-item navbar-tlvr-link" %>
   <% else %>
     <!-- Login text link -->
     <%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %>
   <% end %>
-  
+
   <%= link_to t(".book_a_session"), events_path, class: "navbar-tlvr-item navbar-tlvr-link action" %>
 
   <!-- Language selector -->
