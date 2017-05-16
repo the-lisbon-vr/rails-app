@@ -1,9 +1,6 @@
 class SlotsController < ApplicationController
     before_action :find_slot, only: [ :update ]
-
-    def index
-      # @slots = Slot.all
-    end
+    before_action :authenticate_user!
 
     def update
       if !@slot.user_id.nil?

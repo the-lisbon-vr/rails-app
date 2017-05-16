@@ -4,9 +4,11 @@
   <thead>
     <tr>
       <th><%= casein_sort_link "Date", :date %></th>
+      <th><%= casein_sort_link "Name", :name %></th>
       <th><%= casein_sort_link "Location", :location %></th>
       <th><%= casein_sort_link "Description", :description %></th>
-      <th><%= casein_sort_link "Max bookings", :max_bookings %></th>
+      <th><%= casein_sort_link "Number of sessions", :max_bookings %></th>
+      <th><%= casein_sort_link "Players per session", :number_of_players %></th>
       <th><%= casein_sort_link "Price per slot", :price_per_slot %></th>
       <th>&nbsp;</th>
     </tr>
@@ -14,10 +16,12 @@
 
   <% events.each do |event| %>
     <tr>
-      <td><%= casein_table_cell_link event.date, casein_event_slots_path(event) %></td>
+      <td><%= casein_table_cell_link event.date.strftime("%d-%m-%Y"), casein_event_slots_path(event) %></td>
+      <td><%= casein_table_cell_link event.name, casein_event_slots_path(event) %></td>
       <td><%= casein_table_cell_link event.location, casein_event_slots_path(event) %></td>
       <td><%= casein_table_cell_link event.description, casein_event_slots_path(event) %></td>
       <td><%= casein_table_cell_link event.max_bookings, casein_event_slots_path(event) %></td>
+      <td><%= casein_table_cell_link event.number_of_players, casein_event_slots_path(event) %></td>
       <td><%= casein_table_cell_link event.price_per_slot, casein_event_slots_path(event) %></td>
       <td class="delete">
         <%= link_to(casein_show_row_icon("trash"), casein_event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }) %>

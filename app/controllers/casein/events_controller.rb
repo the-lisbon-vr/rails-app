@@ -24,6 +24,7 @@ module Casein
     def create
       @event = Event.new event_params
       @event.max_bookings = ((@event.end_time - @event.start_time) / 60) / @event.slot_duration_minutes
+      @event.number_of_players = 2 if @event.number_of_players.nil?
       if @event.save
         # create empty slots to let the users book:
         create_slots
@@ -60,11 +61,11 @@ module Casein
     private
 
     def event_params
-      params.require(:event).permit(:name, :date, :location, :description, :max_bookings, :price_per_slot, :start_time, :end_time, :slot_duration_minutes)
+      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :number_of_players)
     end
 
     def create_slots
-      2.times do
+      @event.number_of_players.times do
         slot_start_time = @event.start_time
         # event_slot_duration will be added to slot_start_time to set each slot's start_time
         # -- it's "* 60" because times are updated in seconds

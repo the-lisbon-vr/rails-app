@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515160213) do
+ActiveRecord::Schema.define(version: 20170516094447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(version: 20170515160213) do
     t.string   "location"
     t.string   "description"
     t.integer  "max_bookings"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.float    "price_per_slot"
     t.string   "name"
-    t.time     "start_time",            null: false
-    t.time     "end_time",              null: false
-    t.integer  "slot_duration_minutes", null: false
+    t.time     "start_time",                        null: false
+    t.time     "end_time",                          null: false
+    t.integer  "slot_duration_minutes",             null: false
+    t.integer  "number_of_players",     default: 2, null: false
   end
 
   create_table "slots", force: :cascade do |t|
