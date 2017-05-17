@@ -28,8 +28,37 @@ en:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
+      the_first_room_scale: "Lisbon's First Room-scale VR Arcade"
       main_button: "Find out more"
     about:
+      the_best_of_another_world: "O Melhor de Outro Mundo"
+      dont_know: "Don't know what virtual reality (VR) is? Take a look at HTC's promotional video for the Vive, the best VR headset on the market."
+      the_first_room_scale: "Lisbon's First Room-scale VR Arcade"
+      come_visit_us: Come visit us, bring a friend! You can book a session during the week, just contact us.
+      eary_access_price: "Early access price!"
+      you_can_book_as_many: "(you can book as many sessions as you want)"
+      if_first_time: "If it's your first time playing, follow these simple steps:"
+      take_off_your_shoes: "take off your shoes"
+      choose_a_game: "choose a game"
+      put_on_the_headset: "put on the headset"
+      mind_the_cable: "mind the cable"
+      dont_run_into_a_wall: "don't run into a wall"
+      have_fun: "have fun!"
+      small_briefing: "Don't worry, we do a small briefing to every player."
+      rentals: "Rentals and Private Events"
+      your_next_event: "We can be at your next event! Corporate events, brand promotion events or private parties, everything goes. Email us for a quote."
+      prices_include: "Prices include:"
+      hours: "hours"
+      1_gaming_pc: "1 Gaming PC"
+      1_vive: "1 HTC Vive"
+      1_tracking_system: "1 HTC room-scale tracking system"
+      1_staff_member: "1 The Lisbon VR staff member"
+      access_to_library: "Access to our library of games"
+      setup_and_breakdown: "Setup and breakdown by a staff member"
+      the_best_games: "The Best Games!"
+      these_are_some: "These are some of the best VR games out there. You can play them at The Lisbon VR!"
+
+
       questions: "Questions?"
       get_in_touch: "Get in touch"
       want_to_play: "Want to play?"

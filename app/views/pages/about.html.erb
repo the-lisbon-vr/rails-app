@@ -3,8 +3,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center">O Melhor de Outro Mundo</h2>
-          <p><strong>Não sabe o que é realidade virtual (VR)?</strong> Veja aqui o video promocional do <strong>HTC vive</strong>, o melhor equipamento de VR da actualidade.</p>
+          <h2 class="text-center"><%= t('.the_best_of_another_world')  %></h2>
+          <p><%= t('.dont_know')  %></p>
         </div>
       </div>
     </div>
@@ -25,18 +25,59 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center">Aluguer de Experiências</h2>
-          <p><strong>Podemos estar no seu próximo evento</strong>, seja ele um evento empresarial, um evento de promoção da sua marca ou uma festa de aniversário.</p>
+          <h2 class="text-center"><%= t('.the_first_room_scale') %></h2>
+          <p><%= t('.come_visit_us') %></p>
         </div>
       </div>
       <div class="row">
         <div class="price-table text-center">
           <div class="col-xs-6 col-sm-3 col-sm-offset-3">
-            <h4>3 horas</h4>
+            <h4>20 min</h4>
+            <p>€ 5</p>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <h4><%= t('.eary_access_price') %></h4>
+            <p><%= t('.you_can_book_as_many') %></p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="price-include text-left">
+            <h4><%= t('.if_first_time') %></h4>
+            <ul>
+              <li><%= t('.take_off_your_shoes') %></li>
+              <li><%= t('.choose_a_game') %></li>
+              <li><%= t('.put_on_the_headset') %></li>
+              <li><%= t('.mind_the_cable') %></li>
+              <li><%= t('.dont_run_into_a_wall') %></li>
+              <li><%= t('.have_fun') %></li>
+            </ul>
+            <h4><%= t('.small_briefing') %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="banner-services" class="wrapper padded">
+  <div id="banner-services-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h2 class="text-center"><%= t('.rentals') %></h2>
+          <p><%= t('.your_next_event') %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="price-table text-center">
+          <div class="col-xs-6 col-sm-3 col-sm-offset-3">
+            <h4>3 <%= t('.hours') %></h4>
             <p>€ --</p>
           </div>
           <div class="col-xs-6 col-sm-3">
-            <h4>6 horas</h4>
+            <h4>6 <%= t('.hours') %></h4>
             <p>€ --</p>
           </div>
         </div>
@@ -44,14 +85,14 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <div class="price-include text-left">
-            <h4>Os preços incluem:</h4>
+            <h4><%= t('.prices_include') %></h4>
             <ul>
-              <li>1 PC Gaming</li>
-              <li>1 HTC Vive (óculos de VR)</li>
-              <li>1 sistema tracking room-scale HTC</li>
-              <li>1 membro do staff The Lisbon VR</li>
-              <li>Acesso à nossa biblioteca de jogos</li>
-              <li>Montagem e desmontagem do sistema</li>
+              <li><%= t('.1_gaming_pc') %></li>
+              <li><%= t('.1_vive') %></li>
+              <li><%= t('.1_tracking_system') %></li>
+              <li><%= t('.1_staff_member') %></li>
+              <li><%= t('.access_to_library') %></li>
+              <li><%= t('.setup_and_breakdown') %></li>
             </ul>
           </div>
         </div>
@@ -66,8 +107,8 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-          <h2 class="text-center">Os Jogos de Maior Sucesso!</h2>
-          <p>Estes são alguns dos jogos mais populares a nível mundial para o HTC Vive. <strong>Poderá jogá-los com o The Lisbon VR!</strong></p>
+          <h2 class="text-center"><%= t('.the_best_games') %></h2>
+          <p><%= t('.these_are_some') %></p>
           <div class="games-thumbnails">
             <!-- Thumbnails must be squares. Sized in css to 200x200: -->
             <div class="game-thumbnail">
