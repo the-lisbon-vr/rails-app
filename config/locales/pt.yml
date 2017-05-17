@@ -21,8 +21,8 @@ pt:
       sign_out: "Sair"
       what_is_vr: "O que é VR?"
       contact: "Contactos"
-      book_a_session: "Marcar sessão"
-      my_account: "My account"
+      see_events: "Próximos eventos"
+      my_account: "A minha conta"
 
   pages:
     # Home page
@@ -35,10 +35,16 @@ pt:
       want_to_play: "Quer jogar?"
       book_a_session: "Marcar sessão"
     account:
+      no_sessions_booked_yet: "You haven't booked any sessions yet."
+      go_to_events: "Ver eventos"
       main_title: "As Minhas Sessões"
       minutes: "minutos"
       location: "Local"
-      price: "Preço"
+      price: "€ %{number}"
+      price_per_slot: "Price per slot"
+      slots_booked: "Slots booked"
+      total_price: "Total"
+      cancel_slot: "Cancel slot"
       how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
     contact:
       contacts_title: "Contactos e Localização"

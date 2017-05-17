@@ -21,7 +21,7 @@ en:
       sign_out: "Log out"
       what_is_vr: "What is VR?"
       contact: "Contact"
-      book_a_session: "Book a session"
+      see_events: "Upcoming events"
       my_account: "My account"
 
   pages:
@@ -35,10 +35,16 @@ en:
       want_to_play: "Want to play?"
       book_a_session: "Book a session"
     account:
+      no_sessions_booked_yet: "You haven't booked any sessions yet."
+      go_to_events: "See events"
       main_title: "My Bookings"
       minutes: "minutes"
       location: "Location"
-      price: "Price"
+      price: "€%{number}"
+      price_per_slot: "Price per slot"
+      total_price: "Total"
+      slots_booked: "Slots booked"
+      cancel_slot: "Cancel slot"
       how_to_pay: "Please pay in cash when you arrive at the venue. In case you are not able to come, please let us know so that other people can book."
     contact:
       contacts_title: "Contacts and Location"
