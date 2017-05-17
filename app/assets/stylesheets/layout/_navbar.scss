@@ -4,10 +4,12 @@
   background: transparent;
   display: flex;
   height: 70px;
-  padding: 0px 30px;
+  padding: 0px;
   align-items: center;
   justify-content: space-between;
 }
+@media(min-width:992px){#navbar-tlvr{padding: 0 30px;}}
+
 
 /* Optional class to fix the navbar on top */
 .navbar-tlvr-fixed {
