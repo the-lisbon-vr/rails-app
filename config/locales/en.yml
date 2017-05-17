@@ -28,8 +28,11 @@ en:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
+      the_first_room_scale: "Lisbon's First Room-scale VR Arcade"
       main_button: "Find out more"
     about:
+      the_best_of_another_world: "O Melhor de Outro Mundo"
+      dont_know: "Don't know what virtual reality (VR) is? Take a look at HTC's promotional video for the Vive, the best VR headset on the market."
       the_first_room_scale: "Lisbon's First Room-scale VR Arcade"
       come_visit_us: Come visit us, bring a friend! You can book a session during the week, just contact us.
       eary_access_price: "Early access price!"
@@ -52,6 +55,8 @@ en:
       1_staff_member: "1 The Lisbon VR staff member"
       access_to_library: "Access to our library of games"
       setup_and_breakdown: "Setup and breakdown by a staff member"
+      the_best_games: "The Best Games!"
+      these_are_some: "These are some of the best VR games out there. You can play them at The Lisbon VR!"
 
 
       questions: "Questions?"

@@ -28,6 +28,7 @@ pt:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
+      the_first_room_scale: "O Primeiro Arcade de VR Room-scale de Lisboa"
       main_button: "Saber mais"
     about:
       the_best_of_another_world: "O Melhor de Outro Mundo"
@@ -54,6 +55,8 @@ pt:
       1_staff_member: "1 membro do staff The Lisbon VR"
       access_to_library: "Acesso à nossa biblioteca de jogos"
       setup_and_breakdown: "Montagem e desmontagem do sistema"
+      the_best_games: "Os Jogos de Maior Sucesso!"
+      these_are_some: "Estes são alguns dos jogos mais populares a nível mundial para o HTC Vive. Poderá jogá-los com o The Lisbon VR!"
 
       questions: "Dúvidas?"
       get_in_touch: "Contactar-nos"
