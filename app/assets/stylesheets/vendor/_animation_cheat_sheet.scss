@@ -433,16 +433,21 @@ fadeIn
 }
 
 @-webkit-keyframes fadeIn {
+  // 0% {
+  //   -webkit-transform: scale(0);
+  //   opacity: 0.0;
+  // }
+  // 60% {
+  //   -webkit-transform: scale(1.1);
+  // }
+  // 80% {
+  //   -webkit-transform: scale(0.9);
+  //   opacity: 1;
+  // }
+  // Just making it a bit more subtle -Ciaran
   0% {
-    -webkit-transform: scale(0);
-    opacity: 0.0;
-  }
-  60% {
-    -webkit-transform: scale(1.1);
-  }
-  80% {
-    -webkit-transform: scale(0.9);
-    opacity: 1;
+    transform: scale(0.9);
+    opacity: 0;
   }
   100% {
     -webkit-transform: scale(1);
