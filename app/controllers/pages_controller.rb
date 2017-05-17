@@ -11,7 +11,13 @@ class PagesController < ApplicationController
   end
 
   def account
-    @my_slots = Slot.where(user_id: current_user.id)
+    my_slots = Slot.where(user_id: current_user.id)
+    my_slots = my_slots.sort_by {|slot| slot.event.date}
+    @slots_by_events = {}
+    my_slots.each do |slot|
+      @slots_by_events[slot.event.id] = [] if !@slots_by_events.has_key?(slot.event.id)
+      @slots_by_events[slot.event.id] << slot
+    end
   end
 
   def cancel_session

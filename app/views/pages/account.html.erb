@@ -1,23 +1,72 @@
-<div class="container">
+<div class="wrapper">
   <div class="padded">
-    <% if @my_slots.count == 0 %>
-      <div class="text-center">
-        <p>You haven't booked any sessions yet.</p>
-        <%= link_to t(".book_a_session"), events_path, class: "btn-brand" %>
+    <div class="container">
+      <div class="row">
+        <h2 class="text-center"><%= t('.main_title') %></h2>
       </div>
-    <% else %>
-      <h2 class="text-center"><%= t('.main_title') %></h2>
-      <% @my_slots.each do |slot| %>
+      <% if @slots_by_events.empty? %>
         <div class="slightly-padded">
-          <h4><%= slot.event.date.strftime("%d-%m-%Y") %></h4>
-          <h4><%= slot.start_time.strftime("%H:%M") %> (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>) </h4>
-          <p><%= slot.event.name %></p>
-          <p><%= t('.location') %>: <%= slot.event.location %></p>
-          <p><%= t('.price') %>: € <%= '%.2f' % slot.event.price_per_slot %></p>
-          <%= link_to t(".cancel_session"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous" %>
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <p class="text-center"><%= t('.no_sessions_booked_yet') %></p>
+          </div>
         </div>
-      <% end %>
-      <p><%= t('.how_to_pay') %></p>
-    <% end %>
-  </div>
+        <div class="slightly-padded">
+          <%= link_to t(".go_to_events"), events_path, class: "btn-brand" %>
+        </div>
+      <% else %>
+      <div class="slightly-padded">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <p class="text-center"><%= t('.how_to_pay') %></p>
+        </div>
+      </div>
+      <% @slots_by_events.each_pair do |event_id, array_of_slots| %>
+      <% event = Event.find(event_id) %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+          <div class="event-card">
+            <div class="event-details">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h3 class="no-top-margin"><%= event.name %></h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <p>
+                    <%= event.date.strftime("%d-%m-%Y") %>
+                    <br /><%= t('.location') %>: <%= event.location %>
+                  </p>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                  <p><%= t('.price_per_slot') %>: <%= t('.price', number: '%.2f' % event.price_per_slot) %>
+                    <br><%= t('.slots_booked') %>: <%= array_of_slots.count %>
+                    <br><%= t('.total_price') %>: <%= t('.price', number: '%.2f' % (event.price_per_slot * array_of_slots.count)) %></p>
+                  </div>
+                </div>
+              </div>
+              <div class="slot-details">
+                <% array_of_slots.each do |slot| %>
+                <div class="row">
+                  <hr class="no-margin">
+                  <div class="slot-row">
+                    <div class="col-xs-4">
+                      <%= slot.start_time.strftime("%H:%M") %>
+                    </div>
+                    <div class="col-xs-4">
+                      (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>) </span>
+                    </div>
+                    <div class="col-xs-4">
+                      <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous" %>
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
 </div>
