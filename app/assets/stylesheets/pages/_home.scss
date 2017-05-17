@@ -2,3 +2,9 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
+
+.homepage-logo {
+  height: 45vh;
+  padding-top: 70px;
+}
+@media(min-width:768px){.homepage-logo{height: 45vh;}}
