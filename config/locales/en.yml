@@ -28,7 +28,7 @@ en:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
-      main_button: "Book a session"
+      main_button: "Find out more"
     about:
       questions: "Questions?"
       get_in_touch: "Get in touch"

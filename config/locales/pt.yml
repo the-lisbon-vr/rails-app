@@ -28,7 +28,7 @@ pt:
     # Home page
     home:
       main_header: "Dive into Virtual Reality"
-      main_button: "Marcar Sessão"
+      main_button: "Saber mais"
     about:
       questions: "Dúvidas?"
       get_in_touch: "Contactar-nos"
