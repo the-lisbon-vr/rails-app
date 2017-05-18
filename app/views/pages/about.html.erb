@@ -10,7 +10,7 @@
     </div>
     <!-- show small video on MOBILE: -->
     <div class="video-container hidden-sm hidden-md hidden-lg text-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/qYfNzhLXYGc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen id="video-valve-demo"></iframe>
+      <iframe width="280" height="158" src="https://www.youtube.com/embed/qYfNzhLXYGc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen id="video-valve-demo"></iframe>
     </div>
     <!-- show regular sized video on tablet and DESKTOP: -->
     <div class="video-container hidden-xs text-center">
@@ -20,8 +20,8 @@
 </div>
 
 <!-- Our services: -->
-<div id="banner-services" class="wrapper padded">
-  <div id="banner-services-content">
+<div class="banner-services wrapper padded">
+  <div class="banner-services-content">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -61,8 +61,8 @@
   </div>
 </div>
 
-<div id="banner-services" class="wrapper padded">
-  <div id="banner-services-content">
+<div class="banner-services wrapper padded">
+  <div class="banner-services-content">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -141,16 +141,17 @@
     <div class="padded text-center">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-md-3 col-md-offset-3">
-            <h3><%= t(".questions") %></h3>
-            <div class="slightly-padded">
-              <%= link_to t(".get_in_touch"), contact_path, class: "btn-brand" %>
-            </div>
-          </div>
-          <div class="col-xs-6 col-md-3">
+          <div class="col-xs-12 col-md-3 col-md-offset-3">
             <h3><%= t(".want_to_play") %></h3>
             <div class="slightly-padded">
               <%= link_to t(".book_a_session"), events_path, class: "btn-brand" %>
+            </div>
+            <hr class="page-divider-white hidden-md hidden-lg">
+          </div>
+          <div class="col-xs-12 col-md-3">
+            <h3><%= t(".questions") %></h3>
+            <div class="slightly-padded">
+              <%= link_to t(".get_in_touch"), contact_path, class: "btn-brand" %>
             </div>
           </div>
         </div>
