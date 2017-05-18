@@ -73,7 +73,7 @@ en:
       price_per_slot: "Price per slot"
       total_price: "Total"
       slots_booked: "Slots booked"
-      cancel_slot: "Cancel slot"
+      cancel_slot: "Cancel"
       how_to_pay: "Please pay in cash when you arrive at the venue. In case you are not able to come, please let us know so that other people can book."
     contact:
       contacts_title: "Contacts and Location"

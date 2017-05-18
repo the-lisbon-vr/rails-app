@@ -72,7 +72,7 @@ pt:
       price_per_slot: "Price per slot"
       slots_booked: "Slots booked"
       total_price: "Total"
-      cancel_slot: "Cancel slot"
+      cancel_slot: "Cancel"
       how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
     contact:
       contacts_title: "Contactos e Localização"
