@@ -89,7 +89,7 @@ pt:
   events:
     index:
       main_title: "Próximos Eventos"
-      show_button: "Ver"
+      show_button: "Agendar"
       location: "Local"
       date: "Data"
       time: "Hora"
