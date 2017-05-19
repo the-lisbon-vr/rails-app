@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_many :slots
   # Include default devise modules. Others available are:
@@ -38,8 +38,8 @@ class User < ApplicationRecord
 
   private
 
-  # def send_welcome_email
-  #   UserMailer.welcome(self).deliver_now
-  # end
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 
 end
