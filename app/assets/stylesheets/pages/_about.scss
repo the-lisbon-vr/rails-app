@@ -60,6 +60,21 @@
   border: 1px solid white;
   padding: 1.5em;
   margin: 1.5em 0;
+  height: 100%;
+}
+.row-height {
+  height: 100%;
+  width: 100%;
+}
+@media(min-width:992px){.row-height{display:table; table-layout:fixed;}}
+
+@media(min-width:992px){.col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}}
+.col-top {
+  vertical-align: top;
 }
 
 .contacts{
