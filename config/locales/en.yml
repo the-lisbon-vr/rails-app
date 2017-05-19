@@ -98,7 +98,7 @@ en:
       minutes: "minutes"
       description: "Description"
       slots_remaining: "Slots remaining"
-      no_events: "There are currently no events planned. If you would like us to come to you for a private event, please get in touch."
+      no_events: "There are currently no events planned. You can still play though, just contact us!"
       get_in_touch: "Get in touch"
 
     show:

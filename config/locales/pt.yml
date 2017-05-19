@@ -97,8 +97,8 @@ pt:
       minutes: "minutos"
       description: "Descrição do evento"
       slots_remaining: "Vagas restantes"
-      no_events: "There are currently no events planned. If you would like us to come to you for a private event, please get in touch."
-      get_in_touch: "Contactar-nos"
+      no_events: "Não existem eventos agendados. Contudo pode vir jogar, basta contactar-nos!"
+      get_in_touch: "Contacte-nos"
 
     show:
       book_this_session: "Reservar esta sessão"
