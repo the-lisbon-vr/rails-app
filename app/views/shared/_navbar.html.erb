@@ -1,7 +1,8 @@
 <!-- Logo -->
 <%= link_to root_path, class: "navbar-tlvr-brand" do %>
   <% if !current_page?(root_path) %>
-    <%= image_tag "thelisbonvr-logo-white-transparent.png" %>
+    <%= image_tag "thelisbonvr-logo-white-transparent.png", class: "hidden-xs hidden-sm" %>
+    <%= image_tag "thelisbonvr-logo-no-website-white.png", class: "hidden-md hidden-lg" %>
   <% end %>
 <% end %>
 
