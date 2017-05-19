@@ -23,7 +23,7 @@
   font-size: 20px;
   border-radius: 10px;
   color: white;
-  background-color: rgba(255,255,255,0);
+  background-color: $green-transparent;
   transition: all ease 0.2s;
 }
 
@@ -53,7 +53,7 @@
 
 .btn-brand-with-bg {
   padding: 8px 20px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: $green-transparent;
   border-radius: 10px;
   border: solid white 1.5px;
   color: white;
@@ -62,8 +62,7 @@
   transition: all 0.2s ease;
 }
 
-.btn-brand-with-bg:hover,
-.btn-brand-with-bg:visited {
+.btn-brand-with-bg:hover{
   border-color: white;
   color: white;
   background-color: rgba(255, 255, 255, 0.5);
@@ -113,7 +112,7 @@
 }
 
 .btn-timeslot {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: $green-transparent;
 }
 
 .btn-timeslot-booked{
