@@ -45,6 +45,9 @@
   font-size: 85%;
 }
 
+@media(max-width:991px){h2{font-size:32px !important}}
+@media(min-width:992px){h2{font-size:35px !important}}
+
 // Backgrounds
 .bg-black {
   background: #4a4a4a;
