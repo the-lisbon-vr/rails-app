@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170516094447) do
     t.integer  "max_bookings"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.float    "price_per_slot"
+    t.float    "price_per_slot",                    null: false
     t.string   "name"
     t.time     "start_time",                        null: false
     t.time     "end_time",                          null: false
@@ -74,6 +74,9 @@ ActiveRecord::Schema.define(version: 20170516094447) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "provider"
@@ -83,6 +86,7 @@ ActiveRecord::Schema.define(version: 20170516094447) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
