@@ -22,11 +22,12 @@
 
 /* Navbar logo */
 .navbar-tlvr-brand img {
-  height: 100px;
+  height: 66px;
   position: absolute;
   top: 15px;
   left: 15px;
 }
+@media(min-width:992px){.navbar-tlvr-brand img{height: 100px;}}
 
 /* Navbar right section (with form, links, button) */
 .navbar-tlvr-right {
