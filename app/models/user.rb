@@ -30,10 +30,16 @@ class User < ApplicationRecord
     return user
   end
 
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_now
+  end
+
+
   private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
 
 end
