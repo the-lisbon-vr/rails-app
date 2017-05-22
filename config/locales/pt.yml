@@ -107,7 +107,7 @@ pt:
       date: "Dia"
       description: "Descrição"
       location: "Local"
-      play_time_per_session: "Time per session (change in pt.yml)"
+      play_time_per_session: "Duração da sessão"
       minutes: "mins"
       click_to_book: "Click a slot to book it"
       player: "Jogador %{number}"
