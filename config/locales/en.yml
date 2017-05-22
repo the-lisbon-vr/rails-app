@@ -22,7 +22,7 @@ en:
       what_is_vr: "What is VR?"
       contact: "Contact"
       see_events: "Upcoming events"
-      my_account: "My account"
+      my_account: "My Bookings"
 
   pages:
     # Home page
@@ -110,6 +110,8 @@ en:
       location: "Location"
       play_time_per_session: "Time per session"
       minutes: "mins"
-      click_to_book: "Click a slot to book it"
+      sessions: "Sessions"
+      click_to_book: "Click a slot to book it. Player 1 and Player 2 play at the same time."
+      see_booked_sessions: "See my bookings"
       player: "Player %{number}"
       your_slot: "Your slot"

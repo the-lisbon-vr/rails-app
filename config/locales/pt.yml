@@ -22,7 +22,7 @@ pt:
       what_is_vr: "O que é VR?"
       contact: "Contactos"
       see_events: "Próximos eventos"
-      my_account: "A minha conta"
+      my_account: "As Minhas Reservas"
 
   pages:
     # Home page
@@ -63,7 +63,7 @@ pt:
       want_to_play: "Quer jogar?"
       book_a_session: "Marcar sessão"
     account:
-      no_sessions_booked_yet: "You haven't booked any sessions yet."
+      no_sessions_booked_yet: "Ainda não fez nenhuma reserva."
       go_to_events: "Ver eventos"
       main_title: "As Minhas Sessões"
       minutes: "minutos"
@@ -107,8 +107,10 @@ pt:
       date: "Dia"
       description: "Descrição"
       location: "Local"
-      play_time_per_session: "Time per session (change in pt.yml)"
+      play_time_per_session: "Duração da sessão"
       minutes: "mins"
-      click_to_book: "Click a slot to book it"
+      sessions: "Sessões"
+      click_to_book: "Clique numa sessão para a reservar. O jogador 1 e o jogador 2 jogam em simultâneo."
+      see_booked_sessions: "Ver as minhas reservas"
       player: "Jogador %{number}"
       your_slot: "Your slot"

@@ -25,9 +25,9 @@
   <!-- Language selector -->
   <div class="navbar-tlvr-lang-border">
     <% if I18n.locale == :pt %>
-    <%= link_to 'EN', root_path(locale: :en), class: "navbar-tlvr-lang-change" %>
+    <%= link_to 'EN', url_for(locale: :en), class: "navbar-tlvr-lang-change" %>
     <% else %>
-    <%= link_to 'PT', root_path(locale: :pt), class: "navbar-tlvr-lang-change" %>
+    <%= link_to 'PT', url_for(locale: :pt), class: "navbar-tlvr-lang-change" %>
     <% end %>
   </div>
 </div>
