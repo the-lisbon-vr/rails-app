@@ -23,7 +23,7 @@ module Casein
 
     def create
       @event = Event.new event_params
-      @event.max_bookings = ((@event.end_time - @event.start_time) / 60) / @event.slot_duration_minutes
+      set_max_bookings
       @event.number_of_players = 2 if @event.number_of_players.nil?
       if @event.save
         # create empty slots to let the users book:
@@ -41,8 +41,18 @@ module Casein
 
       @event = Event.find params[:id]
 
+      check_change_in_slot_duration(event_params)
+      if @slot_duration_has_changed
+        delete_the_old_slots # deletes the old slots, but keeps a record of ones that had been booked
+        set_max_bookings
+      end
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
+        if @slot_duration_has_changed
+          create_slots
+          flash[:notice] = 'New slots were created.'
+          flash[:warning] = list_of_users_who_had_booked_slots if !@already_booked_slots.empty?
+        end
         redirect_to casein_events_path
       else
         flash.now[:warning] = 'There were problems when trying to update this event'
@@ -64,6 +74,10 @@ module Casein
       params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :number_of_players)
     end
 
+    def set_max_bookings
+      @event.max_bookings = (((@event.end_time - @event.start_time) / 60) / @event.slot_duration_minutes).floor
+    end
+
     def create_slots
       @event.number_of_players.times do
         slot_start_time = @event.start_time
@@ -77,5 +91,26 @@ module Casein
       end
     end
 
+    def check_change_in_slot_duration(event_params)
+      # making an event to compare the data, but it won't be actually be saved, so it's fine
+      old_event = Event.new(event_params)
+      @slot_duration_has_changed = @event.slot_duration_minutes != old_event.slot_duration_minutes
+    end
+
+    def delete_the_old_slots
+      @already_booked_slots = []
+      Slot.where(event: @event).each do |slot|
+        @already_booked_slots << slot if !slot.user_id.nil?
+        slot.destroy
+      end
+    end
+
+    def list_of_users_who_had_booked_slots
+      str = "The following users had their bookings deleted: "
+      @already_booked_slots.each do |slot|
+        str += "// [User ID: #{slot.user_id}. Session start: #{slot.start_time.to_s(:time)}] "
+      end
+      str
+    end
   end
 end
