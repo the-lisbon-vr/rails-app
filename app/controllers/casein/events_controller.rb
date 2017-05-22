@@ -42,13 +42,14 @@ module Casein
       @event = Event.find params[:id]
 
       check_change_in_slot_duration(event_params)
-      if @slot_duration_has_changed
-        delete_the_old_slots # deletes the old slots, but keeps a record of ones that had been booked
-        set_max_bookings
-      end
+      # if @slot_duration_has_changed
+      # end
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
         if @slot_duration_has_changed
+          delete_the_old_slots # deletes the old slots, but keeps a record of ones that had been booked
+          set_max_bookings
+          @event.save
           create_slots
           flash[:notice] = 'Event has been updated, and new slots were created.'
           flash[:warning] = list_of_users_who_had_booked_slots if !@already_booked_slots.empty?
@@ -76,7 +77,7 @@ module Casein
 
     def set_max_bookings
       total_session_time = @event.slot_duration_minutes + @event.time_between_slots
-      @event.max_bookings = (((@event.end_time - @event.start_time) / 60) / total_session_time).floor
+      @event.max_bookings = (((@event.end_time.to_i - @event.start_time.to_i) / 60) / total_session_time).floor
     end
 
     def create_slots
@@ -96,7 +97,7 @@ module Casein
       old_event = Event.new(event_params)
       time_between_changed = @event.time_between_slots != old_event.time_between_slots
       duration_changed = @event.slot_duration_minutes != old_event.slot_duration_minutes
-      @slot_duration_has_changed = time_between_changed || duration_changed
+      @slot_duration_has_changed = (time_between_changed || duration_changed)
     end
 
     def delete_the_old_slots
