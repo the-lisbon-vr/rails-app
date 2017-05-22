@@ -10,9 +10,7 @@
             <p class="text-center"><%= t('.no_sessions_booked_yet') %></p>
           </div>
         </div>
-        <div class="slightly-padded text-center">
-          <%= link_to t(".go_to_events"), events_path, class: "btn-brand" %>
-        </div>
+
       <% else %>
         <div class="slightly-padded">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2">
@@ -71,7 +69,12 @@
             </div>
           </div>
         <% end %>
+
+
       <% end %>
+      <div class="slightly-padded text-center">
+        <%= link_to t(".go_to_events"), events_path, class: "btn-brand" %>
+      </div>
     </div>
   </div>
 </div>

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
 
   root to: 'pages#home'
-  scope '(:locale)', locale: /en/ do
+  scope '(:locale)', locale: /pt|en/ do
     root to: 'pages#home'
 
     get 'about', to: 'pages#about'
