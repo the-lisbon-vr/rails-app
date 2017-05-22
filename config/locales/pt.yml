@@ -109,6 +109,7 @@ pt:
       location: "Local"
       play_time_per_session: "Duração da sessão"
       minutes: "mins"
-      click_to_book: "Click a slot to book it"
+      sessions: "Sessões"
+      click_to_book: "Click numa sessão para a reservar. O jogador 1 e o jogador 2 jogam em simultâneo."
       player: "Jogador %{number}"
       your_slot: "Your slot"
