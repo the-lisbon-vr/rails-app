@@ -4,9 +4,11 @@
 <div class="row">
   <div class="col-lg-6">
     <%= casein_text_field f, f.object, :name %>
-    <%= casein_date_select f, f.object, :date %>
+    <%= casein_text_field f, f.object, :location %>
+    <%= casein_text_area_big f, f.object, :description %>
   </div>
   <div class="col-lg-6">
+    <%= casein_date_select f, f.object, :date %>
     <%= casein_time_select f, f.object, :start_time, options = {:default => {:hour => '11', :minute => '00'}}%>
     <%= casein_time_select f, f.object, :end_time, options = {:default => {:hour => '17', :minute => '00'}} %>
   </div>
@@ -14,13 +16,12 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <%= casein_text_field f, f.object, :location %>
-    <%= casein_text_area_big f, f.object, :description %>
+    <%= casein_text_field f, f.object, :number_of_players %>
+    <%= casein_text_field f, f.object, :price_per_slot %>
   </div>
   <div class="col-lg-6">
     <%= casein_text_field f, f.object, :slot_duration_minutes %>
-    <%= casein_text_field f, f.object, :number_of_players %>
-    <%= casein_text_field f, f.object, :price_per_slot %>
+    <%= casein_text_field f, f.object, :time_between_slots %>
   </div>
 </div>
 
@@ -28,6 +29,5 @@
   <div class="col-lg-6">
   </div>
   <div class="col-lg-6">
-
   </div>
 </div>

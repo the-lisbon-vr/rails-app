@@ -50,7 +50,7 @@ module Casein
         flash[:notice] = 'Event has been updated'
         if @slot_duration_has_changed
           create_slots
-          flash[:notice] = 'New slots were created.'
+          flash[:notice] = 'Event has been updated, and new slots were created.'
           flash[:warning] = list_of_users_who_had_booked_slots if !@already_booked_slots.empty?
         end
         redirect_to casein_events_path
@@ -71,11 +71,12 @@ module Casein
     private
 
     def event_params
-      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :number_of_players)
+      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players)
     end
 
     def set_max_bookings
-      @event.max_bookings = (((@event.end_time - @event.start_time) / 60) / @event.slot_duration_minutes).floor
+      total_session_time = @event.slot_duration_minutes + @event.time_between_slots
+      @event.max_bookings = (((@event.end_time - @event.start_time) / 60) / total_session_time).floor
     end
 
     def create_slots
@@ -83,7 +84,7 @@ module Casein
         slot_start_time = @event.start_time
         # event_slot_duration will be added to slot_start_time to set each slot's start_time
         # -- it's "* 60" because times are updated in seconds
-        event_slot_duration = @event.slot_duration_minutes * 60
+        event_slot_duration = (@event.slot_duration_minutes + @event.time_between_slots) * 60
         @event.max_bookings.times do
           Slot.create(event: @event, start_time: slot_start_time)
           slot_start_time += event_slot_duration
@@ -92,9 +93,10 @@ module Casein
     end
 
     def check_change_in_slot_duration(event_params)
-      # making an event to compare the data, but it won't be actually be saved, so it's fine
       old_event = Event.new(event_params)
-      @slot_duration_has_changed = @event.slot_duration_minutes != old_event.slot_duration_minutes
+      time_between_changed = @event.time_between_slots != old_event.time_between_slots
+      duration_changed = @event.slot_duration_minutes != old_event.slot_duration_minutes
+      @slot_duration_has_changed = time_between_changed || duration_changed
     end
 
     def delete_the_old_slots
