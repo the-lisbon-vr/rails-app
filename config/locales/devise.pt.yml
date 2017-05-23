@@ -51,11 +51,12 @@ pt:
         password: "Palavra-passe"
         characters_minimum: "caracteres no mínimo"
         password_confirmation: "Confirmação da palavra-passe"
-
     sessions:
       signed_in: "Autenticação efectuada com sucesso."
       signed_out: "Saíu da sessão com sucesso."
       already_signed_out: "Saíu da sessão com sucesso."
+      new:
+        password: "Palavra-passe"
     shared:
       facebook_login:
         sign_in: "Entrar com"
