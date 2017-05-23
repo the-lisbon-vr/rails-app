@@ -4,7 +4,7 @@
   font-weight: bold;
   padding: 11px 15px;
   border-radius: 10px;
-  border: 1.5px solid $facebook-blue;
+  border: 1px solid $facebook-blue;
   background-color: rgba(77, 117, 198, 0.5);
   color: white;
   transition: all 0.2s ease;
@@ -18,7 +18,7 @@
 }
 
 .btn-home-page-large {
-  border: 2px white solid;
+  border: 1px white solid;
   padding: 11px 32px;
   font-size: 20px;
   border-radius: 10px;
@@ -55,7 +55,7 @@
   padding: 8px 20px;
   background-color: $green-transparent;
   border-radius: 10px;
-  border: solid white 1.5px;
+  border: 1px solid white;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -67,6 +67,7 @@
   color: white;
   background-color: $green-hover;
   transition: all 0.2s ease;
+  text-decoration: none;
   text-shadow: 0 0 2px $brand-color;
 }
 
@@ -137,7 +138,7 @@
   margin: 0;
 }
 
-.btn-event {
+.btn-event-card-top {
   border-radius: 0 0 0 10px;
   border-width: 0 0 1px 1px;
   float: right;
@@ -145,4 +146,15 @@
   position: relative;
   top: -27px;
   right: -27px;
+}
+
+.btn-event-card-bottom {
+  border-radius: 5px 5px 0 0;
+  border-width: 1px 1px 0 1px;
+  float: left;
+  padding: 5px 20px;
+  position: relative;
+  bottom: 6px;
+  text-align: center;
+  width: 100%;
 }

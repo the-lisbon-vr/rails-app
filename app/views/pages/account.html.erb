@@ -52,7 +52,7 @@
                         <div class="col-xs-7">
                           <span class="pull-left">
                             <%= slot.start_time.strftime("%H:%M") %>&ensp;
-                            (<%= slot.event.slot_duration_minutes %> <%= t('.minutes') %>)
+                            (<%= slot.event.slot_duration_minutes %>&nbsp;<%= t('.minutes') %>)
                           </span>
                         </div>
                         <div class="col-xs-5">
@@ -61,10 +61,11 @@
                       </div>
                     </div>
                   <% end %>
+                  <div class="row">
+                    <hr class="no-top-margin bottom-margin">
+                  </div>
                 </div>
-                <div>
-                  <%= link_to t(".book_more_sessions"), event_path(event_id), class: "navbar-tlvr-link action" %>
-                </div>
+                <%= link_to t(".book_more_sessions"), event_path(event_id), class: "btn-brand-with-bg btn-event-card-bottom" %>
               </div>
             </div>
           </div>
@@ -72,8 +73,8 @@
 
 
       <% end %>
-      <div class="slightly-padded text-center">
-        <%= link_to t(".go_to_events"), events_path, class: "btn-brand" %>
+      <div class="slightly-padded top-margin text-center">
+        <%= link_to t(".go_to_events"), events_path, class: "btn-brand-with-bg" %>
       </div>
     </div>
   </div>
