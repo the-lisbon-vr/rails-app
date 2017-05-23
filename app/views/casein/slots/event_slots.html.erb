@@ -1,0 +1,9 @@
+<h2>Slots for <%= "#{@event.name} - #{@event.date.to_s(:short)}" %></h2>
+
+<%= render partial: 'casein/slots/table', locals: { slots: @slots } %>
+
+<%= content_for :sidebar do %>
+
+<li><%= link_to "#{casein_show_icon "th-list"}Back to events list".html_safe, casein_events_path %></li>
+
+<% end %>

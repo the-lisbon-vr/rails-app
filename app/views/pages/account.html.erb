@@ -45,6 +45,7 @@
                   </div>
                 </div>
                 <div class="slot-details">
+                  <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
                   <% array_of_slots.each do |slot| %>
                     <div class="row">
                       <hr class="no-margin">

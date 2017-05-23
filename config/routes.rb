@@ -2,8 +2,12 @@ Rails.application.routes.draw do
 
   #Casein routes
   namespace :casein do
+    resources :slots
+    resources :users do
+      get 'slots', to: 'slots#user_slots'
+    end
     resources :events do
-      resources :slots
+      get 'slots', to: 'slots#event_slots'
     end
   end
 
