@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     slot = Slot.find(params[:slot_id])
     if slot.user == current_user
       slot.user_id = nil
-      slot.save ? flash[:notice] = "Session cancelled" : flash[:alert] = "Oops, something went wrong..."
+      slot.save ? flash[:notice] = t(".session_cancelled") : flash[:alert] = t(".something_went_wrong")
       redirect_to account_path
     else
       flash[:alert] = "That's not your slot"

@@ -28,7 +28,7 @@ number_of_players = [2, 2, 4, 2, 4]
                     description: descriptions[i],
                     slot_duration_minutes: 20,
                     number_of_players: number_of_players[i],
-                    price_per_slot: 15)
+                    price_per_slot: 5)
   event.max_bookings = ((event.end_time - event.start_time) / 60) / event.slot_duration_minutes
   event.save
 

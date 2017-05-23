@@ -18,16 +18,14 @@
         <h3><%= t(".sessions") %>:</h3>
         <p><%= t(".click_to_book") %></p>
       </div>
-      <div class="col-xs-12">
-          <%= link_to t(".see_booked_sessions"), account_path, class: "navbar-tlvr-link action" %>
-      </div>
+
 
       <%# This counter is for iterating through each of the slots %>
       <% i = 0 %>
 
       <%# This creates one card per timeslot %>
       <% @event.max_bookings.times do %>
-        <div class="col-xs-4 col-sm-2">
+        <div class="col-xs-4 col-md-2">
           <div class="timeslot-card">
             <h5><%= @slots[i].start_time.to_s(:time) %></h5>
 
@@ -42,7 +40,7 @@
                 <% end %>
               <% elsif @slots[i].user == current_user %>
                 <div class="btn-timeslot-booked text-center">
-                  <span class="btn-booked"><%= t(".your_slot") %></span>
+                  <span class="btn-booked"><%= t(".my_slot") %></span>
                 </div>
               <% else %>
                 <div class="btn-timeslot-booked text-center">
@@ -60,8 +58,11 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <%= link_to t(".back_button"), events_path, class: "btn-brand"%>
+    <div class="col-xs-6">
+      <%= link_to t(".back_button"), events_path, class: "btn-brand pull-left"%>
+    </div>
+    <div class="col-xs-6">
+      <%= link_to t(".see_booked_sessions"), account_path, class: "btn-brand pull-right" %>
     </div>
   </div>
 </div>

@@ -21,7 +21,7 @@ pt:
       sign_out: "Sair"
       what_is_vr: "O que é VR?"
       contact: "Contactos"
-      see_events: "Próximos eventos"
+      see_events: "Próximos Eventos"
       my_account: "As Minhas Reservas"
 
   pages:
@@ -57,11 +57,11 @@ pt:
       setup_and_breakdown: "Montagem e desmontagem do sistema"
       the_best_games: "Os Jogos de Maior Sucesso!"
       these_are_some: "Estes são alguns dos jogos mais populares a nível mundial para o HTC Vive. Poderá jogá-los com o The Lisbon VR!"
-
       questions: "Dúvidas?"
       get_in_touch: "Contactar-nos"
       want_to_play: "Quer jogar?"
       book_a_session: "Marcar sessão"
+
     account:
       no_sessions_booked_yet: "Ainda não fez nenhuma reserva."
       go_to_events: "Ver eventos"
@@ -72,8 +72,14 @@ pt:
       price_per_slot: "Price per slot"
       slots_booked: "Slots booked"
       total_price: "Total"
-      cancel_slot: "Cancel"
+      cancel_slot: "Cancelar"
       how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
+      book_more_sessions: "Reservar mais sessões"
+
+    cancel_session:
+      session_cancelled: "Sessão cancelada"
+      something_went_wrong: "Houve um problema. Tente de novo"
+
     contact:
       contacts_title: "Contactos e Localização"
       our_address: "Morada:"
@@ -113,4 +119,10 @@ pt:
       click_to_book: "Clique numa sessão para a reservar. O jogador 1 e o jogador 2 jogam em simultâneo."
       see_booked_sessions: "Ver as minhas reservas"
       player: "Jogador %{number}"
-      your_slot: "Your slot"
+      my_slot: "Esta é minha"
+
+  slots:
+    update:
+      session_booked: "Sessão reservada"
+      must_be_signed_in_to_book: "You must be signed in to book a slot"
+      session_already_booked: "This slot has already been booked"

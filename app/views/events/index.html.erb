@@ -13,11 +13,11 @@
         </div>
       </div>
     <% else %>
-      <div class="row">
-        <% @events.each do |event| %>
-          <div class="col-xs-12 col-sm-6">
+      <% @events.each do |event| %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="event-card">
-              <%= link_to t(".show_button"), event_path(event), class: "btn btn-brand-with-bg btn-event" %>
+              <%= link_to t(".show_button"), event_path(event), class: "btn btn-brand-with-bg btn-event-card-top" %>
               <h4><%= event.name %></h4>
               <p class="smaller-text">
                 <%= event.location %><br />
@@ -27,8 +27,8 @@
               <p><%= event.description %></p>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

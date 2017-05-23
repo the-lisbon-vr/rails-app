@@ -21,7 +21,7 @@ en:
       sign_out: "Log out"
       what_is_vr: "What is VR?"
       contact: "Contact"
-      see_events: "Upcoming events"
+      see_events: "Upcoming Events"
       my_account: "My Bookings"
 
   pages:
@@ -57,12 +57,11 @@ en:
       setup_and_breakdown: "Setup and breakdown by a staff member"
       the_best_games: "The Best Games!"
       these_are_some: "These are some of the best VR games out there. You can play them at The Lisbon VR!"
-
-
       questions: "Questions?"
       get_in_touch: "Get in touch"
       want_to_play: "Want to play?"
       book_a_session: "Book a session"
+
     account:
       no_sessions_booked_yet: "You haven't booked any sessions yet."
       go_to_events: "See events"
@@ -75,6 +74,12 @@ en:
       slots_booked: "Slots booked"
       cancel_slot: "Cancel"
       how_to_pay: "Please pay in cash when you arrive at the venue. In case you are not able to come, please let us know so that other people can book."
+      book_more_sessions: "Book more sessions"
+
+    cancel_session:
+      session_cancelled: "Session cancelled"
+      something_went_wrong: "Oops, something went wrong. Please refresh and try again"
+
     contact:
       contacts_title: "Contacts and Location"
       our_address: "Address:"
@@ -114,4 +119,10 @@ en:
       click_to_book: "Click a slot to book it. Player 1 and Player 2 play at the same time."
       see_booked_sessions: "See my bookings"
       player: "Player %{number}"
-      your_slot: "Your slot"
+      my_slot: "My slot"
+
+  slots:
+    update:
+      session_booked: "Sessão reservada"
+      must_be_signed_in_to_book: "You must be signed in to book a slot"
+      session_already_booked: "This slot has already been booked"
