@@ -12,6 +12,6 @@ class EventsController < ApplicationController
   private
 
   def list_slots
-    Slot.where(event_id: @event.id).order(:start_time)
+    Slot.where(event_id: @event.id).order(:start_time).order(:created_at)
   end
 end
