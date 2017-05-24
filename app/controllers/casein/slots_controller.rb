@@ -14,6 +14,8 @@ module Casein
     def show
       @casein_page_title = 'View slot'
       @slot = Slot.find params[:id]
+      @event = Event.find @slot.event_id
+      @user = User.find @slot.user_id
     end
 
     def user_slots

@@ -16,18 +16,19 @@
 
   <% events.each do |event| %>
     <tr>
-      <td><%= casein_table_cell_link event.date.strftime("%d-%-m-%Y"), casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link event.name, casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link event.location, casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link event.description, casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link "#{event.max_bookings} (x#{event.number_of_players} players)", casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link "#{event.slot_duration_minutes + event.time_between_slots} mins (#{event.slot_duration_minutes} play / #{event.time_between_slots} handover)", casein_event_slots_path(event) %></td>
-      <td><%= casein_table_cell_link event.price_per_slot, casein_event_slots_path(event) %></td>
+      <td><%= casein_table_cell_link event.date.strftime("%d-%-m-%Y"), "#" %></td>
+      <td><%= casein_table_cell_link event.name, "#" %></td>
+      <td><%= casein_table_cell_link event.location, "#" %></td>
+      <td><%= casein_table_cell_link event.description, "#" %></td>
+      <td><%= casein_table_cell_link "#{event.max_bookings} (x#{event.number_of_players} players)", "#" %></td>
+      <td><%= casein_table_cell_link "#{event.slot_duration_minutes + event.time_between_slots} mins (#{event.slot_duration_minutes} play / #{event.time_between_slots} handover)", "#" %></td>
+      <td><%= casein_table_cell_link event.price_per_slot, "#" %></td>
+      <td>
+        <%= link_to("See Slots",  casein_event_slots_path(event), class: "btn btn-default btn-info") %>
+        <%= link_to("Edit Event", casein_event_path(event), class: "btn btn-default") %>
+      </td>
       <td class="delete">
         <%= link_to(casein_show_row_icon("trash"), casein_event_path(event), method: :delete, data: { confirm: "Are you sure you want to delete this event?" }) %>
-      </td>
-      <td>
-        <%= link_to("edit", casein_event_path(event)) %>
       </td>
     </tr>
   <% end %>

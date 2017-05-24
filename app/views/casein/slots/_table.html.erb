@@ -16,15 +16,27 @@
   <% slots.each do |slot| %>
     <tr>
       <% if !slot.user.nil? %>
-        <td><%= casein_table_cell_link "ID #{slot.user_id}: #{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id) %></td>
+        <td>
+          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
+        </td>
+      <% else %>
+        <td>-open-</td>
+      <% end %>
+      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", "#" %></td>
+      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), "#" %></td>
+      <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", "#" %></td>
+      <td><%= casein_table_cell_link slot.start_time.to_s(:time), "#" %></td>
+
+      <!-- show payment information only if slot is booked -->
+      <% if !slot.user.nil? %>
+        <td><%= casein_table_cell_link !slot.is_payed ? "Not Payed" : "Paid", casein_slot_path(slot) %></td>
+        <td>
+          <%= link_to("payment", casein_slot_path(slot), class: "btn btn-default") %>
+        </td>
       <% else %>
         <td>--</td>
+        <td>--</td>
       <% end %>
-      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", casein_event_path(slot.event) %></td>
-      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), casein_event_path(slot.event) %></td>
-      <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", casein_event_path(slot.event) %></td>
-      <td><%= casein_table_cell_link slot.start_time.to_s(:time), casein_slot_path(slot) %></td>
-      <td><%= casein_table_cell_link slot.is_payed, casein_slot_path(slot) %></td>
       <td class="delete">
         <%= link_to(casein_show_row_icon("trash"), casein_slot_path(slot), method: :delete, data: { confirm: "Are you sure you want to delete this slot?" }) %>
       </td>
