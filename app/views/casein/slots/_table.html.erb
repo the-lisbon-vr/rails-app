@@ -6,6 +6,7 @@
       <th><%= casein_sort_link "User", :user_id %></th>
       <th><%= casein_sort_link "Event", :event_id %></th>
       <th>Event date</th>
+      <th>Session length</th>
       <th><%= casein_sort_link "Slot start time", :start_time %></th>
       <th><%= casein_sort_link "Paid?", :is_payed %></th>
       <th>&nbsp;</th>
@@ -19,8 +20,9 @@
       <% else %>
         <td>--</td>
       <% end %>
-      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", casein_event_path(slot.event.id) %></td>
-      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), casein_slot_path(slot) %></td>
+      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", casein_event_path(slot.event) %></td>
+      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), casein_event_path(slot.event) %></td>
+      <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", casein_event_path(slot.event) %></td>
       <td><%= casein_table_cell_link slot.start_time.to_s(:time), casein_slot_path(slot) %></td>
       <td><%= casein_table_cell_link slot.is_payed, casein_slot_path(slot) %></td>
       <td class="delete">
