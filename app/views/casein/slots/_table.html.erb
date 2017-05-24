@@ -17,10 +17,10 @@
     <tr>
       <% if !slot.user.nil? %>
         <td>
-          <%= casein_table_cell_link "ID #{slot.user_id}: #{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
+          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
         </td>
       <% else %>
-        <td>--</td>
+        <td>-open-</td>
       <% end %>
       <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", "#" %></td>
       <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), "#" %></td>

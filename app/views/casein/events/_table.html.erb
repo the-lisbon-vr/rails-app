@@ -16,7 +16,7 @@
 
   <% events.each do |event| %>
     <tr>
-      <td><%= casein_table_cell_link event.date.strftime("%d-%-m-%Y"), casein_event_slots_path(event) %></td>
+      <td><%= casein_table_cell_link event.date.strftime("%d-%-m-%Y"), "#" %></td>
       <td><%= casein_table_cell_link event.name, "#" %></td>
       <td><%= casein_table_cell_link event.location, "#" %></td>
       <td><%= casein_table_cell_link event.description, "#" %></td>

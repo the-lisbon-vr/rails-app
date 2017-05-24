@@ -2,16 +2,13 @@
 
 <h2>View user</h2>
 
-<%= form_for @user, url: casein_user_path(@user) do |f| %>
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<p><%= @user.email %></p>
+<p>Member Since: <%= @user.created_at.strftime("%d-%-m-%Y") %></p>
 
-  <%= render partial: 'casein/users/form', locals: { f: f } %>
-
-  <p class="submits">
-    <%= link_to 'Cancel', casein_users_path, class: 'btn btn-mini btn-danger' %>
-    <%= f.submit "Save changes", class: "btn btn-mini btn-primary" %>
-  </p>
-
-<% end %>
+<h4>Stats</h4>
+<p>Total number of Bookings: <%= Slot.where(user_id: @user.id).count %></p>
+<p>Total number of Presences: <%= Slot.where(user_id: @user.id, is_payed: true).count %></p>
 
 <%= content_for :sidebar do %>
   <li><%= link_to "#{casein_show_icon "th-list"}Back to list".html_safe, casein_users_path %></li>
