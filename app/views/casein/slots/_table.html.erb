@@ -17,9 +17,7 @@
     <tr>
       <% if !slot.user.nil? %>
         <td>
-          <div class="btn btn-default">
-            <%= casein_table_cell_link "ID #{slot.user_id}: #{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id) %>
-          </div>
+          <%= casein_table_cell_link "ID #{slot.user_id}: #{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
         </td>
       <% else %>
         <td>--</td>
@@ -29,9 +27,10 @@
       <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", "#" %></td>
       <td><%= casein_table_cell_link slot.start_time.to_s(:time), "#" %></td>
       <td>
-        <div class="btn btn-default">
-          <%= casein_table_cell_link slot.is_payed, casein_slot_path(slot) %>
-        </div>
+        <%= casein_table_cell_link !slot.is_payed ? "Not Payed" : "Paid", casein_slot_path(slot) %>
+      </td>
+      <td>
+        <%= link_to("payment", casein_slot_path(slot), class: "btn btn-default") %>
       </td>
       <td class="delete">
         <%= link_to(casein_show_row_icon("trash"), casein_slot_path(slot), method: :delete, data: { confirm: "Are you sure you want to delete this slot?" }) %>
