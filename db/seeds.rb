@@ -30,7 +30,8 @@ number_of_players = [2, 2, 4, 2, 4]
                     time_between_slots: 10,
                     number_of_players: number_of_players[i],
                     price_per_slot: 5)
-  event.max_bookings = ((event.end_time - event.start_time) / 60) / event.slot_duration_minutes
+  total_session_time = event.slot_duration_minutes + event.time_between_slots
+  event.max_bookings = (((event.end_time.to_i - event.start_time.to_i) / 60) / total_session_time).floor
   event.save
 
   # 2) Make all the slots for that event
@@ -38,7 +39,7 @@ number_of_players = [2, 2, 4, 2, 4]
     slot_start_time = event.start_time
     # event_slot_duration will be added to slot_start_time to set each slot's start_time
     # -- it's "* 60" because times are updated in seconds
-    event_slot_duration = event.slot_duration_minutes * 60
+    event_slot_duration = total_session_time * 60
     event.max_bookings.times do
       Slot.create(event: event, start_time: slot_start_time)
       slot_start_time += event_slot_duration
