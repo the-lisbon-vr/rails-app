@@ -2,6 +2,21 @@
 
 <h2>View slot</h2>
 
+<h3>
+  Event: <%= @event.name  %> (event id: <%= @event.id  %>)
+</h3>
+<h3>
+  Slot booked by user: <%= @user.first_name  %> <%= @user.last_name  %>
+</h3>
+<p>
+  User email: <%= @user.email  %>
+</p>
+
+<p>
+  start time: <%= @slot.start_time.to_s(:time) %>
+</p>
+
+
 <%= form_for @slot, url: casein_slot_path(@slot) do |f| %>
 
   <%= render partial: 'casein/slots/form', locals: { f: f } %>
