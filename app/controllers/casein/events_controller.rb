@@ -42,8 +42,7 @@ module Casein
       @event = Event.find params[:id]
 
       check_change_in_slot_duration(event_params)
-      # if @slot_duration_has_changed
-      # end
+
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
         if @slot_duration_has_changed
@@ -94,9 +93,9 @@ module Casein
     end
 
     def check_change_in_slot_duration(event_params)
-      old_event = Event.new(event_params)
-      time_between_changed = @event.time_between_slots != old_event.time_between_slots
-      duration_changed = @event.slot_duration_minutes != old_event.slot_duration_minutes
+      new_event = Event.new(event_params)
+      time_between_changed = @event.time_between_slots != new_event.time_between_slots
+      duration_changed = @event.slot_duration_minutes != new_event.slot_duration_minutes
       @slot_duration_has_changed = (time_between_changed || duration_changed)
     end
 
