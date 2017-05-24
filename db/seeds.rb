@@ -27,6 +27,7 @@ number_of_players = [2, 2, 4, 2, 4]
                     location: locations[i],
                     description: descriptions[i],
                     slot_duration_minutes: 20,
+                    time_between_slots: 10,
                     number_of_players: number_of_players[i],
                     price_per_slot: 5)
   event.max_bookings = ((event.end_time - event.start_time) / 60) / event.slot_duration_minutes
