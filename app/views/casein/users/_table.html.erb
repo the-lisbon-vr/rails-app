@@ -6,6 +6,7 @@
       <th><%= casein_sort_link "First name", :first_name %></th>
       <th><%= casein_sort_link "Last name", :last_name %></th>
       <th><%= casein_sort_link "Email", :email %></th>
+      <th><%= casein_sort_link "Member since", :created_at %></th>
       <th><%= casein_sort_link "Provider", :provider %></th>
       <th>&nbsp;</th>
     </tr>
@@ -16,6 +17,7 @@
       <td><%= casein_table_cell_link user.first_name, casein_user_path(user) %></td>
       <td><%= casein_table_cell_link user.last_name, casein_user_path(user) %></td>
       <td><%= casein_table_cell_link user.email, casein_user_path(user) %></td>
+      <td><%= casein_table_cell_link user.created_at.strftime("%d-%m-%Y"), casein_user_path(user) %></td>
       <td><%= casein_table_cell_link user.provider, casein_user_path(user) %></td>
       <td class="delete">
         <%= link_to(casein_show_row_icon("trash"), casein_user_path(user), method: :delete, data: { confirm: "Are you sure you want to delete this user?" }) %>
