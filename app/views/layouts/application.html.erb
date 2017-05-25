@@ -18,11 +18,9 @@
       <div id="page-content">
         <%= yield %>
       </div>
-      <% if !current_page?(root_path) %>
-        <div id="footer">
-          <%= render 'shared/footer' %>
-        </div>
-      <% end %>
+      <div id="footer" class="<%= "hidden-xs" if current_page?(root_path) %>">
+        <%= render 'shared/footer' %>
+      </div>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
