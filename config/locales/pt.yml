@@ -23,6 +23,8 @@ pt:
       contact: "Contactos"
       see_events: "Próximos Eventos"
       my_account: "As Minhas Reservas"
+    footer:
+      follow_us_on: "Segue-nos:"
 
   pages:
     # Home page

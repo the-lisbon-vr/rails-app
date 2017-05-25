@@ -23,7 +23,8 @@ en:
       contact: "Contact"
       see_events: "Upcoming Events"
       my_account: "My Bookings"
-
+    footer:
+      follow_us_on: "Follow us:"
   pages:
     # Home page
     home:
