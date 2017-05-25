@@ -18,9 +18,11 @@
       <div id="page-content">
         <%= yield %>
       </div>
-      <div id="footer">
-        <!-- Footer goes here -->
-      </div>
+      <% if !current_page?(root_path) %>
+        <div id="footer">
+          <%= render 'shared/footer' %>
+        </div>
+      <% end %>
     </div>
     <%= javascript_include_tag 'application' %>
     <%= yield(:after_js) %>
