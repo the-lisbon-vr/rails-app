@@ -2,6 +2,13 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.order('date ASC')
+    @future_events = []
+
+    @events.each do |event|
+      if event.date >= Date.today
+        @future_events << event
+      end
+    end
   end
 
   def show
