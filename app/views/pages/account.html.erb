@@ -66,7 +66,7 @@
                     <hr class="no-top-margin bottom-margin">
                   </div>
                 </div>
-                <%= link_to t(".book_more_sessions"), event_path(event_id), class: "btn-brand-with-bg btn-event-card-bottom" %>
+                <%= link_to t(".book_more_sessions"), event_path(event_id), class: "btn-brand btn-event-card-bottom" %>
               </div>
             </div>
           </div>
@@ -74,8 +74,13 @@
 
 
       <% end %>
-      <div class="slightly-padded top-margin text-center">
-        <%= link_to t(".go_to_events"), events_path, class: "btn-brand-with-bg" %>
+      <div class="text-right">
+      <!-- remove HIDDEN tag -->
+        <%= link_to t(".confirm_slots"), "#", class: "btn-brand-with-bg btn-lg hidden" %>
+      </div>
+
+      <div class="top-margin text-right">
+        <%= link_to t(".go_to_events"), events_path, class: "btn-brand" %>
       </div>
     </div>
   </div>

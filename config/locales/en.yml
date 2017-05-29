@@ -75,6 +75,7 @@ en:
       slots_booked: "Slots booked"
       cancel_slot: "Cancel"
       how_to_pay: "Please pay in cash when you arrive at the venue. In case you are not able to come, please let us know so that other people can book."
+      confirm_slots: "Confirm Booking!"
       book_more_sessions: "Book more sessions"
 
     cancel_session:
@@ -127,3 +128,8 @@ en:
       session_booked: "Sessão reservada"
       must_be_signed_in_to_book: "You must be signed in to book a slot"
       session_already_booked: "This slot has already been booked"
+
+  slot_mailer:
+    confirm:
+      minutes: "minutes"
+      price: "Price:"
