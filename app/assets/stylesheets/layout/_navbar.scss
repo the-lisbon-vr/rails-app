@@ -10,24 +10,18 @@
 }
 @media(min-width:992px){#navbar-tlvr{padding: 0 30px;}}
 
-
-/* Optional class to fix the navbar on top */
-.navbar-tlvr-fixed {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  z-index: 1;
-  width: 100%;
-}
-
 /* Navbar logo */
 .navbar-tlvr-brand img {
   height: 66px;
   position: absolute;
+  top: 10px;
+  left: 10px;
+}
+@media(min-width:992px){.navbar-tlvr-brand img{
+  height: 100px;
   top: 15px;
   left: 15px;
-}
-@media(min-width:992px){.navbar-tlvr-brand img{height: 100px;}}
+}}
 
 /* Navbar right section (with form, links, button) */
 .navbar-tlvr-right {
@@ -119,69 +113,40 @@
   transition: all ease 0.2s;
 }
 
-// /* Navbar search form */
-// .navbar-tlvr-search {
-//   flex: 0 1 300px;
-//   display: flex;
-//   justify-content: flex-end;
-//   padding: 0 10px;
-//   position: relative;
-// }
-// .navbar-tlvr-search-btn {
-//   line-height: 40px;
-//   color: #E6E6E6;
-//   border: none;
-//   background: transparent;
-//   position: absolute;
-//   right: 14px;
-//   top: -2px;
-//   z-index: 1;
-// }
-// .navbar-tlvr-search-input {
-//   flex: 0 1 300px;
-//   transition: all 0.15s ease;
-//   line-height: 40px;
-//   font-weight: lighter;
-//   color: #666666;
-//   border: 1px solid #E6E6E6;
-//   border-radius: 5px;
-//   padding: 0 10px;
-//   font-size: 14px;
-//   outline: none;
-// }
-// .navbar-tlvr-search-input:focus  {
-//   border: 1px solid #CCCCCC;
-// }
-
 /* Navbar dropdown menu */
 .navbar-tlvr-dropdown-menu {
-  margin-top: 15px;
-  border-color: white;
-  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 90px 0;
+  text-align: center;
+  background-color: $footer-gray;
+  border: none;
+  border-radius: 0px;
 }
+
 .navbar-tlvr-dropdown-menu li > a {
-  transition: color 0.3s ease;
-  font-weight: lighter !important;
-  color: #999999 !important;
-  font-size: 15px !important;
-  line-height: 22px !important;
+  color: $gray-lighter !important;
+  font-size: 20px !important;
+  line-height: 25px !important;
   padding: 10px 20px;
+  transition: all ease 0.2s;
 }
 .navbar-tlvr-dropdown-menu li > a:hover {
-  background: transparent !important;
-  color: black !important;
+  background: linear-gradient(to right, rgba(255,255,255, 0) 20%, rgba(255,255,255, 0.15) 50%, rgba(255,255,255, 0) 80%) !important;
+  color: white !important;
+  text-shadow: 0 0 2px $footer-gray;
+  transition: all ease 0.2s;
 }
-.navbar-tlvr-dropdown-menu:before {
-  content: ' ';
-  height: 10px;
-  width: 10px;
+
+.close-x {
   position: absolute;
-  right: 10px;
-  top: -6px;
-  background-color: white;
-  transform: rotate(45deg);
-  border-left: 1px solid #E6E6E6;
-  border-top: 1px solid #E6E6E6;
+  top: 24px;
+  right: 19px;
+  font-size: 22px;
 }
 
 .flex {

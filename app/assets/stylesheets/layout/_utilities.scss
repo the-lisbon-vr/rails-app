@@ -86,9 +86,8 @@ body {
   background-attachment: fixed;
 }
 #page-content {
-  padding-bottom: 35px; /* Height of the footer element */
+  padding-bottom: 70px; /* Height of the footer element */
 }
-@media(min-width:768px){#page-content{padding-bottom:70px;}}
 
 body {
   background-color: $dark-gray !important;
