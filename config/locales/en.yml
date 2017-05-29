@@ -127,3 +127,8 @@ en:
       session_booked: "Sessão reservada"
       must_be_signed_in_to_book: "You must be signed in to book a slot"
       session_already_booked: "This slot has already been booked"
+
+  slot_mailer:
+    confirm:
+      minutes: "minutes"
+      price: "Price:"

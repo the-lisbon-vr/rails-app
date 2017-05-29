@@ -1,13 +1,15 @@
 <h3>Olá, <%= @user.first_name %>!</h3>
 
-<p>
-  Slot confirmada!
-</p>
+<h2>
+  Marcação confirmada para o <%= @slot.event.name %>!
+</h2>
 <ul>
-  <li>data:</li>
-  <li>hora:</li>
-  <li>local:</li>
-  <li>valor: €</li>
+  <li>Data: <%= @slot.event.date.strftime("%d-%m-%Y") %></li>
+  <li>Hora: <%= @slot.start_time.strftime("%H:%M") %></li>
+  <li>Local: <%= @slot.event.location %></li>
+  <li>Duração: <%= @slot.event.slot_duration_minutes %> min.</li>
+  <li>Valor a pagar: € <%= @slot.event.price_per_slot %></li>
 </ul>
 
-<p>Até a próxima</p>
+<p>Até já,</p>
+<p>The Lisbon VR</p>
