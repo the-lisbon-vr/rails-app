@@ -1,7 +1,7 @@
 <div class="container">
   <div class="padded">
     <h2 class="text-center"><%= t('.main_title') %></h2>
-    <% if @events.count == 0 %>
+    <% if @future_events.count == 0 %>
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <div class="slightly-padded text-center">
@@ -13,7 +13,9 @@
         </div>
       </div>
     <% else %>
-      <% @events.each do |event| %>
+      <% @future_events.each do |event| %>
+      <!-- only show FUTURE events:-->
+
         <div class="row">
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="event-card">
@@ -28,6 +30,7 @@
             </div>
           </div>
         </div>
+
       <% end %>
     <% end %>
   </div>
