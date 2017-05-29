@@ -44,15 +44,37 @@
   <div class="dropdown">
     <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
     <ul class="dropdown-menu dropdown-menu-right navbar-tlvr-dropdown-menu">
+      <%= link_to root_path, class: "navbar-tlvr-brand" do %>
+        <%= image_tag "thelisbonvr-logo-no-website-white.png" %>
+      <% end %>
+      <i class="fa fa-times close-x"></i>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr class="page-divider-white no-margin">
+      </div>
       <li><%= link_to t(".what_is_vr"), about_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr class="page-divider-white no-margin">
+      </div>
       <li><%= link_to t(".see_events"), events_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr class="page-divider-white no-margin">
+      </div>
       <li><%= link_to t(".contact"), contact_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr class="page-divider-white no-margin">
+      </div>
       <% if user_signed_in? %>
         <li><%= link_to t(".my_account"), account_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
+        <div class="col-xs-8 col-xs-offset-2">
+          <hr class="page-divider-white no-margin">
+        </div>
         <li><%= link_to t(".sign_out"), destroy_user_session_path, method: :delete, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
       <% else %>
         <li><%= link_to t(".sign_in", default: "Log in"), new_user_session_path, class: "navbar-tlvr-item navbar-tlvr-link" %></li>
       <% end %>
+      <div class="col-xs-8 col-xs-offset-2">
+        <hr class="page-divider-white no-margin">
+      </div>
     </ul>
   </div>
 </div>
