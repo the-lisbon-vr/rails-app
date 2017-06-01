@@ -35,4 +35,7 @@ class User < ApplicationRecord
     UserMailer.welcome(self).deliver_now
   end
 
+  def send_bookings_confirmation
+    UserMailer.confirm(self).deliver_now
+  end
 end

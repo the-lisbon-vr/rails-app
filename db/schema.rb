@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170601141457) do
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.boolean  "is_payed",   default: false, null: false
-    t.boolean  "confirmed"
+    t.boolean  "confirmed",  default: false
     t.index ["event_id"], name: "index_slots_on_event_id", using: :btree
     t.index ["user_id"], name: "index_slots_on_user_id", using: :btree
   end

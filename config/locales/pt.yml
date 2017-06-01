@@ -79,6 +79,10 @@ pt:
       confirm_slots: "Confirmar Reserva!"
       book_more_sessions: "Reservar mais sessões"
 
+    confirm_my_bookings:
+      bookings_confirmed: "Thanks for confirming your bookings. We've emailed you a summary."
+      nothing_confirmed: "Houve um problema. Tente de novo"
+      
     cancel_session:
       session_cancelled: "Sessão cancelada"
       something_went_wrong: "Houve um problema. Tente de novo"
@@ -126,6 +130,6 @@ pt:
 
   slots:
     update:
-      session_booked: "Sessão reservada"
+      session_booked: "Sessão reservada. Precisa de confirmar esta reserva em 'As Minhas Reservas'."
       must_be_signed_in_to_book: "You must be signed in to book a slot"
       session_already_booked: "This slot has already been booked"

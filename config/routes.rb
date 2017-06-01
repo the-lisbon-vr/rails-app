@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
     get 'about', to: 'pages#about'
     get 'account', to: 'pages#account'
+    patch 'confirm_my_bookings', to: 'pages#confirm_my_bookings'
     get 'contact', to: 'pages#contact'
     resources :events, only: [:index, :show] do
       resources :slots, only: [:index, :show, :update]

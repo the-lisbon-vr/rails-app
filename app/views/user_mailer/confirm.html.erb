@@ -1,0 +1,72 @@
+<h3>Olá, <%= @user.first_name %>!</h3>
+
+<h4>[PT]</h4>
+
+<h2>
+  A tua marcação para o <%= @slot.event.name %> está confirmada!
+</h2>
+<p>Os detalhes da reserva são os seguintes:</p>
+<ul>
+  <li>Data: <%= @slot.event.date.strftime("%d-%m-%Y") %></li>
+  <li>Hora: <%= @slot.start_time.strftime("%H:%M") %></li>
+  <li>Local: <%= @slot.event.location %></li>
+  <li>Duração: <%= @slot.event.slot_duration_minutes %> min.</li>
+  <li>Valor a pagar: € <%= @slot.event.price_per_slot %></li>
+</ul>
+<p>Pedimos que cada pessoa chegue 5 minutos antes da sua sessão para que possa tirar maior proveito do tempo disponível.</p>
+
+<p>É a primeira vez que jogas? Então segue estas indicações:</p>
+<ol>
+  <li>tira os sapatos</li>
+  <li>coloca os óculos de VR</li>
+  <li>não tropeces no cabo</li>
+  <li>não vás contra as paredes, nem caias</li>
+  <li>diverte-te!</li>
+</ol>
+
+<p>Alguma questão contacta-nos através do email info@thelisbonvr.com ou através do 919 166 720</p>
+
+<h4>[EN]</h4>
+
+<h2>
+  Here's a list of your confirmed bookings!
+</h2>
+<% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
+  <% event = Event.find(event_id) %>
+  <h3><%= event.name %></h3>
+  <p>
+    <%= event.date.strftime("%d-%m-%Y") %>
+    <br /><%= event.location %>
+  </p>
+  <p>
+    Price per slot: <%= '%.2f' % event.price_per_slot) %>
+    <br>Bookings: <%= array_of_slots.count %>
+    <br>Total: €<%= t('.price', number: '%.2f' % (event.price_per_slot * array_of_slots.count)) %>
+  </p>
+  <h5>Sessions booked:</h5>
+  <ul>
+    <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
+    <% array_of_slots.each do |slot| %>
+      <li>
+        <%= slot.start_time.strftime("%H:%M") %>&ensp;
+        (<%= slot.event.slot_duration_minutes %>&nbsp;<%= t('.minutes') %>)
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>We ask that you get here 5 minutes before your session so that you can maximize your gametime.</p>
+
+<h3>First time playing? Then follow these simple guidelines:</h3>
+<ol>
+  <li>take off your shoes</li>
+  <li>put the VR headset on</li>
+  <li>don't trip on the wire</li>
+  <li>don't run into a wall or fall</li>
+  <li>have fun!</li>
+</ol>
+
+<p>If you have any question contact us by email - info@thelisbonvr.com - or by phone at 919 166 720</p>
+
+<p>Até já,</p>
+<p>The Lisbon VR</p>
