@@ -1,6 +1,12 @@
 Olá, <%= @user.first_name %>!
 
-Bem-vindo ao The Lisbon VR!
-Recebeste este mail porque te registaste no site thelisbonvr.com.
+Os detalhes da reserva são os seguintes:
+
+  Data: <%= @slot.event.date.strftime("%d-%m-%Y") %>
+  Hora: <%= @slot.start_time.strftime("%H:%M") %>
+  Local: <%= @slot.event.location %>
+  Duração: <%= @slot.event.slot_duration_minutes %> min.
+  Valor a pagar: € <%= @slot.event.price_per_slot %>
+
 
 Até a próxima
