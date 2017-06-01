@@ -57,7 +57,7 @@
                           </span>
                         </div>
                         <div class="col-xs-5">
-                          <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" %>
+                          <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" if event.date >= Date.today %>
                         </div>
                       </div>
                     </div>
