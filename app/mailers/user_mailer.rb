@@ -6,6 +6,16 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.welcome.subject
   #
 
+  def confirm(user, slots_hash)
+    # @greeting = "Hi"
+
+    @user = user
+    @confirmed_slots_by_event = slots_hash
+
+    mail(to: @user.email, subject: 'Booking Confirmation')
+    # This will render a view in `app/views/user_mailer`!
+  end
+
   def welcome(user)
     @user = user  # Instance variable => available in view
 

@@ -57,7 +57,7 @@
                           </span>
                         </div>
                         <div class="col-xs-5">
-                          <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" %>
+                          <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" if event.date >= Date.today %>
                         </div>
                       </div>
                     </div>
@@ -76,7 +76,7 @@
       <% end %>
       <div class="text-right">
       <!-- remove HIDDEN tag -->
-        <%= link_to t(".confirm_slots"), "#", class: "btn-brand-with-bg btn-lg hidden" %>
+        <%= link_to t(".confirm_slots"), confirm_my_bookings_path, class: "btn-brand-with-bg btn-lg", method: :patch %>
       </div>
 
       <div class="top-margin text-right">

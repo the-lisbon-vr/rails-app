@@ -13,7 +13,7 @@ class SlotsController < ApplicationController
         @slot.user_id = current_user.id
         @slot.save
         flash[:notice] = t(".session_booked")
-        @slot.send_confirmation
+        # @slot.send_confirmation
         redirect_to event_path(id: @slot.event.id)
       end
     end
