@@ -1,0 +1,9 @@
+<h2>Users going to <%= @event.name %></h2>
+
+<% email_list = "" %>
+<% @users.each do |user| %>
+  <% email_list += "#{user.email}; " %>
+<% end %>
+
+<h3>Email list</h3>
+<%= email_list %>
