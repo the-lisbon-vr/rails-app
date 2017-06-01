@@ -1,8 +1,11 @@
 .event-card {
   background-color: rgba(0,0,0,0.5);
   border: 1px solid white;
-  padding: 1.5em;
   margin: 1.5em 0;
+}
+
+.event-card-padding {
+  padding: 1em 1.5em 1.5em 1.5em;
 }
 
 .timeslot-card {
@@ -11,4 +14,28 @@
   border: 1px solid white;
   padding: 0.5em;
   margin: 0.5em 0;
+}
+
+.event-image {
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.event-title-on-image {
+  display: flex;
+  height: inherit;
+  align-items: flex-end;
+  text-shadow: 0 0 2px $footer-gray;
+  padding: 0 1.5em;
+}
+
+.event-card-title-background {
+  height: inherit;
+  width: inherit;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  background-color: $footer-gray;
 }
