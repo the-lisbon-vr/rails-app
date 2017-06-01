@@ -39,7 +39,7 @@ class PagesController < ApplicationController
     end
 
     if !@confirmed_slots_by_event.empty?
-      current_user.send_bookings_confirmation
+      current_user.send_bookings_confirmation(@confirmed_slots_by_event)
       flash[:notice] = t(".bookings_confirmed")
     else
       flash[:alert] = t(".nothing_confirmed")

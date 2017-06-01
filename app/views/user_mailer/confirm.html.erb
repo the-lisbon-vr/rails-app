@@ -3,16 +3,30 @@
 <h4>[PT]</h4>
 
 <h2>
-  A tua marcação para o <%= @slot.event.name %> está confirmada!
+  Here's a list of your confirmed bookings!
 </h2>
-<p>Os detalhes da reserva são os seguintes:</p>
-<ul>
-  <li>Data: <%= @slot.event.date.strftime("%d-%m-%Y") %></li>
-  <li>Hora: <%= @slot.start_time.strftime("%H:%M") %></li>
-  <li>Local: <%= @slot.event.location %></li>
-  <li>Duração: <%= @slot.event.slot_duration_minutes %> min.</li>
-  <li>Valor a pagar: € <%= @slot.event.price_per_slot %></li>
-</ul>
+<hr>
+<% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
+  <% event = Event.find(event_id) %>
+  <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
+  <p>
+    Preço por sessão: € <%= '%.2f' % event.price_per_slot %>
+    <br>Reservas: <%= array_of_slots.count %>
+    <br>Total: € <%= '%.2f' % (event.price_per_slot * array_of_slots.count) %>
+  </p>
+  <h4>Reservas confirmadas:</h4>
+  <ul>
+    <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
+    <% array_of_slots.each do |slot| %>
+      <li>
+        <%= slot.start_time.strftime("%H:%M") %>&ensp;
+        (<%= slot.event.slot_duration_minutes %>&nbsp;minutos)
+      </li>
+    <% end %>
+  </ul>
+  <hr>
+<% end %>
+
 <p>Pedimos que cada pessoa chegue 5 minutos antes da sua sessão para que possa tirar maior proveito do tempo disponível.</p>
 
 <p>É a primeira vez que jogas? Então segue estas indicações:</p>
@@ -31,31 +45,29 @@
 <h2>
   Here's a list of your confirmed bookings!
 </h2>
+<hr>
 <% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
   <% event = Event.find(event_id) %>
-  <h3><%= event.name %></h3>
+  <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
   <p>
-    <%= event.date.strftime("%d-%m-%Y") %>
-    <br /><%= event.location %>
-  </p>
-  <p>
-    Price per slot: <%= '%.2f' % event.price_per_slot) %>
+    Price per slot: €<%= '%.2f' % event.price_per_slot %>
     <br>Bookings: <%= array_of_slots.count %>
-    <br>Total: €<%= t('.price', number: '%.2f' % (event.price_per_slot * array_of_slots.count)) %>
+    <br>Total: €<%= '%.2f' % (event.price_per_slot * array_of_slots.count) %>
   </p>
-  <h5>Sessions booked:</h5>
+  <h4>Sessions booked:</h4>
   <ul>
     <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
     <% array_of_slots.each do |slot| %>
       <li>
         <%= slot.start_time.strftime("%H:%M") %>&ensp;
-        (<%= slot.event.slot_duration_minutes %>&nbsp;<%= t('.minutes') %>)
+        (<%= slot.event.slot_duration_minutes %>&nbsp;minutes)
       </li>
     <% end %>
   </ul>
+  <hr>
 <% end %>
 
-<p>We ask that you get here 5 minutes before your session so that you can maximize your gametime.</p>
+<p>We ask that you get here 5 minutes early so that you can maximize your gametime.</p>
 
 <h3>First time playing? Then follow these simple guidelines:</h3>
 <ol>

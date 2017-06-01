@@ -29,13 +29,13 @@ class User < ApplicationRecord
     return user
   end
 
+  def send_bookings_confirmation(slots_hash)
+    UserMailer.confirm(self, slots_hash).deliver_now
+  end
+
   private
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
-  end
-
-  def send_bookings_confirmation
-    UserMailer.confirm(self).deliver_now
   end
 end

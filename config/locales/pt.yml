@@ -76,13 +76,13 @@ pt:
       total_price: "Total a pagar"
       cancel_slot: "Cancelar"
       how_to_pay: "Por favor pague em dinheiro no dia do evento. Caso não possa estar presente por favor contacte-nos para que possamos cancelar a sua reserva e permitir que outra pessoa jogue."
-      confirm_slots: "Confirmar Reserva!"
+      confirm_slots: "Confirmar Reserva(s)!"
       book_more_sessions: "Reservar mais sessões"
 
     confirm_my_bookings:
       bookings_confirmed: "Thanks for confirming your bookings. We've emailed you a summary."
       nothing_confirmed: "Houve um problema. Tente de novo"
-      
+
     cancel_session:
       session_cancelled: "Sessão cancelada"
       something_went_wrong: "Houve um problema. Tente de novo"
