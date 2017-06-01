@@ -1,7 +1,12 @@
-.event-card {
+.event-card,
+.account-bookings-card {
   background-color: rgba(0,0,0,0.5);
   border: 1px solid white;
   margin: 1.5em 0;
+}
+
+.account-bookings-card {
+  padding: 1.5em;
 }
 
 .event-card-padding {
