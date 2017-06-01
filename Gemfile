@@ -21,6 +21,7 @@ gem 'autoprefixer-rails'
 
 gem 'omniauth-facebook'
 gem 'casein', '~>5.2.0'
+gem "awesome_print", require:"ap"
 
 
 group :development, :test do

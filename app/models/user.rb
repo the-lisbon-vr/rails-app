@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   has_many :slots
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable,
          :omniauthable, omniauth_providers: [:facebook]
 
   def self.find_for_facebook_oauth(auth)
@@ -29,10 +30,16 @@ class User < ApplicationRecord
     return user
   end
 
+
+  def send_devise_notification(notification, *args)
+    devise_mailer.send(notification, self, *args).deliver_now
+  end
+
+
   private
 
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
+  # def send_welcome_email
+  #   UserMailer.welcome(self).deliver_now
+  # end
 
 end
