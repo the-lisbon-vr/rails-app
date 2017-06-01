@@ -6,6 +6,7 @@
     <%= casein_text_field f, f.object, :name %>
     <%= casein_text_field f, f.object, :location %>
     <%= casein_text_area_big f, f.object, :description %>
+    <%= casein_file_field f, f.object, f.object.class.name.tableize.singularize, :photo, as: :attachinary %>
   </div>
   <div class="col-lg-6">
     <%= casein_date_select f, f.object, :date %>

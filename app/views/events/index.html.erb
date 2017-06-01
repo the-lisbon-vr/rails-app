@@ -20,13 +20,20 @@
           <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="event-card">
               <%= link_to t(".show_button"), event_path(event), class: "btn btn-brand-with-bg btn-event-card-top" %>
-              <h4><%= event.name %></h4>
-              <p class="smaller-text">
-                <%= event.location %><br />
-                <%= event.date.strftime("%-d/%-m/%Y") %>&ensp;//&ensp;<%= event.start_time.to_s(:time) %>&ndash;<%= event.end_time.to_s(:time) %>&ensp;//&ensp;€<%= '%.2f' % event.price_per_slot %> (<%= event.slot_duration_minutes %> mins)<br />
-                <%= t('.slots_remaining') %>: <%= Slot.where(event_id: event.id).where(user_id: nil).count %>
-              </p>
-              <p><%= event.description %></p>
+              <div class="event-image" style="background-image: linear-gradient(rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5)), url('<%= !event.photo.nil? ? cl_image_path(event.photo.path) : asset_path("default-event-background.png") %>')">
+                <div class="event-title-on-image">
+                  <h4><%= event.name %></h4>
+                </div>
+              </div>
+              <div class="event-card-padding">
+                <p class="smaller-text">
+                  <strong><%= event.location %></strong>
+                  <br />
+                  <%= event.date.strftime("%-d/%-m/%Y") %>&ensp;//&ensp;<%= event.start_time.to_s(:time) %>&ndash;<%= event.end_time.to_s(:time) %>&ensp;//&ensp;€<%= '%.2f' % event.price_per_slot %> (<%= event.slot_duration_minutes %> mins)<br />
+                  <%= t('.slots_remaining') %>: <%= Slot.where(event_id: event.id).where(user_id: nil).count %>
+                </p>
+                <p class="no-margin"><%= event.description %></p>
+              </div>
             </div>
           </div>
         </div>
