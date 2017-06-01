@@ -42,10 +42,12 @@
   transition: all 0.2s ease;
   border: 1px white solid;
   border-radius: 8px;
+  background-color: rgba(255,255,255,0.2);
+  text-shadow: 0 0 2px $footer-gray;
 }
 
 .btn-brand:hover {
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255,255,255,0.4);
   color: white;
   text-decoration: none;
   transition: all 0.2s ease;
