@@ -18,6 +18,7 @@ class PagesController < ApplicationController
     slot = Slot.find(params[:slot_id])
     if slot.user == current_user
       slot.user_id = nil
+      slot.confirmed = false
       slot.save ? flash[:notice] = t(".session_cancelled") : flash[:alert] = t(".something_went_wrong")
       redirect_to account_path
     else
