@@ -40,7 +40,7 @@ module Casein
       @casein_page_title = 'Update event'
 
       check_change_in_slot_duration(event_params)
-
+      # check_if_photo_changed(event_params)
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
         if @slot_duration_has_changed
@@ -75,7 +75,9 @@ module Casein
     private
 
     def event_params
-      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players, :photo)
+      params[:event][:photos] = [params[:event][:photos]]
+      byebug
+      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players, photos: [])
     end
 
     def find_event
@@ -106,6 +108,19 @@ module Casein
       duration_changed = @event.slot_duration_minutes != new_event.slot_duration_minutes
       @slot_duration_has_changed = (time_between_changed || duration_changed)
     end
+
+    # def check_if_photo_changed(event_params)
+    #   if !event_params["photo"].nil?
+    #     # delete the previous photo
+    #     event_id = @event.id
+    #     previous_photo = Attachinary::File.where(attachinariable_id: event_id).last
+    #     if !previous_photo.nil?
+    #       previous_photo.destroy
+    #     end
+    #     byebug
+    #   end
+    # end
+
 
     def delete_the_old_slots
       @already_booked_slots = []
