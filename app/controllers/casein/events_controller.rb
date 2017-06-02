@@ -5,6 +5,7 @@ module Casein
     ## optional filters for defining usage according to Casein::AdminUser access_levels
     # before_action :needs_admin, except: [:action1, :action2]
     # before_action :needs_admin_or_current_user, only: [:action1, :action2]
+    before_action :find_event, only: [:show, :update, :destroy]
 
     def index
       @casein_page_title = 'Events'
@@ -13,7 +14,6 @@ module Casein
 
     def show
       @casein_page_title = 'View event'
-      @event = Event.find params[:id]
     end
 
     def new
@@ -39,8 +39,6 @@ module Casein
     def update
       @casein_page_title = 'Update event'
 
-      @event = Event.find params[:id]
-
       check_change_in_slot_duration(event_params)
 
       if @event.update_attributes event_params
@@ -61,17 +59,27 @@ module Casein
     end
 
     def destroy
-      @event = Event.find params[:id]
-
       @event.destroy
       flash[:notice] = 'Event has been deleted'
       redirect_to casein_events_path
+    end
+
+    def see_users
+      @event = Event.find(params[:event_id])
+      @users = []
+      @event.users.each do |user|
+        @users << user if !@users.include?(user)
+      end
     end
 
     private
 
     def event_params
       params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players, :photo)
+    end
+
+    def find_event
+      @event = Event.find(params[:id])
     end
 
     def set_max_bookings
