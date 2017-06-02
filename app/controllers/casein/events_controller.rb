@@ -75,9 +75,7 @@ module Casein
     private
 
     def event_params
-      params[:event][:photos] = [params[:event][:photos]]
-      byebug
-      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players, photos: [])
+      params.require(:event).permit(:name, :date, :location, :description, :price_per_slot, :start_time, :end_time, :slot_duration_minutes, :time_between_slots, :number_of_players, :photo)
     end
 
     def find_event
