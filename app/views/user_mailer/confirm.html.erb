@@ -3,33 +3,35 @@
 <h4>[PT]</h4>
 
 <h2>
-  Here's a list of your confirmed bookings!
+  Reserva de Sessões Confirmada!
 </h2>
 <hr>
 <% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
   <% event = Event.find(event_id) %>
-  <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
-  <p>
-    Preço por sessão: € <%= '%.2f' % event.price_per_slot %>
-    <br>Reservas: <%= array_of_slots.count %>
-    <br>Total: € <%= '%.2f' % (event.price_per_slot * array_of_slots.count) %>
-  </p>
-  <h4>Reservas confirmadas:</h4>
-  <ul>
-    <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
-    <% array_of_slots.each do |slot| %>
-      <li>
-        <%= slot.start_time.strftime("%H:%M") %>&ensp;
-        (<%= slot.event.slot_duration_minutes %>&nbsp;minutos)
-      </li>
-    <% end %>
-  </ul>
+
+    <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
+    <p>
+      Preço por sessão: € <%= '%.2f' % event.price_per_slot %>
+      <br>Reservas: <%= array_of_slots.count %>
+      <br>Total: € <%= '%.2f' % (event.price_per_slot * array_of_slots.count) %>
+    </p>
+    <h4>Reservas confirmadas:</h4>
+    <ul>
+      <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
+      <% array_of_slots.each do |slot| %>
+        <li>
+          <%= slot.start_time.strftime("%H:%M") %>&ensp;
+          (<%= slot.event.slot_duration_minutes %>&nbsp;minutos)
+        </li>
+      <% end %>
+    </ul>
+
   <hr>
 <% end %>
 
 <p>Pedimos que cada pessoa chegue 5 minutos antes da sua sessão para que possa tirar maior proveito do tempo disponível.</p>
 
-<p>É a primeira vez que jogas? Então segue estas indicações:</p>
+<h3>É a primeira vez que jogas? Então segue estas indicações:</h3>
 <ol>
   <li>tira os sapatos</li>
   <li>coloca os óculos de VR</li>
@@ -43,7 +45,7 @@
 <h4>[EN]</h4>
 
 <h2>
-  Here's a list of your confirmed bookings!
+  Bookings Confirmed!
 </h2>
 <hr>
 <% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
