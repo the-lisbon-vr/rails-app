@@ -52,13 +52,15 @@
 .navbar-tlvr-link.action {
   border: 1px solid white;
   color: white;
-  padding: 3px 8px;
+  padding: 4px 15px;
   border-radius: 5px;
   transition: all ease 0.2s;
+  background-color: rgba(255,255,255,0.2);
+  text-shadow: 0px 1px 1px $dark-gray;
 }
 .navbar-tlvr-link.action:hover {
-  background-color: rgba(255,255,255,0.2);
-  text-shadow: 0px 1px 0px $dark-gray;
+  background-color: rgba(255,255,255,0.4);
+  text-shadow: 0px 1px 2px $dark-gray;
   transition: all 0.2s ease;
 }
 
@@ -92,25 +94,6 @@
 .navbar-tlvr-lang-change:hover {
   color: white;
   border-color: white;
-}
-
-/* Navbar right button */
-.navbar-tlvr-button {
-  margin-left: 10px;
-  padding: 0 20px;
-  border-radius: 20em;
-  line-height: 40px;
-  background-color: $brand-color;
-  color: white;
-  font-size: 14px;
-  border: 2px solid $brand-color;
-  transition: all ease 0.2s;
-}
-.navbar-tlvr-button:hover {
-  color: white;
-  background: $brand-color;
-  border-color: $brand-darker;
-  transition: all ease 0.2s;
 }
 
 /* Navbar dropdown menu */
