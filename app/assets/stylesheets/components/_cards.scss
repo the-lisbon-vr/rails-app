@@ -5,7 +5,7 @@
   margin: 1.5em 0;
 }
 
-.account-bookings-card {
+.account-bookings-card-padding {
   padding: 1.5em;
 }
 
@@ -22,11 +22,13 @@
 }
 
 .event-image {
-  height: 200px;
+  height: 250px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover !important;
+  border-bottom: 1px solid white;
 }
+@media(max-width:767px){.event-image{height:200px;}}
 
 .event-title-on-image {
   display: flex;

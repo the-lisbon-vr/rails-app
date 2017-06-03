@@ -31,7 +31,8 @@ pt:
     home:
       main_header: "Dive into Virtual Reality"
       the_first_room_scale: "O Primeiro Arcade de VR Room-scale de Lisboa"
-      main_button: "Saber mais"
+      find_out_more: "Saber mais"
+      want_to_play: "Quero jogar!"
     about:
       the_best_of_another_world: "O Melhor de Outro Mundo"
       dont_know: "Não sabe o que é realidade virtual (VR)? Veja aqui o video promocional do HTC vive, o melhor equipamento de VR da actualidade."

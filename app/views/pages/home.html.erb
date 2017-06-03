@@ -1,7 +1,6 @@
 <div class="wrapper">
-  <div class="banner">
     <div class="container">
-      <div class="banner-content">
+      <div class="text-center">
         <div class="slightly-padded">
           <div class="fadeIn"><%= image_tag("thelisbonvr-logo-white-transparent.png", alt: "The Lisbon VR Logo", class: "homepage-logo") %></div>
           <h1 class="hidden">The Lisbon VR</h1>
@@ -9,9 +8,9 @@
           <h5 class="fadeIn"><%= t(".the_first_room_scale") %></h5>
         </div>
         <div class="very-slightly-padded">
-          <%= link_to t(".main_button"), about_path, class: "btn btn-home-page-large" %>
+          <%= link_to t(".want_to_play"), events_path, class: "btn btn-home-page-large-bg" %>
+          <%= link_to t(".find_out_more"), about_path, class: "btn btn-home-page-large" %>
         </div>
       </div>
     </div>
-  </div>
 </div>

@@ -31,7 +31,7 @@
       <div id="page-content">
         <%= yield %>
       </div>
-      <div id="footer" class="<%= "hidden-xs" if current_page?(root_path) %>">
+      <div id="footer" class="<%= "hidden-xs" if current_page?(root_path) || (params["action"] == "home" && (params["locale"] == "pt" || params["locale"] == "en")) %>">
         <%= render 'shared/footer' %>
       </div>
     </div>

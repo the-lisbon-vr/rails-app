@@ -30,15 +30,18 @@
   padding-right:0px !important;
 }}
 
-.bottom-margin {
-  margin-bottom: 2em;
-}
 .top-margin {
   margin-top: 2em;
+}
+.bottom-margin {
+  margin-bottom: 2em;
 }
 
 .no-top-margin {
   margin-top: 0;
+}
+.no-bottom-margin {
+  margin-bottom: 0;
 }
 
 .no-margin { margin: 0 }
@@ -54,6 +57,8 @@
 .smaller-text {
   font-size: 85%;
 }
+
+@media(max-width:767px){.invisible-xs{visibility: hidden;}}
 
 @media(max-width:991px){h2{font-size:32px !important}}
 @media(min-width:992px){h2{font-size:35px !important}}
@@ -86,7 +91,7 @@ body {
   background-attachment: fixed;
 }
 #page-content {
-  padding-bottom: 70px; /* Height of the footer element */
+  padding-bottom: 50px; /* At least: Height of the footer element */
 }
 
 body {
