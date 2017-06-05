@@ -6,30 +6,31 @@
       <th><%= casein_sort_link "Date", :date %></th>
       <th><%= casein_sort_link "Name", :name %></th>
       <th><%= casein_sort_link "Location", :location %></th>
-      <th><%= casein_sort_link "Description", :description %></th>
+      <th>Description</th>
       <th>Sessions</th>
       <th>Slot time</th>
       <th><%= casein_sort_link "€/slot", :price_per_slot %></th>
+      <th>Total paid</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
 
   <% events.each do |event| %>
     <tr>
-      <td><%= event.date.strftime("%d-%-m-%Y") %></td>
-      <td><%= event.name %></td>
-      <td><%= event.location %></td>
-      <td><%= event.description %></td>
+      <td style="width: 75px;"><%= event.date.strftime("%d-%-m-%Y") %></td>
+      <td style="width: 100px;"><%= event.name %></td>
+      <td style="width: 100px;"><%= event.location %></td>
+      <td style="width: 300px;"><%= event.description %></td>
       <td><%= "#{event.max_bookings} (x#{event.number_of_players} players)" %></td>
-      <td><%= "#{event.slot_duration_minutes + event.time_between_slots} mins (#{event.slot_duration_minutes} play / #{event.time_between_slots} handover)" %></td>
-      <td><%= event.price_per_slot %></td>
       <td>
+        <%= "#{event.slot_duration_minutes + event.time_between_slots} mins" %>
+        <br />
+        <%= "(#{event.slot_duration_minutes} play / #{event.time_between_slots}&nbsp;handover)".html_safe %></td>
+      <td>€<%= '%.2f' % event.price_per_slot %></td>
+      <td><%= "€#{'%.2f' % (event.price_per_slot * event.slots.where(is_payed: true).count)}"  %></td>
+      <td style="width: 85px;">
         <%= link_to("See Slots",  casein_event_slots_path(event), class: "btn-casein btn-info") %>
-      </td>
-      <td>
         <%= link_to("See Users",  casein_event_users_path(event.id), class: "btn-casein btn-info") %>
-      </td>
-      <td>
         <%= link_to("Edit Event", casein_event_path(event), class: "btn-casein btn-edit btn-default") %>
       </td>
       <td class="delete">
