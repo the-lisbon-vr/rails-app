@@ -22,7 +22,7 @@
   <%= render partial: 'casein/slots/form', locals: { f: f } %>
 
   <p class="submits">
-      <%= link_to 'Cancel', casein_slots_path, class: 'btn btn-mini btn-danger' %>
+    <%= link_to "Back to this slot's event", casein_event_path(id: @slot.event.id), class: 'btn btn-mini btn-danger' %>
     <%= f.submit "Save changes", class: "btn btn-mini btn-primary" %>
   </p>
 

@@ -38,7 +38,7 @@ module Casein
 
       if @slot.save
         flash[:notice] = 'Slot created'
-        redirect_to casein_slots_path
+        redirect_to casein_event_slots_path(@slot.event)
       else
         flash.now[:warning] = 'There were problems when trying to create a new slot'
         render action: :new
@@ -52,7 +52,7 @@ module Casein
 
       if @slot.update_attributes slot_params
         flash[:notice] = 'Slot has been updated'
-        redirect_to casein_slots_path
+        redirect_to casein_event_slots_path(@slot.event)
       else
         flash.now[:warning] = 'There were problems when trying to update this slot'
         render action: :show
@@ -61,10 +61,10 @@ module Casein
 
     def destroy
       @slot = Slot.find params[:id]
-
+      event_id = @slot.event.id
       @slot.destroy
       flash[:notice] = 'Slot has been deleted'
-      redirect_to casein_slots_path
+      redirect_to casein_event_slots_path(event_id: event_id)
     end
 
     private
