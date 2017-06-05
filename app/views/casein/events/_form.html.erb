@@ -3,27 +3,26 @@
 
 <%= simple_form_for @event do |f| %>
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :location %>
-    <%= f.input :date %>
-    <%= f.input :start_time, selected: {hour: 11, minute: 0} %>
-    <%= f.input :end_time, selected: {hour: 17, minute: 0} %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :number_of_players %>
-    <%= f.input :price_per_slot %>
-    <%= f.input :slot_duration_minutes %>
-    <%= f.input :time_between_slots %>
+    <%= f.input :name, required: true %>
+    <%= f.input :location, required: true %>
+    <%= f.input :date, required: true %>
+    <%= f.input :start_time, selected: {hour: 11, minute: 0}, required: true %>
+    <%= f.input :end_time, selected: {hour: 17, minute: 0}, required: true %>
+    <%= f.input :description, as: :text, required: true %>
+    <%= f.input :number_of_players, required: true %>
+    <%= f.input :price_per_slot, required: true %>
+    <%= f.input :slot_duration_minutes, required: true %>
+    <%= f.input :time_between_slots, required: true %>
     <%= f.input :photo, as: :attachinary, label_html: { class: "btn btn-default" }, input_html: { class: "hidden" }, label: "Add photo?" %>
 
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Save changes", class: "btn-brand-with-bg" %>
+    <%= f.button :submit, "Save event", class: "btn btn-success pull-left" %>
   </div>
 <% end %>
-<div style="padding-top: 30px; text-align: right;">
-  <p>Ignore the "Save changes" button below</p>
-</div>
+
+<%= link_to 'Cancel', casein_events_path, class: 'btn btn-mini btn-danger pull-right' %>
 
 <%= content_for(:photo_upload_js) do %>
   $.cloudinary.config({ cloud_name: <%= ENV['CLOUD_NAME'] %>})
