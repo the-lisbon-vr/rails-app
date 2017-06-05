@@ -17,7 +17,7 @@
     <tr>
       <% if !slot.user.nil? %>
         <td>
-          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
+          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn-casein success" %>
         </td>
       <% else %>
         <td>-open-</td>
@@ -29,9 +29,13 @@
 
       <!-- show payment information only if slot is booked -->
       <% if !slot.user.nil? %>
-        <td><%= casein_table_cell_link !slot.is_payed ? "Not Payed" : "Paid", casein_slot_path(slot) %></td>
+        <% if slot.is_payed %>
+          <td style="color: green;">Paid</td>
+        <% else %>
+          <td style="color: darkred;">Not Paid</td>
+        <% end %>
         <td>
-          <%= link_to("payment", casein_slot_path(slot), class: "btn btn-default") %>
+          <%= link_to("payment", casein_slot_path(slot), class: "btn-casein btn-edit") %>
         </td>
       <% else %>
         <td>--</td>
