@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :events do
       get 'slots', to: 'slots#event_slots'
+      resources :slots, only: [:show, :update]
       get 'users', to: 'events#see_users'
     end
   end

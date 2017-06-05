@@ -17,21 +17,25 @@
     <tr>
       <% if !slot.user.nil? %>
         <td>
-          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn btn-default" %>
+          <%= casein_table_cell_link "#{slot.user.first_name} #{slot.user.last_name}", casein_user_path(id: slot.user_id), class: "btn-casein btn-info" %>
         </td>
       <% else %>
         <td>-open-</td>
       <% end %>
-      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", "#" %></td>
-      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), "#" %></td>
-      <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", "#" %></td>
-      <td><%= casein_table_cell_link slot.start_time.to_s(:time), "#" %></td>
+      <td><%= "#{slot.event_id}: #{slot.event.name}" %></td>
+      <td><%= slot.event.date.strftime("%d-%m-%Y") %></td>
+      <td><%= "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)" %></td>
+      <td><%= slot.start_time.to_s(:time) %></td>
 
       <!-- show payment information only if slot is booked -->
       <% if !slot.user.nil? %>
-        <td><%= casein_table_cell_link !slot.is_payed ? "Not Payed" : "Paid", casein_slot_path(slot) %></td>
+        <% if slot.is_payed %>
+          <td style="color: green;">Paid</td>
+        <% else %>
+          <td style="color: darkred;">Not Paid</td>
+        <% end %>
         <td>
-          <%= link_to("payment", casein_slot_path(slot), class: "btn btn-default") %>
+          <%= link_to("payment", casein_event_slot_path(id: slot.id, event_id: slot.event.id), class: "btn-casein btn-edit") %>
         </td>
       <% else %>
         <td>--</td>
