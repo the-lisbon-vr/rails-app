@@ -30,7 +30,9 @@
 }
 
 .event-image-big {
-  height: 640px;
+  height: 360px;
+  max-width: 640px;
+  margin: auto;
 }
 @media(max-width:767px){.event-image{height:200px;}}
 
