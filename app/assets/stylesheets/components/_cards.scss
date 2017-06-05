@@ -30,11 +30,13 @@
 }
 
 .event-image-big {
-  height: 360px;
-  max-width: 640px;
+  height: 80vh;
+  // height: 360px;
+  // max-width: 640px;
   margin: auto;
 }
 @media(max-width:767px){.event-image{height:200px;}}
+
 
 .event-title-on-image {
   display: flex;

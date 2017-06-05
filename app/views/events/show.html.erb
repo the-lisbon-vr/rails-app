@@ -1,7 +1,7 @@
 <% if !@event.photo.nil? %>
   <div class="container">
     <div class="padded" style=" padding-bottom: 0;">
-      <div class="event-image event-image-big" style="background-image: linear-gradient(rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5)), url('<%= cl_image_path(@event.photo.path) %>')">
+      <div class="event-image" id="main-event-image" style="background-image: linear-gradient(rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5)), url('<%= cl_image_path(@event.photo.path) %>')">
 
       </div>
     </div>
@@ -95,3 +95,16 @@
         <%= link_to t(".see_booked_sessions"), account_path, class: "btn-brand pull-right" %>
   </div>
 </div>
+
+
+<%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      $('#main-event-image').click(function(){
+        $('#main-event-image').toggleClass("event-image-big");
+      });
+    });
+
+  </script>
+<% end %>
+
