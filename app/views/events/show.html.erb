@@ -1,11 +1,10 @@
 <div class="container">
   <div class="padded">
-    <div class="event-card event-card-padding">
       <div class="row">
         <div class="col-xs-12">
           <h2><%= @event.name %></h2>
         </div>
-        <div class="col-xs-12 col-sm-5 col-md-4">
+        <div class="col-xs-12 col-sm-4 col-md-3">
           <table style="margin-bottom: 10px;">
             <tbody>
               <tr>
@@ -23,52 +22,51 @@
             </tbody>
           </table>
         </div>
-        <div class="col-xs-12 col-sm-7 col-md-8">
+        <div class="col-xs-12 col-sm-8 col-md-9">
           <p><%= @event.description %></p>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <hr class="page-divider-white">
           <h3><%= t(".sessions") %>:</h3>
           <p><%= t(".click_to_book") %></p>
         </div>
-
-
-        <%# This counter is for iterating through each of the slots %>
-        <% i = 0 %>
-
-        <%# This creates one card per timeslot %>
-        <% @event.max_bookings.times do %>
-        <div class="col-xs-4 col-md-2 no-xs-side-padding">
-          <div class="timeslot-card">
-            <h5><%= @slots[i].start_time.to_s(:time) %></h5>
-
-            <%# This creates one button per player %>
-            <% player_number = 1 %>
-            <% @event.number_of_players.times do %>
-            <% if @slots[i].user == nil %>
-            <%= link_to event_slot_path(id: @slots[i].id, event_id: @event.id), method: :patch, class: "no-text-dec" do %>
-            <div class="btn-timeslot text-center">
-              <span class="btn-book"><%= t(".player", number: player_number) %></span>
-            </div>
-            <% end %>
-            <% elsif @slots[i].user == current_user %>
-            <div class="btn-timeslot-booked text-center">
-              <span class="btn-booked"><%= t(".my_slot") %></span>
-            </div>
-            <% else %>
-            <div class="btn-timeslot-booked text-center">
-              <span class="btn-booked"><%= t(".booked") %></span>
-            </div>
-            <% end %>
-            <% i += 1 %>
-            <% player_number += 1 %>
-            <% end %>
-          </div>
-        </div>
-        <% end %>
       </div>
+
+    <div class="row">
+      <%# This counter is for iterating through each of the slots %>
+      <% i = 0 %>
+
+      <%# This creates one card per timeslot %>
+      <% @event.max_bookings.times do %>
+      <div class="col-xs-4 col-md-2 no-xs-side-padding">
+        <div class="timeslot-card">
+          <h5><%= @slots[i].start_time.to_s(:time) %></h5>
+
+          <%# This creates one button per player %>
+          <% player_number = 1 %>
+          <% @event.number_of_players.times do %>
+          <% if @slots[i].user == nil %>
+          <%= link_to event_slot_path(id: @slots[i].id, event_id: @event.id), method: :patch, class: "no-text-dec" do %>
+          <div class="btn-timeslot text-center">
+            <span class="btn-book"><%= t(".player", number: player_number) %></span>
+          </div>
+          <% end %>
+          <% elsif @slots[i].user == current_user %>
+          <div class="btn-timeslot-booked text-center">
+            <span class="btn-booked"><%= t(".my_slot") %></span>
+          </div>
+          <% else %>
+          <div class="btn-timeslot-booked text-center">
+            <span class="btn-booked"><%= t(".booked") %></span>
+          </div>
+          <% end %>
+          <% i += 1 %>
+          <% player_number += 1 %>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
