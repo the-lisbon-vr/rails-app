@@ -22,10 +22,10 @@
       <% else %>
         <td>-open-</td>
       <% end %>
-      <td><%= casein_table_cell_link "#{slot.event_id}: #{slot.event.name}", "#" %></td>
-      <td><%= casein_table_cell_link slot.event.date.strftime("%d-%m-%Y"), "#" %></td>
-      <td><%= casein_table_cell_link "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)", "#" %></td>
-      <td><%= casein_table_cell_link slot.start_time.to_s(:time), "#" %></td>
+      <td><%= "#{slot.event_id}: #{slot.event.name}" %></td>
+      <td><%= slot.event.date.strftime("%d-%m-%Y") %></td>
+      <td><%= "#{slot.event.slot_duration_minutes + slot.event.time_between_slots} mins (#{slot.event.slot_duration_minutes} play / #{slot.event.time_between_slots} handover)" %></td>
+      <td><%= slot.start_time.to_s(:time) %></td>
 
       <!-- show payment information only if slot is booked -->
       <% if !slot.user.nil? %>
