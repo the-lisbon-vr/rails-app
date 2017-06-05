@@ -1,5 +1,21 @@
+<% if !@event.photo.nil? %>
+  <div class="container">
+    <div class="padded" style=" padding-bottom: 0;">
+      <div class="event-image event-image-big" style="background-image: linear-gradient(rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5)), url('<%= cl_image_path(@event.photo.path) %>')">
+
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="container">
+<!-- remove top-padding from title it it is shown after the image -->
+<% if !@event.photo.nil? %>
+  <div class="padded" style="padding-top: 0;">
+<% else %>
+<!-- use top-padding if the title is the first thing to show on the page -->
   <div class="padded">
+<% end %>
       <div class="row">
         <div class="col-xs-12">
           <h2><%= @event.name %></h2>
@@ -70,6 +86,9 @@
     </div>
   </div>
 </div>
+
+
+
 <div class="container">
   <div class="very-slightly-padded">
         <%= link_to t(".back_button"), events_path, class: "btn-brand pull-left"%>

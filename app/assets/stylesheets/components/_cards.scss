@@ -28,6 +28,10 @@
   background-size: cover !important;
   border-bottom: 1px solid white;
 }
+
+.event-image-big {
+  height: 640px;
+}
 @media(max-width:767px){.event-image{height:200px;}}
 
 .event-title-on-image {
