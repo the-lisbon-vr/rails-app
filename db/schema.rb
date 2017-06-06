@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601141457) do
+ActiveRecord::Schema.define(version: 20170606165844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20170601141457) do
   create_table "events", force: :cascade do |t|
     t.date     "date"
     t.string   "location"
-    t.string   "description"
+    t.text     "description"
     t.integer  "max_bookings"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170601141457) do
     t.integer  "slot_duration_minutes",             null: false
     t.integer  "number_of_players",     default: 2, null: false
     t.integer  "time_between_slots",    default: 5, null: false
+    t.text     "description_en"
   end
 
   create_table "slots", force: :cascade do |t|

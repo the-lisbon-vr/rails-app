@@ -39,7 +39,7 @@
           </table>
         </div>
         <div class="col-xs-12 col-sm-8 col-md-9">
-          <p><%= @event.description %></p>
+          <p><%= locale == :en ? @event.description_en : @event.description %></p>
         </div>
       </div>
       <div class="row">
@@ -107,4 +107,3 @@
 
   </script>
 <% end %>
-

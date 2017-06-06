@@ -8,7 +8,8 @@
     <%= f.input :date, required: true %>
     <%= f.input :start_time, selected: {hour: 11, minute: 0}, required: true %>
     <%= f.input :end_time, selected: {hour: 17, minute: 0}, required: true %>
-    <%= f.input :description, as: :text, required: true %>
+    <%= f.input :description, as: :text, required: true, label: "PT Description" %>
+    <%= f.input :description_en, as: :text, required: true, label: "EN Description" %>
     <%= f.input :number_of_players, required: true %>
     <%= f.input :price_per_slot, required: true %>
     <%= f.input :slot_duration_minutes, required: true %>
