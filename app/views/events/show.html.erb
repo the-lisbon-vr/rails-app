@@ -54,7 +54,7 @@
       <% i = 0 %>
 
       <%# This creates one card per timeslot %>
-      <% @event.max_bookings.times do %>
+      <% (@event.slots.count / @event.number_of_players).times do %>
       <div class="col-xs-4 col-md-2 no-xs-side-padding">
         <div class="timeslot-card">
           <h5><%= @slots[i].start_time.to_s(:time) %></h5>
