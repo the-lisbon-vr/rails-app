@@ -33,7 +33,7 @@
                     <%= event.date.strftime("%-d/%-m/%Y") %>&ensp;//&ensp;<%= event.start_time.to_s(:time) %>&ndash;<%= event.end_time.to_s(:time) %>&ensp;//&ensp;€<%= '%.2f' % event.price_per_slot %> (<%= event.slot_duration_minutes %> mins)<br />
                     <%= t('.slots_remaining') %>: <%= Slot.where(event_id: event.id).where(user_id: nil).count %>
                   </p>
-                  <p class="no-margin"><%= event.description %></p>
+                  <p class="no-margin"><%= locale == :en ? event.description_en : event.description %></p>
                 </div>
               </div>
             </div>
