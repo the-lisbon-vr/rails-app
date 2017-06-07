@@ -39,18 +39,11 @@ module Casein
     def update
       @casein_page_title = 'Update event'
 
-      check_change_in_slot_duration(event_params)
-      # check_if_photo_changed(event_params)
+      check_the_changes(event_params)
+
       if @event.update_attributes event_params
         flash[:notice] = 'Event has been updated'
-        if @slot_duration_has_changed
-          delete_the_old_slots # deletes the old slots, but keeps a record of ones that had been booked
-          set_max_bookings
-          @event.save
-          create_slots
-          flash[:notice] = 'Event has been updated, and new slots were created.'
-          flash[:warning] = list_of_users_who_had_booked_slots if !@already_booked_slots.empty?
-        end
+        apply_slot_changes # if any
         redirect_to casein_events_path
       else
         flash.now[:warning] = 'There were problems when trying to update this event'
@@ -85,14 +78,13 @@ module Casein
     def set_max_bookings
       total_session_time = @event.slot_duration_minutes + @event.time_between_slots
       @event.max_bookings = (((@event.end_time.to_i - @event.start_time.to_i) / 60) / total_session_time).floor
+      @event.save
     end
 
     def create_slots
+      event_slot_duration = (@event.slot_duration_minutes + @event.time_between_slots) * 60
       @event.number_of_players.times do
         slot_start_time = @event.start_time
-        # event_slot_duration will be added to slot_start_time to set each slot's start_time
-        # -- it's "* 60" because times are updated in seconds
-        event_slot_duration = (@event.slot_duration_minutes + @event.time_between_slots) * 60
         @event.max_bookings.times do
           Slot.create(event: @event, start_time: slot_start_time)
           slot_start_time += event_slot_duration
@@ -100,25 +92,95 @@ module Casein
       end
     end
 
-    def check_change_in_slot_duration(event_params)
+    def create_more_slots(start_time, end_time)
+      total_session_time = @event.slot_duration_minutes + @event.time_between_slots
+      number_of_slots_to_make = (((end_time.to_i - start_time.to_i) / 60) / total_session_time).floor
+      event_slot_duration = (@event.slot_duration_minutes + @event.time_between_slots) * 60
+      @event.number_of_players.times do
+        slot_start_time = start_time
+        number_of_slots_to_make.times do
+          Slot.create(event: @event, start_time: slot_start_time)
+          slot_start_time += event_slot_duration
+        end
+      end
+      flash[:notice] = 'Event has been updated, and new slots were created.'
+    end
+
+    def check_the_changes(event_params)
       new_event = Event.new(event_params)
-      time_between_changed = @event.time_between_slots != new_event.time_between_slots
-      duration_changed = @event.slot_duration_minutes != new_event.slot_duration_minutes
+      new_event[:start_time] += 946684800 # to fix the time formatting problem
+      new_event[:end_time] += 946684800 # to fix the time formatting problem
+      check_change_in_start_time(new_event[:start_time])
+      check_change_in_end_time(new_event[:end_time])
+      check_change_in_slot_duration(new_event[:slot_duration_minutes], new_event[:time_between_slots])
+    end
+
+    def check_change_in_start_time(new_start_time)
+      @event_starts_earlier = @event.start_time > new_start_time
+      @event_starts_later = @event.start_time < new_start_time
+      @start_time_changed = (@event_starts_earlier || @event_starts_later)
+      if @start_time_changed
+        @old_start_time = @event.start_time
+        @new_start_time = new_start_time
+      end
+    end
+
+    def check_change_in_end_time(new_end_time)
+      @event_ends_earlier = @event.end_time > new_end_time
+      @event_ends_later = @event.end_time < new_end_time
+      @end_time_changed = (@event_ends_earlier || @event_ends_later)
+      if @end_time_changed
+        @old_end_time = @event.end_time
+        @new_end_time = new_end_time
+      end
+    end
+
+    def check_change_in_slot_duration(new_slot_duration, new_time_between_slots)
+      time_between_changed = @event.time_between_slots != new_time_between_slots
+      duration_changed = @event.slot_duration_minutes != new_slot_duration
       @slot_duration_has_changed = (time_between_changed || duration_changed)
     end
 
-    # def check_if_photo_changed(event_params)
-    #   if !event_params["photo"].nil?
-    #     # delete the previous photo
-    #     event_id = @event.id
-    #     previous_photo = Attachinary::File.where(attachinariable_id: event_id).last
-    #     if !previous_photo.nil?
-    #       previous_photo.destroy
-    #     end
-    #     byebug
-    #   end
-    # end
+    def apply_slot_changes
+      set_max_bookings
+      if @slot_duration_has_changed
+        delete_and_remake_all_slots
+        flash[:notice] = 'Event has been updated, and new slots were created.'
+        list_users_who_had_booked_slots if !@already_booked_slots.empty?
+      elsif @start_time_changed || @end_time_changed
+        add_or_remove_slots
+        list_users_who_had_booked_slots if !@already_booked_slots.empty?
+      end
+    end
 
+    def add_or_remove_slots
+      create_more_slots(@new_start_time, @old_start_time) if @event_starts_earlier
+      create_more_slots(@old_end_time, @new_end_time) if @event_ends_later
+      @already_booked_slots = []
+      delete_slots_at_the_start if @event_starts_later
+      delete_slots_at_the_end if @event_ends_earlier
+    end
+
+    def delete_slots_at_the_start
+      @event.slots.where("start_time < ?", @event.start_time).each do |slot|
+        @already_booked_slots << slot if !slot.user_id.nil?
+        slot.destroy
+      end
+      flash[:warning] = 'Slots outside the event time were deleted'
+    end
+
+    def delete_slots_at_the_end
+      @event.slots.where("start_time >= ?", @event.end_time).each do |slot|
+        @already_booked_slots << slot if !slot.user_id.nil?
+        slot.destroy
+      end
+      flash[:warning] = 'Slots outside the event time were deleted'
+    end
+
+    def delete_and_remake_all_slots
+      delete_the_old_slots # deletes the old slots, but keeps a record of ones that had been booked
+      create_slots
+    end
 
     def delete_the_old_slots
       @already_booked_slots = []
@@ -128,12 +190,12 @@ module Casein
       end
     end
 
-    def list_of_users_who_had_booked_slots
-      str = "The following users had their bookings deleted: "
+    def list_users_who_had_booked_slots
+      str = "The following bookings were deleted: "
       @already_booked_slots.each do |slot|
         str += "// [User ID: #{slot.user_id}. Session start: #{slot.start_time.to_s(:time)}] "
       end
-      str
+      flash[:warning] = str
     end
   end
 end
