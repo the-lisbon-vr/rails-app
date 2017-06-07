@@ -20,7 +20,7 @@
       <td style="width: 75px;"><%= event.date.strftime("%d-%-m-%Y") %></td>
       <td style="width: 100px;"><%= event.name %></td>
       <td style="width: 100px;"><%= event.location %></td>
-      <td style="width: 300px;"><%= event.description %></td>
+      <td style="width: 300px;">PT: <%= event.description %> // EN: <%= event.description_en %></td>
       <td><%= "#{event.max_bookings} (x#{event.number_of_players} players)" %></td>
       <td>
         <%= "#{event.slot_duration_minutes + event.time_between_slots} mins" %>
