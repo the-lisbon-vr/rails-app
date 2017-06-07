@@ -170,7 +170,7 @@ module Casein
     end
 
     def delete_slots_at_the_end
-      session_time = (@event.slot_duration_minutes + @event.time_between_slots) * 60
+      session_time = (@event.slot_duration_minutes + @event.time_between_slots) * 60 - 1
       last_possible_start_time = @event.end_time - session_time
       @event.slots.where("start_time >= ?", last_possible_start_time).each do |slot|
         @already_booked_slots << slot if !slot.user_id.nil?
