@@ -32,4 +32,10 @@ Rails.application.routes.draw do
       patch 'cancel_session', to: 'pages#cancel_session'
     end
   end
+
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.is_admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end

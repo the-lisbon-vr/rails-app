@@ -29,13 +29,18 @@ class User < ApplicationRecord
     return user
   end
 
-  def send_bookings_confirmation(slots_hash)
-    UserMailer.confirm(self, slots_hash).deliver_now
+  def send_bookings_confirmation(slots_hash_by_event)
+
+    # must send a hash of ids not ojcetcs, because of sidekiq
+    # deliver with sidekiq:
+    UserMailer.confirm(self.id, slots_hash_by_event).deliver_later
   end
 
   private
 
   def send_welcome_email
-    UserMailer.welcome(self).deliver_now
+    # deliver with sidekiq, BEWARE: Arguments will be serialized to json,
+    # so pass id, string, not full objects:
+    UserMailer.welcome(self.id).deliver_later
   end
 end

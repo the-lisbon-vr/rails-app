@@ -27,6 +27,9 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+gem 'sidekiq'
+gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
@@ -37,4 +40,8 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "letter_opener"
+
+  gem 'sidekiq'
+  gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+
 end

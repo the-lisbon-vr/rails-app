@@ -33,8 +33,8 @@ class PagesController < ApplicationController
       if slot.event.date >= Date.today
         slot.confirmed = true
         if slot.save
-          @confirmed_slots_by_event[slot.event.id] = [] if !@confirmed_slots_by_event.has_key?(slot.event.id)
-          @confirmed_slots_by_event[slot.event.id] << slot
+          @confirmed_slots_by_event[slot.event.id.to_s] = [] if !@confirmed_slots_by_event.has_key?(slot.event.id.to_s)
+          @confirmed_slots_by_event[slot.event.id.to_s] << slot.id
         end
       end
     end

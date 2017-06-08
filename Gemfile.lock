@@ -6,6 +6,13 @@ GIT
       cloudinary (~> 1.1.0)
       rails (>= 3.2)
 
+GIT
+  remote: git://github.com/mhfs/sidekiq-failures.git
+  revision: 212fb506c9c198c0189b0056241bf7b6e763aaf0
+  specs:
+    sidekiq-failures (0.4.5)
+      sidekiq (>= 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -88,6 +95,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     debug_inspector (0.0.2)
     devise (4.2.1)
       bcrypt (~> 3.0)
@@ -180,6 +188,8 @@ GEM
     public_suffix (2.0.5)
     puma (3.8.2)
     rack (2.0.1)
+    rack-protection (2.0.0)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -230,6 +240,11 @@ GEM
     scrypt (1.2.1)
       ffi-compiler (>= 0.0.2)
       rake
+    sidekiq (5.0.2)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.3, >= 3.3.3)
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -293,6 +308,8 @@ DEPENDENCIES
   rails-i18n
   redis
   sass-rails
+  sidekiq
+  sidekiq-failures!
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
