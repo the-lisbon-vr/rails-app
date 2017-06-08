@@ -8,12 +8,6 @@ class UserMailer < ApplicationMailer
 
   def confirm(user_id, slots_hash_by_event)
 
-    # slots_hash = slots_hash_by_event.map do |event|
-    #   event[1].map do |slot_id|
-    #     Slot.find(slot_id)
-    #   end
-    # end
-
     @user = User.find(user_id)
     @confirmed_slots_by_event = slots_hash_by_event
 
@@ -29,11 +23,5 @@ class UserMailer < ApplicationMailer
   end
 
   private
-
-  def find_corresponding_slots
-    slots_hash = slots_hash_by_event.map do |event|
-      Slot.find(slot_id)
-    end
-  end
 
 end

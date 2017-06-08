@@ -33,14 +33,12 @@ class User < ApplicationRecord
 
     # must send a hash of ids not ojcetcs, because of sidekiq
     # deliver with sidekiq:
-    UserMailer.confirm(self.id, slots_hash_by_event).deliver_now
+    UserMailer.confirm(self.id, slots_hash_by_event).deliver_later
   end
 
   private
 
   def send_welcome_email
-    # UserMailer.welcome(self).deliver_now
-
     # deliver with sidekiq, BEWARE: Arguments will be serialized to json,
     # so pass id, string, not full objects:
     UserMailer.welcome(self.id).deliver_later
