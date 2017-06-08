@@ -17,6 +17,7 @@
     </p>
     <h4>Reservas confirmadas:</h4>
     <ul>
+      <% array_of_slots = array_of_slots.map {|slot_id| Slot.find(slot_id)} %>
       <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
       <% array_of_slots.each do |slot| %>
         <li>
@@ -58,6 +59,7 @@
   </p>
   <h4>Sessions booked:</h4>
   <ul>
+    <% array_of_slots = array_of_slots.map {|slot_id| Slot.find(slot_id)} %>
     <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
     <% array_of_slots.each do |slot| %>
       <li>
