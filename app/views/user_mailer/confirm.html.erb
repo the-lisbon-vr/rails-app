@@ -7,7 +7,7 @@
 </h2>
 <hr>
 <% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
-  <% event = Event.find(event_id) %>
+  <% event = Event.find(event_id.to_i) %>
 
     <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
     <p>
@@ -50,7 +50,7 @@
 </h2>
 <hr>
 <% @confirmed_slots_by_event.each_pair do |event_id, array_of_slots| %>
-  <% event = Event.find(event_id) %>
+  <% event = Event.find(event_id.to_i) %>
   <h3><%= event.name %> (<%= event.date.strftime("%d-%m-%Y") %> // <%= event.location %>)</h3>
   <p>
     Price per slot: €<%= '%.2f' % event.price_per_slot %>
