@@ -6,6 +6,7 @@ class SubscribeToNewsletterService
   end
 
   def call
+
     @gibbon.lists(@list_id).members.create(
       body: {
         email_address: @user.email,

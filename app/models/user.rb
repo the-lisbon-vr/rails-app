@@ -45,6 +45,7 @@ class User < ApplicationRecord
   end
 
   def subscribe_to_newsletter
-    SubscribeToNewsletterService.new(self).call
+    # subscribe new user in background job:
+    SubscribeToNewsletterJob.perform_later(self.id)
   end
 end
