@@ -29,6 +29,7 @@ gem 'coffee-rails'
 
 gem 'sidekiq'
 gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+gem 'gibbon'
 
 group :development, :test do
   gem 'binding_of_caller'
@@ -43,5 +44,6 @@ group :development, :test do
 
   gem 'sidekiq'
   gem 'sidekiq-failures', github: 'mhfs/sidekiq-failures'
+  gem 'gibbon'
 
 end

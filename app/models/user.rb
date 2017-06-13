@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  after_create :send_welcome_email
+  after_create :send_welcome_email, :subscribe_to_newsletter
 
   has_many :slots
   # Include default devise modules. Others available are:
@@ -42,5 +42,9 @@ class User < ApplicationRecord
     # deliver with sidekiq, BEWARE: Arguments will be serialized to json,
     # so pass id, string, not full objects:
     UserMailer.welcome(self.id).deliver_later
+  end
+
+  def subscribe_to_newsletter
+    SubscribeToNewsletterService.new(self).call
   end
 end
