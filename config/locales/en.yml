@@ -64,8 +64,12 @@ en:
       want_to_play: "Want to play?"
       book_a_session: "Book a session"
 
+    services:
+      page_intro: "Dive into the XXI century with the most innovative virtual reality content, custom made, just for you! "
+      we_develop: "Using our expertise, you will find the best strategy to achieve outstanding results for your virtual reality project. From conceptualization, feasibility studies to implementation. Gain competitive advantage by using our know-how to produce and deploy your VR project. Head over to our services page to learn more. We offer development services mainly for the google cardboard and the HTC Vive. Contact us for more info."
+
     account:
-      no_sessions_booked_yet: "You haven't booked any sessions yet."
+      no_sessions_booked_yet: "You havent booked any sessions yet."
       go_to_events: "See events"
       main_title: "My Bookings"
       minutes: "minutes"

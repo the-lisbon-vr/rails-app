@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     root to: 'pages#home'
 
     get 'about', to: 'pages#about'
+    get 'services', to: 'pages#services'
     get 'account', to: 'pages#account'
     patch 'confirm_my_bookings', to: 'pages#confirm_my_bookings'
     get 'contact', to: 'pages#contact'

@@ -1,0 +1,95 @@
+<div class="wrapper">
+  <div class="padded">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h2 class="text-center"><%= t('.content_creation')  %></h2>
+          <p><%= t('.page_intro')  %></p>
+          <div class="games-thumbnails">
+            <!-- Thumbnails must be squares. Sized in css to 200x200: -->
+            <div class="game-thumbnail">
+              <a href="https://www.youtube.com/watch?v=sFaC-9Q-Fp8" target="_blank"><%= image_tag("thumb-accounting.png", alt: "accounting game cover") %></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Our services: -->
+<div class="banner-services wrapper padded">
+  <div class="banner-services-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h2 class="text-center"><%= t('.the_first_room_scale') %></h2>
+          <p><%= t('.we_develop') %></p>
+          <h3 class="text-center"><%= t('.eary_access_price') %></h3>
+          <div class="text-center slightly-padded"><%= link_to t(".see_events"), events_path, class: "btn-brand-with-bg" %></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="price-include text-left">
+            <h4><%= t('.if_first_time') %></h4>
+            <ul>
+              <li><%= t('.take_off_your_shoes') %></li>
+              <li><%= t('.choose_a_game') %></li>
+              <li><%= t('.put_on_the_headset') %></li>
+              <li><%= t('.mind_the_cable') %></li>
+              <li><%= t('.dont_run_into_a_wall') %></li>
+              <li><%= t('.have_fun') %></li>
+            </ul>
+            <h5><%= t('.small_briefing') %></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="slightly-padded">
+            <hr class="page-divider-white">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <h2 class="text-center"><%= t('.rentals') %></h2>
+          <p><%= t('.your_next_event') %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="price-table text-center">
+          <div class="col-xs-6 col-sm-3 col-sm-offset-3">
+            <h4>3 <%= t('.hours') %></h4>
+            <p>€ --</p>
+          </div>
+          <div class="col-xs-6 col-sm-3">
+            <h4>6 <%= t('.hours') %></h4>
+            <p>€ --</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <div class="price-include text-left">
+            <h4><%= t('.prices_include') %></h4>
+            <ul>
+              <li><%= t('.1_gaming_pc') %></li>
+              <li><%= t('.1_vive') %></li>
+              <li><%= t('.1_tracking_system') %></li>
+              <li><%= t('.1_staff_member') %></li>
+              <li><%= t('.access_to_library') %></li>
+              <li><%= t('.setup_and_breakdown') %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
