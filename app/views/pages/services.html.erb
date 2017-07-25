@@ -3,13 +3,33 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center"><%= t('.content_creation')  %></h2>
-          <p><%= t('.page_intro')  %></p>
-          <div class="games-thumbnails">
-            <!-- Thumbnails must be squares. Sized in css to 200x200: -->
-            <div class="game-thumbnail">
-              <a href="https://www.youtube.com/watch?v=sFaC-9Q-Fp8" target="_blank"><%= image_tag("thumb-accounting.png", alt: "accounting game cover") %></a>
-            </div>
+          <h2 class="text-center"><%= t('.page_title')  %></h2>
+          <h4 class="slightly-padded text-center"><%= t('.sub_title')  %></h4>
+          <p class="slightly-padded"><%= t('.we_develop')  %></p>
+        </div>
+      </div>
+
+      <div class="row">
+          <!-- Vive, Cardboard a A-frame thumbnails -->
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="text-center">
+            <a href="#" target="_blank"><%= image_tag("vive-front.png", alt: "htc vive headset", height: "120") %></a>
+            <h5>HTC Vive</h5>
+            <hr class="page-divider-white">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="text-center">
+            <a href="#" target="_blank"><%= image_tag("cardboard-front.png", alt: "google cardboard", height: "120") %></a>
+            <h5>Google Cardboard</h5>
+            <hr class="page-divider-white">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <div class="text-center">
+            <a href="#" target="_blank"><%= image_tag("aframe-logo.png", alt: "A-frame logo", height: "120") %></a>
+            <h5>A-frame</h5>
+            <hr class="page-divider-white">
           </div>
         </div>
       </div>
@@ -24,7 +44,7 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
           <h2 class="text-center"><%= t('.the_first_room_scale') %></h2>
-          <p><%= t('.we_develop') %></p>
+          <p><%= t('.we_develop_hahahahahahahah') %></p>
           <h3 class="text-center"><%= t('.eary_access_price') %></h3>
           <div class="text-center slightly-padded"><%= link_to t(".see_events"), events_path, class: "btn-brand-with-bg" %></div>
         </div>
