@@ -64,8 +64,25 @@ en:
       want_to_play: "Want to play?"
       book_a_session: "Book a session"
 
+    services:
+      page_title: "We Develop Your Dreams"
+      sub_title: "Innovative virtual reality content, custom made, just for you! "
+      we_develop: "Dive into the next generation of virtual content with our personalized VR development service. Stop looking at digital content through boring flat images on a screen and take the next step. Enter a 3D, fully immersive world of infinite possibilities, partner with The Lisbon VR!"
+      we_offer: "Development services for desktop VR, for mobile VR and for the Web."
+      vive_title: "Get Real with the Vive"
+      vive_description_01: "You imagine it. We build it."
+      vive_description_02: "Get the best graphics and the most immersive experiences with room-scale tracking and support for extra peripherals. With the Vive there really are no limits - if you can imagine it we can make it!"
+      cardboard_title: "Get Mobile with the Cardboard"
+      cardboard_description_01: "One Button. Infinite Possibilities."
+      cardboard_description_02: "Unlike the Google Daydream and the GearVR, the Cardboard suits any kind of smartphone. Target the biggest audience in the world with cool and immersive experiences. Anywhere your clients are you can be too!"
+      aframe_title: "Get Online with A-frame"
+      aframe_description_01: "The Future is on the Web."
+      aframe_description_02: "Target everyone - from the Cardboard to the GearVR, from the Oculus to the Vive, you name it - if your users have an internet connection they can experience the best that VR has to offer!"
+      questions: "Questions?"
+      final_remark: "Let's take your project to the next level. Contact us to know more."
+
     account:
-      no_sessions_booked_yet: "You haven't booked any sessions yet."
+      no_sessions_booked_yet: "You havent booked any sessions yet."
       go_to_events: "See events"
       main_title: "My Bookings"
       minutes: "minutes"
