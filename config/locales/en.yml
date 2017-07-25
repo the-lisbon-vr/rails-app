@@ -78,7 +78,8 @@ en:
       aframe_title: "Get Online with A-frame"
       aframe_description_01: "The Future is on the Web."
       aframe_description_02: "Target everyone - from the Cardboard to the GearVR, from the Oculus to the Vive, you name it - if your users have an internet connection they can experience the best that VR has to offer!"
-
+      questions: "Questions?"
+      final_remark: "Let's take your project to the next level. Contact us to know more."
 
     account:
       no_sessions_booked_yet: "You havent booked any sessions yet."

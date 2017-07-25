@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center"><%= t('.page_title')  %></h2>
+          <h1 class="text-center"><%= t('.page_title')  %></h1>
           <h4 class="slightly-padded text-center"><%= t('.sub_title')  %></h4>
           <p class="text-left""><%= t('.we_develop')  %></p>
           <h4 class="slightly-padded text-center""><%= t('.we_offer')  %></h4>
@@ -39,48 +39,96 @@
 </div>
 
 <!-- Our services: -->
-<div class="banner-services wrapper padded">
-  <div class="banner-services-content">
+<div class="wrapper very-slightly-padded diagonal-line-up hidden-xs" style="background-color: black;">
+  <!-- black line to put between wrappers -->
+</div>
+<div class="wrapper slightly-padded diagonal-line-up hidden-sm hidden-md hidden-lg" style="background-color: black;">
+  <!-- black line to put between wrappers -->
+</div>
+
+<div class="wrapper padded diagonal-up with-bg-image" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url('/assets/zombie-runner-01.JPG');">
+  <div class="diagonal-up-content">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center"><%= t('.vive_title') %></h2>
-        </div>
-      </div>
+        <div class="col-xs-12">
+          <div class="dark-box">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <h2 class="text-center very-slightly-padded"><%= t('.vive_title') %></h2>
+              </div>
+            </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-          <div class="text-center">
-            <%= image_tag("vive-front.png", alt: "htc vive headset", height: "250") %>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="text-center hidden-xs">
+                  <%= image_tag("vive-front.png", alt: "htc vive headset", height: "250") %>
+                </div>
+                <div class="text-center hidden-sm hidden-md hidden-lg">
+                  <%= image_tag("vive-front.png", alt: "htc vive headset", height: "80") %>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="description-padded">
+                  <h4 class="text-center"><%= t('.vive_description_01') %></h4>
+                  <hr class="page-divider-white">
+                  <p><%= t('.vive_description_02') %></p>
+                </div>
+              </div>
+              <div class="col-xs-12" style="border-style: dashed;">
+                <div class="slightly-padded">
+                  <!-- this div is just for spacing-->
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-          <h4 class="text-center"><%= t('.vive_description_01') %></h4>
-          <hr class="page-divider-white">
-          <p><%= t('.vive_description_02') %></p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div id="banner-games-experiences" class="wrapper padded">
-  <div id="container-games">
+<div class="wrapper very-slightly-padded diagonal-line-up hidden-xs" style="background-color: black;">
+  <!-- black line to put between wrappers -->
+</div>
+<div class="wrapper slightly-padded diagonal-line-up hidden-sm hidden-md hidden-lg" style="background-color: black;">
+  <!-- black line to put between wrappers on mobile -->
+</div>
+
+<div class="wrapper extra-padded diagonal-cone-opening" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url('/assets/text_505-02.JPG');">
+  <div>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center"><%= t('.cardboard_title') %></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-          <h4 class="text-center"><%= t('.cardboard_description_01') %></h4>
-          <hr class="page-divider-white">
-          <p><%= t('.cardboard_description_02') %></p>
-        </div>
-        <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-          <div class="text-center">
-            <%= image_tag("cardboard-front.png", alt: "google cardboard", height: "250") %>
+        <div class="col-xs-12">
+          <div class="dark-box">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <h2 class="text-center very-slightly-padded"><%= t('.cardboard_title') %></h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="description-padded">
+                  <h4 class="text-center"><%= t('.cardboard_description_01') %></h4>
+                  <hr class="page-divider-white">
+                  <p><%= t('.cardboard_description_02') %></p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="text-center hidden-xs">
+                  <%= image_tag("cardboard-front.png", alt: "google cardboard", height: "250") %>
+                </div>
+                <div class="text-center hidden-sm hidden-md hidden-lg">
+                  <%= image_tag("cardboard-front.png", alt: "google cardboard", height: "80") %>
+                </div>
+              </div>
+              <div class="col-xs-12" style="border-style: dashed;">
+                <div class="slightly-padded">
+                  <!-- this div is just for spacing-->
+                </div>
+              </div>
+            </div>
+
+
           </div>
         </div>
       </div>
@@ -88,24 +136,75 @@
   </div>
 </div>
 
-<div id="banner-links" class="wrapper">
-  <div id="banner-links-content">
+<div class="wrapper very-slightly-padded diagonal-line-down hidden-xs" style="background-color: black;">
+  <!-- black line to put between wrappers -->
+</div>
+<div class="wrapper slightly-padded diagonal-line-down hidden-sm hidden-md hidden-lg" style="background-color: black;">
+  <!-- black line to put between wrappers on mobile -->
+</div>
+
+<div class="wrapper padded diagonal-down" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url('/assets/my-office-aframe-01.JPG');">
+  <div class="diagonal-down-content">
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-          <h2 class="text-center"><%= t('.aframe_title') %></h2>
+        <div class="col-xs-12">
+          <div class="dark-box">
+            <div class="row">
+              <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                <h2 class="text-center very-slightly-padded"><%= t('.aframe_title') %></h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="text-center hidden-xs">
+                  <%= image_tag("aframe-logo.png", alt: "A-frame logo", height: "250") %>
+                </div>
+                <div class="text-center hidden-sm hidden-md hidden-lg">
+                  <%= image_tag("aframe-logo.png", alt: "A-frame logo", height: "80") %>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
+                <div class="description-padded">
+                  <h4 class="text-center"><%= t('.aframe_description_01') %></h4>
+                  <hr class="page-divider-white">
+                  <p><%= t('.aframe_description_02') %></p>
+                </div>
+              </div>
+              <div class="col-xs-12" style="border-style: dashed;">
+                <div class="slightly-padded">
+                  <!-- this div is just for spacing-->
+                </div>
+              </div>
+            </div>
         </div>
       </div>
-      <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-        <div class="text-center">
-          <%= image_tag("aframe-logo.png", alt: "A-frame logo", height: "250") %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6" style="border-style: dashed;">
-          <h4 class="text-center"><%= t('.aframe_description_01') %></h4>
-          <hr class="page-divider-white">
-          <p><%= t('.aframe_description_02') %></p>
+    </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="wrapper very-slightly-padded diagonal-line-down hidden-xs" style="background-color: black;">
+  <!-- black line to put between wrappers -->
+</div>
+<div class="wrapper slightly-padded diagonal-line-down hidden-sm hidden-md hidden-lg" style="background-color: black;">
+  <!-- black line to put between wrappers on mobile-->
+</div>
+
+<div class="wrapper">
+  <div >
+    <div class="padded text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+            <div class="dark-box description-padded">
+              <h3 class="slightly-padded"><%= t(".questions") %></h3>
+              <p><%= t(".final_remark") %></p>
+              <div class="slightly-padded">
+                <%= link_to t(".get_in_touch"), contact_path, class: "btn btn-home-page-large-bg" %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -9,7 +9,11 @@
   padding: 5em 0;
 }
 @media(max-width:767px){.padded{padding:2.5em 0;}}
+@media(max-width:767px){.extra-padded{padding:70vh 0;}}
 
+.extra-padded{
+  // padding: 70vh 0;
+}
 
 .slightly-padded {
   padding-top: 1.5em;

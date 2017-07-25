@@ -24,3 +24,55 @@
 dark-gradient {
   color: rgba(0,0,0,0.5), rgba(0,0,0,0.7);
 }
+
+.diagonal-up{
+  height: 90vh;
+  transform: skewY(-5deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diagonal-up-content{
+  transform: skewY(5deg);
+}
+
+.diagonal-line-up{
+  transform: skewY(-5deg);
+}
+.diagonal-line-down{
+  transform: skewY(5deg);
+}
+
+.diagonal-cone-opening{
+  height: 100vh;
+  margin: -90px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diagonal-down{
+  height: 90vh;
+  transform: skewY(5deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.diagonal-down-content{
+  transform: skewY(-5deg);
+}
+
+.with-bg-image{
+  background-size: cover !important;
+}
+
+.dark-box{
+  // padding: 50px;
+  background-color: rgba(5, 5, 5, 0.6);
+}
+
+.description-padded{
+  // padding: 25px;
+}
+
+
