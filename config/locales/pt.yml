@@ -1,5 +1,4 @@
-pt:
-  defaults: &defaults
+pt: defaults: &defaults
     month_names:
       [~, Jan, Fev, Mar, Abr, Maio, Jun, Jul, Aug, Set, Out, Nov, Dez]
     formats:
@@ -145,8 +144,8 @@ pt:
       minutes: "mins"
       sessions: "Sessões"
       click_to_book: "Clique numa sessão para a reservar. O jogador 1 e o jogador 2 jogam em simultâneo."
-      sale: "Promoção de Verão: DOUBLE BOOKING!"
-      sale_conditions: "Em Julho se reservares 2 slots consecutivas tens 10 minutos extra! Por exemplo, se marcares uma sessão às 13h e outra às 13h30, jogas 50 minutos!"
+      sale: "Promoção: DOUBLE BOOKING!"
+      sale_conditions: "Agora se reservares 2 slots consecutivas tens 10 minutos extra! Por exemplo, se marcares uma sessão às 13h e outra às 13h30, jogas 50 minutos!"
       see_booked_sessions: "Ver as minhas reservas"
       player: "Jogador %{number}"
       my_slot: "Esta é minha"
