@@ -1,0 +1,36 @@
+$(document).ready(function() {
+  $('#main-event-image').click(function(){
+    $('#main-event-image').toggleClass("event-image-big");
+  });
+
+  $('.slot-book').click(function(e){
+    e.preventDefault();
+    var clickedSlot = $(e.target);
+    var slotNumber = clickedSlot.data('slot');
+    var contentsWas = clickedSlot.html();
+    clickedSlot.html('<i class="fa fa-spin fa-spinner" />');
+
+    $.ajax({
+      type: "PUT",
+      url: "/events/<%= @event.id %>/slots/" + slotNumber,
+      success: function(data) {
+        if (data=="ok") {
+          clickedSlot.html('<%= t(".my_slot") %>');
+        } else {
+          clickedSlot.html('<%= t(".booked") %>');
+        }
+        clickedSlot.removeClass('btn-timeslot');
+        clickedSlot.removeClass('btn-book');
+        clickedSlot.removeClass('slot-book');
+        clickedSlot.addClass('btn-timeslot-booked btn-booked');
+      },
+      error: function(data) {
+        if (data.status==401) {
+          window.location.replace('<%= url_for(controller: "devise/sessions", action: "new") %>');
+        } else {
+          window.location.reload();
+        }
+      }
+    });
+  });
+});

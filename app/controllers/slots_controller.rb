@@ -5,7 +5,7 @@ class SlotsController < ApplicationController
     def update
       if !@slot.user_id.nil?
         flash[:alert] = t(".session_already_booked")
-        redirect_to event_path(id: @slot.event.id)
+        render text: "nok"
       elsif current_user.id.nil?
         flash[:alert] = t(".must_be_signed_in_to_book")
         redirect_to event_path(id: @slot.event.id)
@@ -14,7 +14,7 @@ class SlotsController < ApplicationController
         @slot.save
         flash[:notice] = t(".session_booked")
         # @slot.send_confirmation
-        redirect_to event_path(id: @slot.event.id)
+        render text: "ok"
       end
     end
 

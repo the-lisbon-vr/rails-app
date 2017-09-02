@@ -70,23 +70,21 @@
           <%# This creates one button per player %>
           <% player_number = 1 %>
           <% @event.number_of_players.times do %>
-          <% if @slots[i].user == nil %>
-          <%= link_to event_slot_path(id: @slots[i].id, event_id: @event.id), method: :patch, class: "no-text-dec" do %>
-          <div class="btn-timeslot text-center">
-            <span class="btn-book"><%= t(".player", number: player_number) %></span>
-          </div>
-          <% end %>
-          <% elsif @slots[i].user == current_user %>
-          <div class="btn-timeslot-booked text-center">
-            <span class="btn-booked"><%= t(".my_slot") %></span>
-          </div>
-          <% else %>
-          <div class="btn-timeslot-booked text-center">
-            <span class="btn-booked"><%= t(".booked") %></span>
-          </div>
-          <% end %>
-          <% i += 1 %>
-          <% player_number += 1 %>
+            <% if @slots[i].user == nil %>
+              <div class="btn-timeslot text-center btn-book slot-book" data-slot="<%= @slots[i].id %>">
+                <%= t(".player", number: player_number) %>
+              </div>
+            <% elsif @slots[i].user == current_user %>
+              <div class="btn-timeslot-booked text-center btn-booked">
+                <%= t(".my_slot") %>
+              </div>
+            <% else %>
+              <div class="btn-timeslot-booked text-center btn-booked">
+                <%= t(".booked") %>
+              </div>
+            <% end %>
+            <% i += 1 %>
+            <% player_number += 1 %>
           <% end %>
         </div>
       </div>
@@ -99,19 +97,14 @@
 
 <div class="container">
   <div class="very-slightly-padded">
-        <%= link_to t(".back_button"), events_path, class: "btn-brand pull-left"%>
-        <%= link_to t(".see_booked_sessions"), account_path, class: "btn-brand pull-right" %>
+    <%= link_to t(".back_button"), events_path, class: "btn-brand pull-left"%>
+    <%= link_to t(".see_booked_sessions"), account_path, class: "btn-brand pull-right" %>
   </div>
 </div>
 
 
 <%= content_for(:after_js) do %>
   <script>
-    $(document).ready(function() {
-      $('#main-event-image').click(function(){
-        $('#main-event-image').toggleClass("event-image-big");
-      });
-    });
-
+    <%= render partial: 'show.js' %>
   </script>
 <% end %>

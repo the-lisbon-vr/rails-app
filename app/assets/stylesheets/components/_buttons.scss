@@ -138,7 +138,7 @@
 .btn-timeslot-booked {
   border: 1px solid white;
   border-radius: 3px;
-  padding: 5px 0;
+  padding: 6px 0;
 }
 
 .btn-timeslot {
@@ -154,15 +154,18 @@
   text-shadow: 0 0 2px $green;
 }
 
+.btn-book,
+.btn-booked {
+  font-size: 80%;
+}
+
 .btn-book {
   color: white;
-  font-size: 75%;
 }
 
 .btn-booked,
 .btn-booked:hover {
   color: $gray;
-  font-size: 75%;
   margin: 0;
 }
 
