@@ -56,13 +56,17 @@
                         <hr class="no-margin">
                         <div class="slot-row">
                           <div class="col-xs-7">
-                            <span class="pull-left">
+                            <span class="pull-left no-break">
                               <%= slot.start_time.strftime("%H:%M") %>&ensp;
-                              (<%= slot.event.slot_duration_minutes %>&nbsp;<%= t('.minutes') %>)
+                              (<%= "#{slot.event.slot_duration_minutes} #{t('.minutes')}" %>)
                             </span>
                           </div>
                           <div class="col-xs-5">
-                            <%= link_to t(".cancel_slot"), slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" if event.date >= Date.today %>
+                            <% if event.date >= Date.today %>
+                              <%= link_to slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" do %>
+                                <i class="fa fa-times"></i>
+                              <% end %>
+                            <% end %>
                           </div>
                         </div>
                       </div>

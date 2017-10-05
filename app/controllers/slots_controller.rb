@@ -3,18 +3,15 @@ class SlotsController < ApplicationController
     before_action :authenticate_user!
 
     def update
-      if !@slot.user_id.nil?
-        flash[:alert] = t(".session_already_booked")
-        render text: "nok"
+      if !@slot.user_id.nil? && @slot.user_id != current_user.id
+        render plain: t(".session_already_booked")
       elsif current_user.id.nil?
         flash[:alert] = t(".must_be_signed_in_to_book")
         redirect_to event_path(id: @slot.event.id)
       else
-        @slot.user_id = current_user.id
-        @slot.save
-        flash[:notice] = t(".session_booked")
+        @slot.update_attributes(user_id: current_user.id)
         # @slot.send_confirmation
-        render text: "ok"
+        render plain: "ok"
       end
     end
 

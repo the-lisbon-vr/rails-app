@@ -15,9 +15,9 @@ $(document).ready(function() {
       url: "/events/<%= @event.id %>/slots/" + slotNumber,
       success: function(data) {
         if (data=="ok") {
-          clickedSlot.html('<%= t(".my_slot") %>');
+          clickedSlot.html('<%= my_slot %>');
         } else {
-          clickedSlot.html('<%= t(".booked") %>');
+          clickedSlot.html('<%= already_booked %>');
         }
         clickedSlot.removeClass('btn-timeslot');
         clickedSlot.removeClass('btn-book');

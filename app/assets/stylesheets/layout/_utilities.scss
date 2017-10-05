@@ -8,11 +8,17 @@
 .padded {
   padding: 5em 0;
 }
-@media(max-width:767px){.padded{padding:2.5em 0;}}
-@media(max-width:767px){.extra-padded-on-mobile{padding:70vh 0;}}
+@media(max-width:767px){
+  .padded { padding: 2.5em 0; }
+  .extra-padded-on-mobile { padding: 70vh 0; }
+}
 
-.extra-padded{
+// .extra-padded{
   // padding: 70vh 0;
+// }
+
+.no-break {
+  white-space: nowrap;
 }
 
 .slightly-padded {
@@ -33,10 +39,12 @@
   padding-left: 10px;
 }
 
-@media(max-width:767px){.no-xs-side-padding{
-  padding-left:0px !important;
-  padding-right:0px !important;
-}}
+@media(max-width:767px) {
+  .no-xs-side-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+}
 
 .top-margin {
   margin-top: 2em;

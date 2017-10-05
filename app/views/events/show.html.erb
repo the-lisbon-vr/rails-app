@@ -93,8 +93,6 @@
   </div>
 </div>
 
-
-
 <div class="container">
   <div class="very-slightly-padded">
     <%= link_to t(".back_button"), events_path, class: "btn-brand pull-left"%>
@@ -102,9 +100,8 @@
   </div>
 </div>
 
-
 <%= content_for(:after_js) do %>
   <script>
-    <%= render partial: 'show.js' %>
+    <%= render partial: 'show.js', locals: {my_slot: t(".my_slot"), already_booked: t(".booked")} %>
   </script>
 <% end %>
