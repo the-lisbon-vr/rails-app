@@ -52,7 +52,7 @@
                   <div class="slot-details">
                     <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
                     <% array_of_slots.each do |slot| %>
-                      <div id="row-<%= slot.id %>" class="row" >
+                      <div id="row-<%= slot.id %>" class="row">
                         <hr class="no-margin">
                         <div class="slot-row">
                           <div class="col-xs-7">
@@ -95,7 +95,6 @@
       $('.cancel-session').click(function(e){
         e.preventDefault();
         var slotId = $(this).data("slot");
-        console.log(slotId);
         $.ajax({
           url: '/slots/'+slotId+'/cancel_session',
           type: 'PATCH',
