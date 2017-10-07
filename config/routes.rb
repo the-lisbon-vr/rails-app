@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       resources :slots, only: [:index, :show, :update]
     end
     resources :slots, only: [:show] do
-      patch 'cancel_session', to: 'pages#cancel_session'
+      patch 'cancel_session', to: 'slots#cancel_session'
     end
   end
 

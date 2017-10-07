@@ -6,6 +6,7 @@ $(document).ready(function() {
   $('.slot-book').click(function(e){
     e.preventDefault();
     var clickedSlot = $(e.target);
+    var popup = $('#custom-popup');
     var slotNumber = clickedSlot.data('slot');
     var contentsWas = clickedSlot.html();
     clickedSlot.html('<i class="fa fa-spin fa-spinner" />');
@@ -14,15 +15,18 @@ $(document).ready(function() {
       type: "PUT",
       url: "/events/<%= @event.id %>/slots/" + slotNumber,
       success: function(data) {
-        if (data=="ok") {
+        clickedSlot.removeClass('btn-timeslot btn-book slot-book');
+        clickedSlot.addClass('btn-timeslot-booked btn-booked');
+        if (data.status==='ok') {
           clickedSlot.html('<%= my_slot %>');
+          clickedSlot.addClass('glowing');
+          popup.removeClass('alert-warning').addClass('alert-info');
         } else {
           clickedSlot.html('<%= already_booked %>');
+          popup.removeClass('alert-info').addClass('alert-warning');
         }
-        clickedSlot.removeClass('btn-timeslot');
-        clickedSlot.removeClass('btn-book');
-        clickedSlot.removeClass('slot-book');
-        clickedSlot.addClass('btn-timeslot-booked btn-booked');
+        $('#popup-content').html('<span>'+data.msg+'</span>');
+        popup.addClass('alert').slideDown();
       },
       error: function(data) {
         if (data.status==401) {

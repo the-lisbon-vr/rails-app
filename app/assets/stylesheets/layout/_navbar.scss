@@ -39,9 +39,13 @@
 }
 
 /* Navbar standard link */
-.navbar-tlvr-link {
+.navbar-tlvr-link,
+.navbar-tlvr-link:link,
+.navbar-tlvr-link:active,
+.navbar-tlvr-link:visited {
   color: rgba(255,255,255,0.75);
   font-size: 16px;
+  text-decoration: none;
   transition: all 0.2s ease;
 }
 .navbar-tlvr-link:hover {

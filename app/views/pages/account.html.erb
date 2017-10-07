@@ -52,7 +52,7 @@
                   <div class="slot-details">
                     <% array_of_slots = array_of_slots.sort_by {|slot| slot.start_time} %>
                     <% array_of_slots.each do |slot| %>
-                      <div class="row">
+                      <div id="row-<%= slot.id %>" class="row" >
                         <hr class="no-margin">
                         <div class="slot-row">
                           <div class="col-xs-7">
@@ -63,7 +63,7 @@
                           </div>
                           <div class="col-xs-5">
                             <% if event.date >= Date.today %>
-                              <%= link_to slot_cancel_session_path(slot_id: slot.id), method: :patch, class: "btn-dangerous pull-right" do %>
+                              <%= link_to "#", class: "btn-dangerous pull-right cancel-session", data: { slot: slot.id } do %>
                                 <i class="fa fa-times"></i>
                               <% end %>
                             <% end %>
@@ -88,3 +88,31 @@
     </div>
   </div>
 </div>
+
+<%= content_for(:after_js) do %>
+  <script>
+    $(document).ready(function(){
+      $('.cancel-session').click(function(e){
+        e.preventDefault();
+        var slotId = $(this).data("slot");
+        console.log(slotId);
+        $.ajax({
+          url: '/slots/'+slotId+'/cancel_session',
+          type: 'PATCH',
+          success: function(data){
+            if (data==='wrong user') {
+              window.location.replace("/");
+            } else {
+              $('#row-' + slotId).slideUp();
+              $('#popup-content').html('<span>'+data+'</span>');
+              $('#custom-popup').addClass('alert alert-info').slideDown();
+            }
+          },
+          error: function(data){
+            console.log(data.responseText);
+          }
+        })
+      })
+    });
+  </script>
+<% end %>

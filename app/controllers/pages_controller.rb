@@ -14,19 +14,6 @@ class PagesController < ApplicationController
   def account
   end
 
-  def cancel_session
-    slot = Slot.find(params[:slot_id])
-    if slot.user == current_user
-      slot.user_id = nil
-      slot.confirmed = false
-      slot.save ? flash[:notice] = t(".session_cancelled") : flash[:alert] = t(".something_went_wrong")
-      redirect_to account_path
-    else
-      flash[:alert] = "That's not your slot"
-      redirect_to root_path
-    end
-  end
-
   def confirm_my_bookings
     @confirmed_slots_by_event = {}
     @my_slots.each do |slot|

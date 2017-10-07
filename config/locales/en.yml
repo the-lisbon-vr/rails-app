@@ -100,10 +100,6 @@ en:
       bookings_confirmed: "Thanks for confirming your bookings. We've emailed you a summary."
       nothing_confirmed: "No slots were confirmed. Please try again."
 
-    cancel_session:
-      session_cancelled: "Session cancelled"
-      something_went_wrong: "Oops, something went wrong. Please refresh and try again"
-
     contact:
       contacts_title: "Contacts and Location"
       our_address: "Address:"
@@ -155,6 +151,10 @@ en:
       session_booked: "Session booked. Please remember to go to My Bookings to confirm your bookings."
       must_be_signed_in_to_book: "You must be signed in to book a slot"
       session_already_booked: "This slot has already been booked"
+
+    cancel_session:
+      session_cancelled: "Session cancelled"
+      something_went_wrong: "Oops, something went wrong. Please refresh and try again"
 
   slot_mailer:
     confirm:

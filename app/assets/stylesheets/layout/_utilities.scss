@@ -119,3 +119,15 @@ hr.page-divider-white {
   height: 1px;
   background-image: linear-gradient(to right, rgba(255,255,255, 0), rgba(255,255,255, 1), rgba(255,255,255, 0));
 }
+
+@keyframes glowing {
+  0%   { box-shadow: 0px 0px  2px $green }
+  50%  { box-shadow: 0px 0px 14px $green }
+  100% { box-shadow: 0px 0px  2px $green }
+}
+
+.glowing {
+  animation-name: glowing;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}

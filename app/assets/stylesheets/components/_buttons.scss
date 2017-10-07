@@ -138,6 +138,7 @@
   border: 1px solid white;
   border-radius: 3px;
   padding: 6px 0;
+  margin-top: 7px;
 }
 
 .btn-timeslot {
@@ -165,7 +166,6 @@
 .btn-booked,
 .btn-booked:hover {
   color: $gray;
-  margin: 0;
 }
 
 .btn-event-card-top {
